@@ -1,0 +1,78 @@
+// Export pages
+export '/login/login/login_widget.dart' show LoginWidget;
+export '/inicio/inicio_cliente/clase_principal/clase_principal_widget.dart'
+    show ClasePrincipalWidget;
+export '/perfil/perfil/perfil_widget.dart' show PerfilWidget;
+export '/inicio/inicio_cliente/pagina_contacto/pagina_contacto_widget.dart'
+    show PaginaContactoWidget;
+export '/inicio/inicio_cliente/pagina_informacion/pagina_informacion_widget.dart'
+    show PaginaInformacionWidget;
+export '/login/registrar/registrar_widget.dart' show RegistrarWidget;
+export '/citas/visual_citas/vista_calendario/vista_calendario_widget.dart'
+    show VistaCalendarioWidget;
+export '/citas/crud_citas/crear_cita/crear_cita_widget.dart'
+    show CrearCitaWidget;
+export '/citas/crud_citas/modificar_cita/modificar_cita_widget.dart'
+    show ModificarCitaWidget;
+export '/citas/crud_citas/cancelacion_cita/cancelacion_cita_widget.dart'
+    show CancelacionCitaWidget;
+export '/citas/visual_citas/vista_modificar/vista_modificar_widget.dart'
+    show VistaModificarWidget;
+export '/citas/visual_citas/vista_cancelar/vista_cancelar_widget.dart'
+    show VistaCancelarWidget;
+export '/citas/crud_notas_medico/crear_nota_medico/crear_nota_medico_widget.dart'
+    show CrearNotaMedicoWidget;
+export '/citas/crud_notas_medico/modificar_nota_medico/modificar_nota_medico_widget.dart'
+    show ModificarNotaMedicoWidget;
+export '/citas/crud_notas_medico/cancelar_nota_medico/cancelar_nota_medico_widget.dart'
+    show CancelarNotaMedicoWidget;
+export '/citas/visual_nota_medico/vista_nota_medico/vista_nota_medico_widget.dart'
+    show VistaNotaMedicoWidget;
+export '/empleados/crud_empleado/crear_empleado/crear_empleado_widget.dart'
+    show CrearEmpleadoWidget;
+export '/empleados/crud_empleado/modificar_empleado/modificar_empleado_widget.dart'
+    show ModificarEmpleadoWidget;
+export '/empleados/crud_empleado/cancelar_empleado/cancelar_empleado_widget.dart'
+    show CancelarEmpleadoWidget;
+export '/empleados/visual_empleados/vista_historial/vista_historial_widget.dart'
+    show VistaHistorialWidget;
+export '/empleados/crud_empleado/buscar_empleados/buscar_empleados_widget.dart'
+    show BuscarEmpleadosWidget;
+export '/empleados/crud_evaluacion/crear_evaluacion/crear_evaluacion_widget.dart'
+    show CrearEvaluacionWidget;
+export '/empleados/visual_evaluacion/vista_evaluacion/vista_evaluacion_widget.dart'
+    show VistaEvaluacionWidget;
+export '/empleados/visual_empleados/vista_historial_empleado/vista_historial_empleado_widget.dart'
+    show VistaHistorialEmpleadoWidget;
+export '/inicio/inicio_admin/clase_principal_admin/clase_principal_admin_widget.dart'
+    show ClasePrincipalAdminWidget;
+export '/inventario/crud_inventario/crear_inventario/crear_inventario_widget.dart'
+    show CrearInventarioWidget;
+export '/inventario/crud_vista/vista_invetario/vista_invetario_widget.dart'
+    show VistaInvetarioWidget;
+export '/inventario/crud_inventario/modificar_inventario/modificar_inventario_widget.dart'
+    show ModificarInventarioWidget;
+export '/inventario/crud_vista/vista_inventario02/vista_inventario02_widget.dart'
+    show VistaInventario02Widget;
+export '/inventario/vist_notis/agregado_correcto_inventario/agregado_correcto_inventario_widget.dart'
+    show AgregadoCorrectoInventarioWidget;
+export '/inventario/vist_notis/modificado_correcto_inventario/modificado_correcto_inventario_widget.dart'
+    show ModificadoCorrectoInventarioWidget;
+export '/inventario/crud_inventario/eliminar_inventarios/eliminar_inventarios_widget.dart'
+    show EliminarInventariosWidget;
+export '/inventario/crud_inventario/eliminar_inventario_seguro/eliminar_inventario_seguro_widget.dart'
+    show EliminarInventarioSeguroWidget;
+export '/inventario/visual_admin_inve/vista_admin_inve/vista_admin_inve_widget.dart'
+    show VistaAdminInveWidget;
+export '/inventario/vist_notis/eliminado_correcto_inventario/eliminado_correcto_inventario_widget.dart'
+    show EliminadoCorrectoInventarioWidget;
+export '/inventario/filtros_inventario/filtros_inventario_widget.dart'
+    show FiltrosInventarioWidget;
+export '/inventario/crud_inventario/gestion_estado_inventario/gestion_estado_inventario_widget.dart'
+    show GestionEstadoInventarioWidget;
+export '/inventario/crud_inventario/configurar_alertas_inventario/configurar_alertas_inventario_widget.dart'
+    show ConfigurarAlertasInventarioWidget;
+export '/inventario/crud_inventario/informacion_inventario/informacion_inventario_widget.dart'
+    show InformacionInventarioWidget;
+export '/citas/crud_citas/vista_cita/vista_cita_widget.dart'
+    show VistaCitaWidget;
