@@ -367,8 +367,7 @@ class _LoginWidgetState extends State<LoginWidget>
                               }
 
                               context.goNamedAuth(
-                                  ClasePrincipalWidget.routeName,
-                                  context.mounted);
+                                  VistaCitaWidget.routeName, context.mounted);
                             },
                             text: 'Iniciar Sesión',
                             options: FFButtonOptions(

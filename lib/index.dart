@@ -10,8 +10,6 @@ export '/inicio/inicio_cliente/pagina_informacion/pagina_informacion_widget.dart
 export '/login/registrar/registrar_widget.dart' show RegistrarWidget;
 export '/citas/visual_citas/vista_calendario/vista_calendario_widget.dart'
     show VistaCalendarioWidget;
-export '/citas/crud_citas/crear_cita/crear_cita_widget.dart'
-    show CrearCitaWidget;
 export '/citas/crud_citas/modificar_cita/modificar_cita_widget.dart'
     show ModificarCitaWidget;
 export '/citas/crud_citas/cancelacion_cita/cancelacion_cita_widget.dart'
@@ -74,5 +72,7 @@ export '/inventario/crud_inventario/configurar_alertas_inventario/configurar_ale
     show ConfigurarAlertasInventarioWidget;
 export '/inventario/crud_inventario/informacion_inventario/informacion_inventario_widget.dart'
     show InformacionInventarioWidget;
-export '/citas/crud_citas/vista_cita/vista_cita_widget.dart'
+export '/citas/visual_citas/vista_cita/vista_cita_widget.dart'
     show VistaCitaWidget;
+export '/citas/crud_citas/crear_cita/crear_cita_widget.dart'
+    show CrearCitaWidget;

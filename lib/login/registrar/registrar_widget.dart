@@ -553,7 +553,7 @@ class _RegistrarWidgetState extends State<RegistrarWidget>
                                             ));
 
                                         context.goNamedAuth(
-                                            ClasePrincipalWidget.routeName,
+                                            VistaCitaWidget.routeName,
                                             context.mounted);
                                       },
                                       text: 'Crear Cuenta',

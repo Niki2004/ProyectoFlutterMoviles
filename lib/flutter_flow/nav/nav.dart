@@ -76,14 +76,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? ClasePrincipalWidget() : LoginWidget(),
+          appStateNotifier.loggedIn ? VistaCitaWidget() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? ClasePrincipalWidget()
-              : LoginWidget(),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? VistaCitaWidget() : LoginWidget(),
         ),
         FFRoute(
           name: LoginWidget.routeName,
@@ -119,11 +118,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: VistaCalendarioWidget.routeName,
           path: VistaCalendarioWidget.routePath,
           builder: (context, params) => VistaCalendarioWidget(),
-        ),
-        FFRoute(
-          name: CrearCitaWidget.routeName,
-          path: CrearCitaWidget.routePath,
-          builder: (context, params) => CrearCitaWidget(),
         ),
         FFRoute(
           name: ModificarCitaWidget.routeName,
@@ -284,6 +278,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: VistaCitaWidget.routeName,
           path: VistaCitaWidget.routePath,
           builder: (context, params) => VistaCitaWidget(),
+        ),
+        FFRoute(
+          name: CrearCitaWidget.routeName,
+          path: CrearCitaWidget.routePath,
+          builder: (context, params) => CrearCitaWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

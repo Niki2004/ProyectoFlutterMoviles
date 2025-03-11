@@ -1,50 +1,77 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
+import '/flutter_flow/form_field_controller.dart';
 import 'crear_cita_widget.dart' show CrearCitaWidget;
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class CrearCitaModel extends FlutterFlowModel<CrearCitaWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for emailAddress widget.
-  FocusNode? emailAddressFocusNode1;
-  TextEditingController? emailAddressTextController1;
-  String? Function(BuildContext, String?)? emailAddressTextController1Validator;
-  // State field(s) for emailAddress widget.
-  FocusNode? emailAddressFocusNode2;
-  TextEditingController? emailAddressTextController2;
-  String? Function(BuildContext, String?)? emailAddressTextController2Validator;
-  // State field(s) for emailAddress widget.
-  FocusNode? emailAddressFocusNode3;
-  TextEditingController? emailAddressTextController3;
-  String? Function(BuildContext, String?)? emailAddressTextController3Validator;
-  // State field(s) for emailAddress widget.
-  FocusNode? emailAddressFocusNode4;
-  TextEditingController? emailAddressTextController4;
-  String? Function(BuildContext, String?)? emailAddressTextController4Validator;
-  // State field(s) for emailAddress widget.
-  FocusNode? emailAddressFocusNode5;
-  TextEditingController? emailAddressTextController5;
-  String? Function(BuildContext, String?)? emailAddressTextController5Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode1;
+  TextEditingController? textController1;
+  String? Function(BuildContext, String?)? textController1Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode2;
+  TextEditingController? textController2;
+  String? Function(BuildContext, String?)? textController2Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode3;
+  TextEditingController? textController3;
+  String? Function(BuildContext, String?)? textController3Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode4;
+  TextEditingController? textController4;
+  String? Function(BuildContext, String?)? textController4Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode5;
+  TextEditingController? textController5;
+  String? Function(BuildContext, String?)? textController5Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode6;
+  TextEditingController? textController6;
+  final textFieldMask6 = MaskTextInputFormatter(mask: '##/##/####');
+  String? Function(BuildContext, String?)? textController6Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode7;
+  TextEditingController? textController7;
+  final textFieldMask7 = MaskTextInputFormatter(mask: '##:##');
+  String? Function(BuildContext, String?)? textController7Validator;
+  // State field(s) for DropDown widget.
+  String? dropDownValue1;
+  FormFieldController<String>? dropDownValueController1;
+  // State field(s) for DropDown widget.
+  String? dropDownValue2;
+  FormFieldController<String>? dropDownValueController2;
+  // State field(s) for Checkbox widget.
+  bool? checkboxValue1;
+  // State field(s) for Checkbox widget.
+  bool? checkboxValue2;
 
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {
-    emailAddressFocusNode1?.dispose();
-    emailAddressTextController1?.dispose();
+    textFieldFocusNode1?.dispose();
+    textController1?.dispose();
 
-    emailAddressFocusNode2?.dispose();
-    emailAddressTextController2?.dispose();
+    textFieldFocusNode2?.dispose();
+    textController2?.dispose();
 
-    emailAddressFocusNode3?.dispose();
-    emailAddressTextController3?.dispose();
+    textFieldFocusNode3?.dispose();
+    textController3?.dispose();
 
-    emailAddressFocusNode4?.dispose();
-    emailAddressTextController4?.dispose();
+    textFieldFocusNode4?.dispose();
+    textController4?.dispose();
 
-    emailAddressFocusNode5?.dispose();
-    emailAddressTextController5?.dispose();
+    textFieldFocusNode5?.dispose();
+    textController5?.dispose();
+
+    textFieldFocusNode6?.dispose();
+    textController6?.dispose();
+
+    textFieldFocusNode7?.dispose();
+    textController7?.dispose();
   }
 }

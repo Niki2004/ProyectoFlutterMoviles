@@ -5,28 +5,28 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'vista_modificar_model.dart';
-export 'vista_modificar_model.dart';
+import 'vista_cita_model.dart';
+export 'vista_cita_model.dart';
 
-class VistaModificarWidget extends StatefulWidget {
-  const VistaModificarWidget({super.key});
+class VistaCitaWidget extends StatefulWidget {
+  const VistaCitaWidget({super.key});
 
-  static String routeName = 'VistaModificar';
-  static String routePath = '/vistaModificar';
+  static String routeName = 'VistaCita';
+  static String routePath = '/vistaCita';
 
   @override
-  State<VistaModificarWidget> createState() => _VistaModificarWidgetState();
+  State<VistaCitaWidget> createState() => _VistaCitaWidgetState();
 }
 
-class _VistaModificarWidgetState extends State<VistaModificarWidget> {
-  late VistaModificarModel _model;
+class _VistaCitaWidgetState extends State<VistaCitaWidget> {
+  late VistaCitaModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => VistaModificarModel());
+    _model = createModel(context, () => VistaCitaModel());
   }
 
   @override
@@ -45,51 +45,36 @@ class _VistaModificarWidgetState extends State<VistaModificarWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
-          leading: Stack(
-            children: [
-              Stack(
-                children: [
-                  Stack(
-                    children: [
-                      FlutterFlowIconButton(
-                        borderColor: Colors.transparent,
-                        borderRadius: 30.0,
-                        borderWidth: 1.0,
-                        buttonSize: 60.0,
-                        icon: Icon(
-                          Icons.arrow_back_rounded,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: 30.0,
-                        ),
-                        onPressed: () async {
-                          context.pushNamed(PerfilWidget.routeName);
-                        },
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
-          title: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
-            child: Text(
-              'Modificación de Citas',
-              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Inter',
-                    color: Color(0xFF0B7B82),
-                    fontSize: 37.0,
-                    letterSpacing: 0.0,
-                    fontWeight: FontWeight.w600,
-                  ),
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
+            fillColor: Colors.transparent,
+            icon: Icon(
+              Icons.arrow_back_rounded,
+              color: FlutterFlowTheme.of(context).primaryText,
+              size: 30.0,
             ),
+            onPressed: () async {
+              context.pushNamed(PerfilWidget.routeName);
+            },
+          ),
+          title: Text(
+            'Historial de Citas',
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Inter Tight',
+                  color: Color(0xFF0B7B82),
+                  fontSize: 30.0,
+                  letterSpacing: 0.0,
+                ),
           ),
           actions: [],
-          centerTitle: false,
+          centerTitle: true,
           elevation: 0.0,
         ),
         body: SafeArea(
@@ -112,11 +97,12 @@ class _VistaModificarWidgetState extends State<VistaModificarWidget> {
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsets.all(16.0),
-                            child: StreamBuilder<List<CitaRecord>>(
-                              stream: queryCitaRecord(
-                                queryBuilder: (citaRecord) => citaRecord.where(
-                                  'ReferenceUsers',
-                                  isEqualTo: currentUserReference,
+                            child: StreamBuilder<List<MedicoRecord>>(
+                              stream: queryMedicoRecord(
+                                queryBuilder: (medicoRecord) =>
+                                    medicoRecord.where(
+                                  'Nombre',
+                                  isEqualTo: currentUserReference?.id,
                                 ),
                               ),
                               builder: (context, snapshot) {
@@ -135,16 +121,16 @@ class _VistaModificarWidgetState extends State<VistaModificarWidget> {
                                     ),
                                   );
                                 }
-                                List<CitaRecord> columnCitaRecordList =
+                                List<MedicoRecord> columnMedicoRecordList =
                                     snapshot.data!;
 
                                 return Column(
                                   mainAxisSize: MainAxisSize.max,
-                                  children:
-                                      List.generate(columnCitaRecordList.length,
-                                          (columnIndex) {
-                                    final columnCitaRecord =
-                                        columnCitaRecordList[columnIndex];
+                                  children: List.generate(
+                                      columnMedicoRecordList.length,
+                                      (columnIndex) {
+                                    final columnMedicoRecord =
+                                        columnMedicoRecordList[columnIndex];
                                     return Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           24.0, 24.0, 24.0, 24.0),
@@ -196,7 +182,12 @@ class _VistaModificarWidgetState extends State<VistaModificarWidget> {
                                                                   .start,
                                                           children: [
                                                             Text(
-                                                              'Dr. Carlos Ramírez',
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                columnMedicoRecord
+                                                                    .nombre,
+                                                                'Sin nombre',
+                                                              ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .headlineSmall
@@ -211,7 +202,12 @@ class _VistaModificarWidgetState extends State<VistaModificarWidget> {
                                                                   ),
                                                             ),
                                                             Text(
-                                                              'Cardiología',
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                columnMedicoRecord
+                                                                    .especialidad,
+                                                                'Sin especialidad',
+                                                              ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -225,32 +221,6 @@ class _VistaModificarWidgetState extends State<VistaModificarWidget> {
                                                                   ),
                                                             ),
                                                           ],
-                                                        ),
-                                                        Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            FlutterFlowIconButton(
-                                                              borderRadius:
-                                                                  22.0,
-                                                              buttonSize: 45.0,
-                                                              fillColor: Color(
-                                                                  0xFFE3F2FD),
-                                                              icon: Icon(
-                                                                Icons.edit,
-                                                                color: Color(
-                                                                    0xFF0B7B82),
-                                                                size: 20.0,
-                                                              ),
-                                                              onPressed:
-                                                                  () async {
-                                                                context.pushNamed(
-                                                                    ModificarCitaWidget
-                                                                        .routeName);
-                                                              },
-                                                            ),
-                                                          ].divide(SizedBox(
-                                                              width: 12.0)),
                                                         ),
                                                       ],
                                                     ),
@@ -281,7 +251,10 @@ class _VistaModificarWidgetState extends State<VistaModificarWidget> {
                                                                         8.0,
                                                                         12.0),
                                                             child: Text(
-                                                              '3:30 PM',
+                                                              dateTimeFormat(
+                                                                  "jm",
+                                                                  columnMedicoRecord
+                                                                      .horarioInicio!),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -298,7 +271,10 @@ class _VistaModificarWidgetState extends State<VistaModificarWidget> {
                                                           ),
                                                         ),
                                                         Text(
-                                                          'Lunes, 08/12/2024',
+                                                          dateTimeFormat(
+                                                              "d/M/y",
+                                                              columnMedicoRecord
+                                                                  .horarioFinal!),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
