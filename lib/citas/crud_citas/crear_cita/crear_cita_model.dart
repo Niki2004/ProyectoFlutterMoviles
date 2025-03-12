@@ -43,10 +43,10 @@ class CrearCitaModel extends FlutterFlowModel<CrearCitaWidget> {
   // State field(s) for DropDown widget.
   String? dropDownValue2;
   FormFieldController<String>? dropDownValueController2;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue1;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue2;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode8;
+  TextEditingController? textController8;
+  String? Function(BuildContext, String?)? textController8Validator;
 
   @override
   void initState(BuildContext context) {}
@@ -73,5 +73,8 @@ class CrearCitaModel extends FlutterFlowModel<CrearCitaWidget> {
 
     textFieldFocusNode7?.dispose();
     textController7?.dispose();
+
+    textFieldFocusNode8?.dispose();
+    textController8?.dispose();
   }
 }

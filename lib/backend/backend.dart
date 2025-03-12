@@ -15,6 +15,7 @@ import 'schema/estado_record.dart';
 import 'schema/inventario_record.dart';
 import 'schema/empleado_record.dart';
 import 'schema/evaluacion_record.dart';
+import 'schema/ejemplo_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -33,6 +34,7 @@ export 'schema/estado_record.dart';
 export 'schema/inventario_record.dart';
 export 'schema/empleado_record.dart';
 export 'schema/evaluacion_record.dart';
+export 'schema/ejemplo_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -399,6 +401,43 @@ Future<List<EvaluacionRecord>> queryEvaluacionRecordOnce({
     queryCollectionOnce(
       EvaluacionRecord.collection,
       EvaluacionRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query EjemploRecords (as a Stream and as a Future).
+Future<int> queryEjemploRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      EjemploRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<EjemploRecord>> queryEjemploRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      EjemploRecord.collection,
+      EjemploRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<EjemploRecord>> queryEjemploRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      EjemploRecord.collection,
+      EjemploRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

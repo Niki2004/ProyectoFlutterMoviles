@@ -196,7 +196,8 @@ class _VistaCancelarWidgetState extends State<VistaCancelarWidget> {
                                                                   .start,
                                                           children: [
                                                             Text(
-                                                              'Dr. Carlos Ramírez',
+                                                              columnCitaRecord
+                                                                  .nombre,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .headlineSmall
@@ -211,7 +212,8 @@ class _VistaCancelarWidgetState extends State<VistaCancelarWidget> {
                                                                   ),
                                                             ),
                                                             Text(
-                                                              'Cardiología',
+                                                              columnCitaRecord
+                                                                  .contactoEmergencia,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -246,9 +248,39 @@ class _VistaCancelarWidgetState extends State<VistaCancelarWidget> {
                                                               ),
                                                               onPressed:
                                                                   () async {
-                                                                context.pushNamed(
-                                                                    ModificarCitaWidget
-                                                                        .routeName);
+                                                                var confirmDialogResponse =
+                                                                    await showDialog<
+                                                                            bool>(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return AlertDialog(
+                                                                              title: Text('Cancelar cita'),
+                                                                              content: Text('!Estás seguro que desea cancelar la cita¡'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                  child: Text('Cancel'),
+                                                                                ),
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                  child: Text('Confirmar'),
+                                                                                ),
+                                                                              ],
+                                                                            );
+                                                                          },
+                                                                        ) ??
+                                                                        false;
+                                                                if (confirmDialogResponse) {
+                                                                  await columnCitaRecord
+                                                                      .reference
+                                                                      .delete();
+                                                                } else {
+                                                                  context.pushNamed(
+                                                                      VistaModificarWidget
+                                                                          .routeName);
+                                                                }
                                                               },
                                                             ),
                                                           ].divide(SizedBox(
@@ -283,7 +315,10 @@ class _VistaCancelarWidgetState extends State<VistaCancelarWidget> {
                                                                         8.0,
                                                                         12.0),
                                                             child: Text(
-                                                              '3:30 PM',
+                                                              dateTimeFormat(
+                                                                  "jm",
+                                                                  columnCitaRecord
+                                                                      .horaCita!),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -300,7 +335,10 @@ class _VistaCancelarWidgetState extends State<VistaCancelarWidget> {
                                                           ),
                                                         ),
                                                         Text(
-                                                          'Lunes, 08/12/2024',
+                                                          dateTimeFormat(
+                                                              "d/M/y",
+                                                              columnCitaRecord
+                                                                  .fechaCita!),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium

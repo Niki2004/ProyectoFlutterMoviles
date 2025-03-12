@@ -120,16 +120,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => VistaCalendarioWidget(),
         ),
         FFRoute(
-          name: ModificarCitaWidget.routeName,
-          path: ModificarCitaWidget.routePath,
-          builder: (context, params) => ModificarCitaWidget(),
-        ),
-        FFRoute(
-          name: CancelacionCitaWidget.routeName,
-          path: CancelacionCitaWidget.routePath,
-          builder: (context, params) => CancelacionCitaWidget(),
-        ),
-        FFRoute(
           name: VistaModificarWidget.routeName,
           path: VistaModificarWidget.routePath,
           builder: (context, params) => VistaModificarWidget(),
@@ -283,6 +273,56 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: CrearCitaWidget.routeName,
           path: CrearCitaWidget.routePath,
           builder: (context, params) => CrearCitaWidget(),
+        ),
+        FFRoute(
+          name: ModificarCitaWidget.routeName,
+          path: ModificarCitaWidget.routePath,
+          builder: (context, params) => ModificarCitaWidget(
+            sintomasParametro: params.getParam(
+              'sintomasParametro',
+              ParamType.String,
+            ),
+            complicacionPrametro: params.getParam(
+              'complicacionPrametro',
+              ParamType.String,
+            ),
+            fechaParametro: params.getParam(
+              'fechaParametro',
+              ParamType.DateTime,
+            ),
+            horaParametro: params.getParam(
+              'horaParametro',
+              ParamType.DateTime,
+            ),
+            asistenciaParametro: params.getParam(
+              'asistenciaParametro',
+              ParamType.String,
+            ),
+            eleccionUsuario: params.getParam(
+              'eleccionUsuario',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Cita'],
+            ),
+            nombreParametro: params.getParam(
+              'nombreParametro',
+              ParamType.String,
+            ),
+            apellidoParametro: params.getParam(
+              'apellidoParametro',
+              ParamType.String,
+            ),
+            contactoParametro: params.getParam(
+              'contactoParametro',
+              ParamType.String,
+            ),
+            usuario: params.getParam(
+              'usuario',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users'],
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

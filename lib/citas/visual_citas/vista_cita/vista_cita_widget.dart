@@ -97,12 +97,11 @@ class _VistaCitaWidgetState extends State<VistaCitaWidget> {
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsets.all(16.0),
-                            child: StreamBuilder<List<MedicoRecord>>(
-                              stream: queryMedicoRecord(
-                                queryBuilder: (medicoRecord) =>
-                                    medicoRecord.where(
-                                  'Nombre',
-                                  isEqualTo: currentUserReference?.id,
+                            child: StreamBuilder<List<CitaRecord>>(
+                              stream: queryCitaRecord(
+                                queryBuilder: (citaRecord) => citaRecord.where(
+                                  'ReferenceUsers',
+                                  isEqualTo: currentUserReference,
                                 ),
                               ),
                               builder: (context, snapshot) {
@@ -121,16 +120,16 @@ class _VistaCitaWidgetState extends State<VistaCitaWidget> {
                                     ),
                                   );
                                 }
-                                List<MedicoRecord> columnMedicoRecordList =
+                                List<CitaRecord> columnCitaRecordList =
                                     snapshot.data!;
 
                                 return Column(
                                   mainAxisSize: MainAxisSize.max,
-                                  children: List.generate(
-                                      columnMedicoRecordList.length,
-                                      (columnIndex) {
-                                    final columnMedicoRecord =
-                                        columnMedicoRecordList[columnIndex];
+                                  children:
+                                      List.generate(columnCitaRecordList.length,
+                                          (columnIndex) {
+                                    final columnCitaRecord =
+                                        columnCitaRecordList[columnIndex];
                                     return Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           24.0, 24.0, 24.0, 24.0),
@@ -184,9 +183,9 @@ class _VistaCitaWidgetState extends State<VistaCitaWidget> {
                                                             Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                columnMedicoRecord
+                                                                columnCitaRecord
                                                                     .nombre,
-                                                                'Sin nombre',
+                                                                'sin nombre',
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -204,9 +203,9 @@ class _VistaCitaWidgetState extends State<VistaCitaWidget> {
                                                             Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                columnMedicoRecord
-                                                                    .especialidad,
-                                                                'Sin especialidad',
+                                                                columnCitaRecord
+                                                                    .contactoEmergencia,
+                                                                'sin contacto',
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -253,8 +252,8 @@ class _VistaCitaWidgetState extends State<VistaCitaWidget> {
                                                             child: Text(
                                                               dateTimeFormat(
                                                                   "jm",
-                                                                  columnMedicoRecord
-                                                                      .horarioInicio!),
+                                                                  columnCitaRecord
+                                                                      .horaCita!),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -273,8 +272,8 @@ class _VistaCitaWidgetState extends State<VistaCitaWidget> {
                                                         Text(
                                                           dateTimeFormat(
                                                               "d/M/y",
-                                                              columnMedicoRecord
-                                                                  .horarioFinal!),
+                                                              columnCitaRecord
+                                                                  .fechaCita!),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium

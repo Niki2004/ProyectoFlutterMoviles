@@ -196,7 +196,8 @@ class _VistaModificarWidgetState extends State<VistaModificarWidget> {
                                                                   .start,
                                                           children: [
                                                             Text(
-                                                              'Dr. Carlos Ramírez',
+                                                              columnCitaRecord
+                                                                  .nombre,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .headlineSmall
@@ -211,7 +212,8 @@ class _VistaModificarWidgetState extends State<VistaModificarWidget> {
                                                                   ),
                                                             ),
                                                             Text(
-                                                              'Cardiología',
+                                                              columnCitaRecord
+                                                                  .sintomas,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -244,9 +246,83 @@ class _VistaModificarWidgetState extends State<VistaModificarWidget> {
                                                               ),
                                                               onPressed:
                                                                   () async {
-                                                                context.pushNamed(
-                                                                    ModificarCitaWidget
-                                                                        .routeName);
+                                                                context
+                                                                    .pushNamed(
+                                                                  ModificarCitaWidget
+                                                                      .routeName,
+                                                                  queryParameters:
+                                                                      {
+                                                                    'sintomasParametro':
+                                                                        serializeParam(
+                                                                      columnCitaRecord
+                                                                          .sintomas,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'complicacionPrametro':
+                                                                        serializeParam(
+                                                                      columnCitaRecord
+                                                                          .complicaciones,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'fechaParametro':
+                                                                        serializeParam(
+                                                                      columnCitaRecord
+                                                                          .fechaCita,
+                                                                      ParamType
+                                                                          .DateTime,
+                                                                    ),
+                                                                    'horaParametro':
+                                                                        serializeParam(
+                                                                      columnCitaRecord
+                                                                          .horaCita,
+                                                                      ParamType
+                                                                          .DateTime,
+                                                                    ),
+                                                                    'asistenciaParametro':
+                                                                        serializeParam(
+                                                                      columnCitaRecord
+                                                                          .asitencia,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'eleccionUsuario':
+                                                                        serializeParam(
+                                                                      columnCitaRecord
+                                                                          .reference,
+                                                                      ParamType
+                                                                          .DocumentReference,
+                                                                    ),
+                                                                    'nombreParametro':
+                                                                        serializeParam(
+                                                                      columnCitaRecord
+                                                                          .nombre,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'apellidoParametro':
+                                                                        serializeParam(
+                                                                      columnCitaRecord
+                                                                          .apellido,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'contactoParametro':
+                                                                        serializeParam(
+                                                                      columnCitaRecord
+                                                                          .contactoEmergencia,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'usuario':
+                                                                        serializeParam(
+                                                                      currentUserReference,
+                                                                      ParamType
+                                                                          .DocumentReference,
+                                                                    ),
+                                                                  }.withoutNulls,
+                                                                );
                                                               },
                                                             ),
                                                           ].divide(SizedBox(
@@ -281,7 +357,10 @@ class _VistaModificarWidgetState extends State<VistaModificarWidget> {
                                                                         8.0,
                                                                         12.0),
                                                             child: Text(
-                                                              '3:30 PM',
+                                                              dateTimeFormat(
+                                                                  "jm",
+                                                                  columnCitaRecord
+                                                                      .horaCita!),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -298,7 +377,10 @@ class _VistaModificarWidgetState extends State<VistaModificarWidget> {
                                                           ),
                                                         ),
                                                         Text(
-                                                          'Lunes, 08/12/2024',
+                                                          dateTimeFormat(
+                                                              "d/M/y",
+                                                              columnCitaRecord
+                                                                  .fechaCita!),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
