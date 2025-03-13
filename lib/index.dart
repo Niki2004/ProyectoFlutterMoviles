@@ -14,12 +14,6 @@ export '/citas/visual_citas/vista_modificar/vista_modificar_widget.dart'
     show VistaModificarWidget;
 export '/citas/visual_citas/vista_cancelar/vista_cancelar_widget.dart'
     show VistaCancelarWidget;
-export '/citas/crud_notas_medico/crear_nota_medico/crear_nota_medico_widget.dart'
-    show CrearNotaMedicoWidget;
-export '/citas/crud_notas_medico/modificar_nota_medico/modificar_nota_medico_widget.dart'
-    show ModificarNotaMedicoWidget;
-export '/citas/crud_notas_medico/cancelar_nota_medico/cancelar_nota_medico_widget.dart'
-    show CancelarNotaMedicoWidget;
 export '/citas/visual_nota_medico/vista_nota_medico/vista_nota_medico_widget.dart'
     show VistaNotaMedicoWidget;
 export '/empleados/crud_empleado/crear_empleado/crear_empleado_widget.dart'
@@ -74,3 +68,7 @@ export '/citas/crud_citas/crear_cita/crear_cita_widget.dart'
     show CrearCitaWidget;
 export '/citas/crud_citas/modificar_cita/modificar_cita_widget.dart'
     show ModificarCitaWidget;
+export '/citas/crud_notas_medico/modificar_nota_medico/modificar_nota_medico_widget.dart'
+    show ModificarNotaMedicoWidget;
+export '/citas/crud_notas_medico/crear_nota_medico/crear_nota_medico_widget.dart'
+    show CrearNotaMedicoWidget;

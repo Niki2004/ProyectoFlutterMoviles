@@ -218,241 +218,259 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                       ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    context.pushNamed(VistaModificarWidget.routeName);
-                  },
-                  child: Container(
-                    width: double.infinity,
-                    height: 60.0,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 5.0,
-                          color: Color(0x3416202A),
-                          offset: Offset(
-                            0.0,
-                            2.0,
-                          ),
-                        )
-                      ],
-                      borderRadius: BorderRadius.circular(12.0),
-                      shape: BoxShape.rectangle,
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Icon(
-                            Icons.mode,
-                            color: Colors.black,
-                            size: 24.0,
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                'Modificación de citas',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      color: Color(0xFF0B0B0B),
-                                      fontSize: 20.0,
-                                      letterSpacing: 0.0,
-                                    ),
+              if (valueOrDefault<bool>(currentUserDocument?.isUser, false))
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                  child: AuthUserStreamWidget(
+                    builder: (context) => InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed(VistaModificarWidget.routeName);
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 60.0,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 5.0,
+                              color: Color(0x3416202A),
+                              offset: Offset(
+                                0.0,
+                                2.0,
                               ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    context.pushNamed(VistaCancelarWidget.routeName);
-                  },
-                  child: Container(
-                    width: double.infinity,
-                    height: 60.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 5.0,
-                          color: Color(0x3416202A),
-                          offset: Offset(
-                            0.0,
-                            2.0,
-                          ),
-                        )
-                      ],
-                      borderRadius: BorderRadius.circular(12.0),
-                      shape: BoxShape.rectangle,
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Icon(
-                            Icons.cancel_outlined,
-                            color: Colors.black,
-                            size: 24.0,
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                'Cancelación de citas',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      color: Colors.black,
-                                      fontSize: 20.0,
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    context.pushNamed(VistaCitaWidget.routeName);
-                  },
-                  child: Container(
-                    width: double.infinity,
-                    height: 60.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 5.0,
-                          color: Color(0x3416202A),
-                          offset: Offset(
-                            0.0,
-                            2.0,
-                          ),
-                        )
-                      ],
-                      borderRadius: BorderRadius.circular(12.0),
-                      shape: BoxShape.rectangle,
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Icon(
-                            Icons.history,
-                            color: Color(0xFF0B0B0B),
-                            size: 24.0,
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                'Historial de citas',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      color: Colors.black,
-                                      fontSize: 20.0,
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
-                child: Container(
-                  width: double.infinity,
-                  height: 60.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 5.0,
-                        color: Color(0x3416202A),
-                        offset: Offset(
-                          0.0,
-                          2.0,
+                            )
+                          ],
+                          borderRadius: BorderRadius.circular(12.0),
+                          shape: BoxShape.rectangle,
                         ),
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(12.0),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Icon(
-                          Icons.note_add,
-                          color: Color(0xFF0B0B0B),
-                          size: 24.0,
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              'Notas',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyLarge
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    color: Colors.black,
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.0,
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Icon(
+                                Icons.mode,
+                                color: Colors.black,
+                                size: 24.0,
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Modificación de citas',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: Color(0xFF0B0B0B),
+                                          fontSize: 20.0,
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
-                            ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
-              ),
+              if (valueOrDefault<bool>(currentUserDocument?.isUser, false))
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                  child: AuthUserStreamWidget(
+                    builder: (context) => InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed(VistaCancelarWidget.routeName);
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 60.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 5.0,
+                              color: Color(0x3416202A),
+                              offset: Offset(
+                                0.0,
+                                2.0,
+                              ),
+                            )
+                          ],
+                          borderRadius: BorderRadius.circular(12.0),
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Icon(
+                                Icons.cancel_outlined,
+                                color: Colors.black,
+                                size: 24.0,
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Cancelación de citas',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: Colors.black,
+                                          fontSize: 20.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              if (valueOrDefault<bool>(currentUserDocument?.isUser, false))
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                  child: AuthUserStreamWidget(
+                    builder: (context) => InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed(VistaCitaWidget.routeName);
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 60.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 5.0,
+                              color: Color(0x3416202A),
+                              offset: Offset(
+                                0.0,
+                                2.0,
+                              ),
+                            )
+                          ],
+                          borderRadius: BorderRadius.circular(12.0),
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Icon(
+                                Icons.history,
+                                color: Color(0xFF0B0B0B),
+                                size: 24.0,
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Historial de citas',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: Colors.black,
+                                          fontSize: 20.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              if (valueOrDefault<bool>(currentUserDocument?.isMedico, false))
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                  child: AuthUserStreamWidget(
+                    builder: (context) => Container(
+                      width: double.infinity,
+                      height: 60.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 5.0,
+                            color: Color(0x3416202A),
+                            offset: Offset(
+                              0.0,
+                              2.0,
+                            ),
+                          )
+                        ],
+                        borderRadius: BorderRadius.circular(12.0),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Icon(
+                              Icons.note_add,
+                              color: Color(0xFF0B0B0B),
+                              size: 24.0,
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Notas',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: Colors.black,
+                                        fontSize: 20.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
                 child: Text(
@@ -463,110 +481,118 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                       ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
-                child: Container(
-                  width: double.infinity,
-                  height: 60.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 5.0,
-                        color: Color(0x3416202A),
-                        offset: Offset(
-                          0.0,
-                          2.0,
-                        ),
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(12.0),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Icon(
-                          Icons.history,
-                          color: Color(0xFF0B0B0B),
-                          size: 24.0,
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              'Citas Pasadas',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyLarge
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    color: Colors.black,
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.0,
-                                  ),
+              if (valueOrDefault<bool>(currentUserDocument?.isUser, false))
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                  child: AuthUserStreamWidget(
+                    builder: (context) => Container(
+                      width: double.infinity,
+                      height: 60.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 5.0,
+                            color: Color(0x3416202A),
+                            offset: Offset(
+                              0.0,
+                              2.0,
                             ),
-                          ),
+                          )
+                        ],
+                        borderRadius: BorderRadius.circular(12.0),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Icon(
+                              Icons.history,
+                              color: Color(0xFF0B0B0B),
+                              size: 24.0,
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Citas Pasadas',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: Colors.black,
+                                        fontSize: 20.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
-                child: Container(
-                  width: double.infinity,
-                  height: 60.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 5.0,
-                        color: Color(0x3416202A),
-                        offset: Offset(
-                          0.0,
-                          2.0,
-                        ),
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(12.0),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Icon(
-                          Icons.history,
-                          color: Color(0xFF0B0B0B),
-                          size: 24.0,
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              'Citas Futuras',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyLarge
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    color: Colors.black,
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.0,
-                                  ),
+              if (valueOrDefault<bool>(currentUserDocument?.isUser, false))
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                  child: AuthUserStreamWidget(
+                    builder: (context) => Container(
+                      width: double.infinity,
+                      height: 60.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 5.0,
+                            color: Color(0x3416202A),
+                            offset: Offset(
+                              0.0,
+                              2.0,
                             ),
-                          ),
+                          )
+                        ],
+                        borderRadius: BorderRadius.circular(12.0),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Icon(
+                              Icons.history,
+                              color: Color(0xFF0B0B0B),
+                              size: 24.0,
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Citas Futuras',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: Colors.black,
+                                        fontSize: 20.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
-              ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
                 child: Text(

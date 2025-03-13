@@ -25,11 +25,6 @@ class NotaMedicoRecord extends FirestoreRecord {
   String get comentarioAdicional => _comentarioAdicional ?? '';
   bool hasComentarioAdicional() => _comentarioAdicional != null;
 
-  // "ReferenceCita" field.
-  DocumentReference? _referenceCita;
-  DocumentReference? get referenceCita => _referenceCita;
-  bool hasReferenceCita() => _referenceCita != null;
-
   // "Fecha" field.
   DateTime? _fecha;
   DateTime? get fecha => _fecha;
@@ -38,7 +33,6 @@ class NotaMedicoRecord extends FirestoreRecord {
   void _initializeFields() {
     _notaMedico = snapshotData['Nota_medico'] as String?;
     _comentarioAdicional = snapshotData['Comentario_Adicional'] as String?;
-    _referenceCita = snapshotData['ReferenceCita'] as DocumentReference?;
     _fecha = snapshotData['Fecha'] as DateTime?;
   }
 
@@ -79,14 +73,12 @@ class NotaMedicoRecord extends FirestoreRecord {
 Map<String, dynamic> createNotaMedicoRecordData({
   String? notaMedico,
   String? comentarioAdicional,
-  DocumentReference? referenceCita,
   DateTime? fecha,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'Nota_medico': notaMedico,
       'Comentario_Adicional': comentarioAdicional,
-      'ReferenceCita': referenceCita,
       'Fecha': fecha,
     }.withoutNulls,
   );
@@ -101,13 +93,12 @@ class NotaMedicoRecordDocumentEquality implements Equality<NotaMedicoRecord> {
   bool equals(NotaMedicoRecord? e1, NotaMedicoRecord? e2) {
     return e1?.notaMedico == e2?.notaMedico &&
         e1?.comentarioAdicional == e2?.comentarioAdicional &&
-        e1?.referenceCita == e2?.referenceCita &&
         e1?.fecha == e2?.fecha;
   }
 
   @override
-  int hash(NotaMedicoRecord? e) => const ListEquality().hash(
-      [e?.notaMedico, e?.comentarioAdicional, e?.referenceCita, e?.fecha]);
+  int hash(NotaMedicoRecord? e) => const ListEquality()
+      .hash([e?.notaMedico, e?.comentarioAdicional, e?.fecha]);
 
   @override
   bool isValidKey(Object? o) => o is NotaMedicoRecord;

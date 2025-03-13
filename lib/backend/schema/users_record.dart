@@ -45,10 +45,20 @@ class UsersRecord extends FirestoreRecord {
   String get phoneNumber => _phoneNumber ?? '';
   bool hasPhoneNumber() => _phoneNumber != null;
 
-  // "rol" field.
-  String? _rol;
-  String get rol => _rol ?? '';
-  bool hasRol() => _rol != null;
+  // "isAdmin" field.
+  bool? _isAdmin;
+  bool get isAdmin => _isAdmin ?? false;
+  bool hasIsAdmin() => _isAdmin != null;
+
+  // "isUser" field.
+  bool? _isUser;
+  bool get isUser => _isUser ?? false;
+  bool hasIsUser() => _isUser != null;
+
+  // "isMedico" field.
+  bool? _isMedico;
+  bool get isMedico => _isMedico ?? false;
+  bool hasIsMedico() => _isMedico != null;
 
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
@@ -57,7 +67,9 @@ class UsersRecord extends FirestoreRecord {
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phone_number'] as String?;
-    _rol = snapshotData['rol'] as String?;
+    _isAdmin = snapshotData['isAdmin'] as bool?;
+    _isUser = snapshotData['isUser'] as bool?;
+    _isMedico = snapshotData['isMedico'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -100,7 +112,9 @@ Map<String, dynamic> createUsersRecordData({
   String? uid,
   DateTime? createdTime,
   String? phoneNumber,
-  String? rol,
+  bool? isAdmin,
+  bool? isUser,
+  bool? isMedico,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -110,7 +124,9 @@ Map<String, dynamic> createUsersRecordData({
       'uid': uid,
       'created_time': createdTime,
       'phone_number': phoneNumber,
-      'rol': rol,
+      'isAdmin': isAdmin,
+      'isUser': isUser,
+      'isMedico': isMedico,
     }.withoutNulls,
   );
 
@@ -128,7 +144,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
         e1?.phoneNumber == e2?.phoneNumber &&
-        e1?.rol == e2?.rol;
+        e1?.isAdmin == e2?.isAdmin &&
+        e1?.isUser == e2?.isUser &&
+        e1?.isMedico == e2?.isMedico;
   }
 
   @override
@@ -139,7 +157,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.uid,
         e?.createdTime,
         e?.phoneNumber,
-        e?.rol
+        e?.isAdmin,
+        e?.isUser,
+        e?.isMedico
       ]);
 
   @override

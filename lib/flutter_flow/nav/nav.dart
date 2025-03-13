@@ -130,21 +130,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => VistaCancelarWidget(),
         ),
         FFRoute(
-          name: CrearNotaMedicoWidget.routeName,
-          path: CrearNotaMedicoWidget.routePath,
-          builder: (context, params) => CrearNotaMedicoWidget(),
-        ),
-        FFRoute(
-          name: ModificarNotaMedicoWidget.routeName,
-          path: ModificarNotaMedicoWidget.routePath,
-          builder: (context, params) => ModificarNotaMedicoWidget(),
-        ),
-        FFRoute(
-          name: CancelarNotaMedicoWidget.routeName,
-          path: CancelarNotaMedicoWidget.routePath,
-          builder: (context, params) => CancelarNotaMedicoWidget(),
-        ),
-        FFRoute(
           name: VistaNotaMedicoWidget.routeName,
           path: VistaNotaMedicoWidget.routePath,
           builder: (context, params) => VistaNotaMedicoWidget(),
@@ -323,6 +308,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               collectionNamePath: ['users'],
             ),
           ),
+        ),
+        FFRoute(
+          name: ModificarNotaMedicoWidget.routeName,
+          path: ModificarNotaMedicoWidget.routePath,
+          builder: (context, params) => ModificarNotaMedicoWidget(),
+        ),
+        FFRoute(
+          name: CrearNotaMedicoWidget.routeName,
+          path: CrearNotaMedicoWidget.routePath,
+          builder: (context, params) => CrearNotaMedicoWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
