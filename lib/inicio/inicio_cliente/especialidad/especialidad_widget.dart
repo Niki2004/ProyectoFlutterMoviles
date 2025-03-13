@@ -6,28 +6,28 @@ import '/index.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'pagina_contacto_model.dart';
-export 'pagina_contacto_model.dart';
+import 'especialidad_model.dart';
+export 'especialidad_model.dart';
 
-class PaginaContactoWidget extends StatefulWidget {
-  const PaginaContactoWidget({super.key});
+class EspecialidadWidget extends StatefulWidget {
+  const EspecialidadWidget({super.key});
 
-  static String routeName = 'PaginaContacto';
-  static String routePath = '/paginaContacto';
+  static String routeName = 'Especialidad';
+  static String routePath = '/especialidad';
 
   @override
-  State<PaginaContactoWidget> createState() => _PaginaContactoWidgetState();
+  State<EspecialidadWidget> createState() => _EspecialidadWidgetState();
 }
 
-class _PaginaContactoWidgetState extends State<PaginaContactoWidget> {
-  late PaginaContactoModel _model;
+class _EspecialidadWidgetState extends State<EspecialidadWidget> {
+  late EspecialidadModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => PaginaContactoModel());
+    _model = createModel(context, () => EspecialidadModel());
   }
 
   @override
@@ -61,9 +61,6 @@ class _PaginaContactoWidgetState extends State<PaginaContactoWidget> {
                 Container(
                   width: 270.0,
                   height: double.infinity,
-                  constraints: BoxConstraints(
-                    minWidth: 333.0,
-                  ),
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
                     borderRadius: BorderRadius.circular(0.0),
@@ -198,60 +195,6 @@ class _PaginaContactoWidgetState extends State<PaginaContactoWidget> {
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 0.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed(
-                                        PaginaInformacionWidget.routeName);
-                                  },
-                                  child: AnimatedContainer(
-                                    duration: Duration(milliseconds: 200),
-                                    curve: Curves.easeInOut,
-                                    width: double.infinity,
-                                    height: 44.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(12.0),
-                                      shape: BoxShape.rectangle,
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 0.0, 6.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Icon(
-                                            Icons.co_present,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            size: 24.0,
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 0.0, 0.0),
-                                            child: Text(
-                                              'Especialidades',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
                                 child: AnimatedContainer(
                                   duration: Duration(milliseconds: 200),
                                   curve: Curves.easeInOut,
@@ -269,17 +212,17 @@ class _PaginaContactoWidgetState extends State<PaginaContactoWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Icon(
-                                          Icons.connect_without_contact,
+                                          Icons.co_present,
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
-                                          size: 35.0,
+                                          size: 24.0,
                                         ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
                                           child: Text(
-                                            'Contactos',
+                                            'Especialidades',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -289,6 +232,62 @@ class _PaginaContactoWidgetState extends State<PaginaContactoWidget> {
                                           ),
                                         ),
                                       ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context
+                                        .pushNamed(ContactanosWidget.routeName);
+                                  },
+                                  child: AnimatedContainer(
+                                    duration: Duration(milliseconds: 200),
+                                    curve: Curves.easeInOut,
+                                    width: double.infinity,
+                                    height: 44.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      borderRadius: BorderRadius.circular(12.0),
+                                      shape: BoxShape.rectangle,
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          8.0, 0.0, 6.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Icon(
+                                            Icons.connect_without_contact,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            size: 35.0,
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'Contactos',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -505,59 +504,119 @@ class _PaginaContactoWidgetState extends State<PaginaContactoWidget> {
                             ),
                           ),
                         ),
-                        Container(
-                          width: double.infinity,
-                          height: 336.0,
-                          child: CarouselSlider(
-                            items: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset(
-                                  'assets/images/Logo-removebg-preview.png',
-                                  width: 222.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: Padding(
+                            padding: EdgeInsets.all(24.0),
+                            child: Container(
+                              width: 1307.0,
+                              height: 340.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: Container(
+                                width: double.infinity,
+                                height: 200.0,
+                                child: CarouselSlider(
+                                  items: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        'https://scontent.fsyq3-1.fna.fbcdn.net/v/t39.30808-6/467317745_1002415535237845_8312764431840220337_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=J7L7wuvJ8P8Q7kNvgE7H0zf&_nc_zt=23&_nc_ht=scontent.fsyq3-1.fna&_nc_gid=A-q3UVOVbxYv3Bj3RZ-ayqW&oh=00_AYB8rFe6Y5mQRD3ZDkT-C4UCUJ-TyFDnOLElXDFqzyDQiw&oe=674E742D',
+                                        width: 200.0,
+                                        height: 200.0,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        'https://scontent.fsyq3-1.fna.fbcdn.net/v/t39.30808-6/465966731_1000625672083498_8778253415032150396_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=7zdoQpbvBOgQ7kNvgGn7yFS&_nc_zt=23&_nc_ht=scontent.fsyq3-1.fna&_nc_gid=As1_2uy5wZfcjLLYKOB6_Xq&oh=00_AYAbrpjPiBNuYBj4PmKwyx4NkCUmMwsh_vIRFxzSs-C8_w&oe=674E56F7',
+                                        width: 200.0,
+                                        height: 200.0,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        'https://scontent.fsyq3-1.fna.fbcdn.net/v/t39.30808-6/466152903_999224155556983_2467503885462676703_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=zTFeR_jbLNcQ7kNvgGIdLVg&_nc_zt=23&_nc_ht=scontent.fsyq3-1.fna&_nc_gid=A2GqC1adNq9X05AFm_iyK5l&oh=00_AYDkCF-IuKfDnGO2ej9Apx69SFqnwq1HWQmWRIWEfRcqIg&oe=674E5E34',
+                                        width: 200.0,
+                                        height: 200.0,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.network(
+                                            'https://scontent.fsyq3-1.fna.fbcdn.net/v/t39.30808-6/468001702_1005919344887464_1225082956502478753_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=3q0T4PEVS2EQ7kNvgFL35ki&_nc_zt=23&_nc_ht=scontent.fsyq3-1.fna&_nc_gid=A0JkO-zkk2iVV9FZrrANlQu&oh=00_AYCcfMjT8nMz61WhUYr0yiXXJLipNLT5wjDYTID6P4ZCzQ&oe=674E733F',
+                                            width: 579.0,
+                                            height: 360.0,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.network(
+                                            'https://scontent.fsyq3-1.fna.fbcdn.net/v/t39.30808-6/467482891_1003378888474843_5409918293939058371_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=7djf77OrSggQ7kNvgFZoBZm&_nc_zt=23&_nc_ht=scontent.fsyq3-1.fna&_nc_gid=A-mHM9HbZrJ0updifB0eQQa&oh=00_AYAgINQdl1SaiPHl3C0h-6hbj6kMLLDxIX4f2RKqX0DBYw&oe=674E7A76',
+                                            width: 579.0,
+                                            height: 360.0,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.network(
+                                            'https://scontent.fsyq3-1.fna.fbcdn.net/v/t39.30808-6/467333086_1002415891904476_8289582606401798935_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=gxlBnJ8MYpwQ7kNvgF6wwp7&_nc_zt=23&_nc_ht=scontent.fsyq3-1.fna&_nc_gid=AXRT_U-0lzP6My8sQrWoouU&oh=00_AYC_PMZSG__ku4EKa6gLFs6Ku5qcl_YxY36fijowQjQ6BQ&oe=674E7462',
+                                            width: 579.0,
+                                            height: 360.0,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                  carouselController:
+                                      _model.carouselController ??=
+                                          CarouselSliderController(),
+                                  options: CarouselOptions(
+                                    initialPage: 1,
+                                    viewportFraction: 0.5,
+                                    disableCenter: true,
+                                    enlargeCenterPage: true,
+                                    enlargeFactor: 0.25,
+                                    enableInfiniteScroll: true,
+                                    scrollDirection: Axis.horizontal,
+                                    autoPlay: false,
+                                    onPageChanged: (index, _) =>
+                                        _model.carouselCurrentIndex = index,
+                                  ),
                                 ),
                               ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset(
-                                  'assets/images/468200984_1007851664694232_6338133903916590244_n.jpg',
-                                  width: 200.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset(
-                                  'assets/images/468001702_1005919344887464_1225082956502478753_n.jpg',
-                                  width: 200.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ],
-                            carouselController: _model.carouselController ??=
-                                CarouselSliderController(),
-                            options: CarouselOptions(
-                              initialPage: 1,
-                              viewportFraction: 0.5,
-                              disableCenter: true,
-                              enlargeCenterPage: true,
-                              enlargeFactor: 0.25,
-                              enableInfiniteScroll: true,
-                              scrollDirection: Axis.horizontal,
-                              autoPlay: false,
-                              onPageChanged: (index, _) =>
-                                  _model.carouselCurrentIndex = index,
                             ),
                           ),
                         ),
                         Padding(
                           padding: EdgeInsets.all(24.0),
                           child: Text(
-                            'Agenda citas ',
+                            'Servicios brindados ',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -572,7 +631,7 @@ class _PaginaContactoWidgetState extends State<PaginaContactoWidget> {
                         Padding(
                           padding: EdgeInsets.all(14.0),
                           child: Text(
-                            'Para agendar una cita o recibir más información, puedes comunicarte con nosotros a los teléfonos 8840-6363 y 8751-8374. ¡Estamos para atenderte!',
+                            'En el Centro Integral Santo Domingo ofrecemos una amplia gama de servicios médicos para cuidar de tu salud y bienestar. Contamos con Medicina General, Dermatología, Pediatría, Psicología, Nutrición, Radiología, Psiquiatría, Gastroenterología, Endocrinología, Psicopedagogía, Terapia de Voz y Lenguaje, Ginecología, Cirugía, Medicina Familiar y Comunitaria, Ortopedia, Otorrinolaringología, Urología, Neumología y atención especializada para el Adulto Mayor. Estamos aquí para brindarte el mejor cuidado integral en un solo lugar.',
                             textAlign: TextAlign.justify,
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -581,59 +640,6 @@ class _PaginaContactoWidgetState extends State<PaginaContactoWidget> {
                                   fontSize: 22.0,
                                   letterSpacing: 0.0,
                                 ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(24.0),
-                          child: Text(
-                            'Redes disponibles ',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  color: Color(0xFF0B7B82),
-                                  fontSize: 30.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                          ),
-                        ),
-                        Container(
-                          width: 1220.0,
-                          height: 304.0,
-                          constraints: BoxConstraints(
-                            maxHeight: 65.0,
-                          ),
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.network(
-                                    'https://static.vecteezy.com/system/resources/thumbnails/016/716/481/small/facebook-icon-free-png.png',
-                                    width: 71.4,
-                                    height: 70.8,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.network(
-                                    'https://1000marcas.net/wp-content/uploads/2019/11/Instagram-Logo-2016.png',
-                                    width: 72.8,
-                                    height: 71.25,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ],
-                            ),
                           ),
                         ),
                       ],

@@ -1,5 +1,4 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
 import 'configurar_alertas_inventario_widget.dart'
     show ConfigurarAlertasInventarioWidget;
 import 'package:flutter/material.dart';

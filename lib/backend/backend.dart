@@ -15,7 +15,8 @@ import 'schema/estado_record.dart';
 import 'schema/inventario_record.dart';
 import 'schema/empleado_record.dart';
 import 'schema/evaluacion_record.dart';
-import 'schema/ejemplo_record.dart';
+import 'schema/disponibilidad_record.dart';
+import 'schema/agenda_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -34,7 +35,8 @@ export 'schema/estado_record.dart';
 export 'schema/inventario_record.dart';
 export 'schema/empleado_record.dart';
 export 'schema/evaluacion_record.dart';
-export 'schema/ejemplo_record.dart';
+export 'schema/disponibilidad_record.dart';
+export 'schema/agenda_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -406,38 +408,75 @@ Future<List<EvaluacionRecord>> queryEvaluacionRecordOnce({
       singleRecord: singleRecord,
     );
 
-/// Functions to query EjemploRecords (as a Stream and as a Future).
-Future<int> queryEjemploRecordCount({
+/// Functions to query DisponibilidadRecords (as a Stream and as a Future).
+Future<int> queryDisponibilidadRecordCount({
   Query Function(Query)? queryBuilder,
   int limit = -1,
 }) =>
     queryCollectionCount(
-      EjemploRecord.collection,
+      DisponibilidadRecord.collection,
       queryBuilder: queryBuilder,
       limit: limit,
     );
 
-Stream<List<EjemploRecord>> queryEjemploRecord({
+Stream<List<DisponibilidadRecord>> queryDisponibilidadRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      EjemploRecord.collection,
-      EjemploRecord.fromSnapshot,
+      DisponibilidadRecord.collection,
+      DisponibilidadRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<EjemploRecord>> queryEjemploRecordOnce({
+Future<List<DisponibilidadRecord>> queryDisponibilidadRecordOnce({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      EjemploRecord.collection,
-      EjemploRecord.fromSnapshot,
+      DisponibilidadRecord.collection,
+      DisponibilidadRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query AgendaRecords (as a Stream and as a Future).
+Future<int> queryAgendaRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      AgendaRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<AgendaRecord>> queryAgendaRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      AgendaRecord.collection,
+      AgendaRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<AgendaRecord>> queryAgendaRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      AgendaRecord.collection,
+      AgendaRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'vista_nota_medico_widget.dart' show VistaNotaMedicoWidget;
+import 'vista_cita_admin_widget.dart' show VistaCitaAdminWidget;
 import 'package:flutter/material.dart';
 
-class VistaNotaMedicoModel extends FlutterFlowModel<VistaNotaMedicoWidget> {
+class VistaCitaAdminModel extends FlutterFlowModel<VistaCitaAdminWidget> {
   @override
   void initState(BuildContext context) {}
 

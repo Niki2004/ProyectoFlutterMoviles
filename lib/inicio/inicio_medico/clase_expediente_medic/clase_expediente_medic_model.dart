@@ -1,9 +1,10 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'vista_calendario_widget.dart' show VistaCalendarioWidget;
+import 'clase_expediente_medic_widget.dart' show ClaseExpedienteMedicWidget;
 import 'package:flutter/material.dart';
 
-class VistaCalendarioModel extends FlutterFlowModel<VistaCalendarioWidget> {
+class ClaseExpedienteMedicModel
+    extends FlutterFlowModel<ClaseExpedienteMedicWidget> {
   @override
   void initState(BuildContext context) {}
 

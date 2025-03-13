@@ -196,8 +196,12 @@ class _VistaCancelarWidgetState extends State<VistaCancelarWidget> {
                                                                   .start,
                                                           children: [
                                                             Text(
-                                                              columnCitaRecord
-                                                                  .nombre,
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                columnCitaRecord
+                                                                    .nombre,
+                                                                'Sin nombre',
+                                                              ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .headlineSmall
@@ -212,8 +216,12 @@ class _VistaCancelarWidgetState extends State<VistaCancelarWidget> {
                                                                   ),
                                                             ),
                                                             Text(
-                                                              columnCitaRecord
-                                                                  .contactoEmergencia,
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                columnCitaRecord
+                                                                    .contactoEmergencia,
+                                                                'Sin contacto',
+                                                              ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -315,10 +323,14 @@ class _VistaCancelarWidgetState extends State<VistaCancelarWidget> {
                                                                         8.0,
                                                                         12.0),
                                                             child: Text(
-                                                              dateTimeFormat(
-                                                                  "jm",
-                                                                  columnCitaRecord
-                                                                      .horaCita!),
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                dateTimeFormat(
+                                                                    "jm",
+                                                                    columnCitaRecord
+                                                                        .horaCita),
+                                                                'Sin hora',
+                                                              ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -335,10 +347,14 @@ class _VistaCancelarWidgetState extends State<VistaCancelarWidget> {
                                                           ),
                                                         ),
                                                         Text(
-                                                          dateTimeFormat(
-                                                              "d/M/y",
-                                                              columnCitaRecord
-                                                                  .fechaCita!),
+                                                          valueOrDefault<
+                                                              String>(
+                                                            dateTimeFormat(
+                                                                "d/M/y",
+                                                                columnCitaRecord
+                                                                    .fechaCita),
+                                                            'Sin día',
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium

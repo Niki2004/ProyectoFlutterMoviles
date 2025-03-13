@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'clase_principal_admin_widget.dart' show ClasePrincipalAdminWidget;
+import '/index.dart';
+import 'clase_empleado_widget.dart' show ClaseEmpleadoWidget;
 import 'package:flutter/material.dart';
 
-class ClasePrincipalAdminModel
-    extends FlutterFlowModel<ClasePrincipalAdminWidget> {
+class ClaseEmpleadoModel extends FlutterFlowModel<ClaseEmpleadoWidget> {
   @override
   void initState(BuildContext context) {}
 

@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'vista_admin_inve_widget.dart' show VistaAdminInveWidget;
+import 'vista_cita_medico_widget.dart' show VistaCitaMedicoWidget;
 import 'package:flutter/material.dart';
 
-class VistaAdminInveModel extends FlutterFlowModel<VistaAdminInveWidget> {
+class VistaCitaMedicoModel extends FlutterFlowModel<VistaCitaMedicoWidget> {
   @override
   void initState(BuildContext context) {}
 

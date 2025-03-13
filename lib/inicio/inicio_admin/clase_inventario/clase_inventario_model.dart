@@ -1,8 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'filtros_inventario_widget.dart' show FiltrosInventarioWidget;
+import '/index.dart';
+import 'clase_inventario_widget.dart' show ClaseInventarioWidget;
 import 'package:flutter/material.dart';
 
-class FiltrosInventarioModel extends FlutterFlowModel<FiltrosInventarioWidget> {
+class ClaseInventarioModel extends FlutterFlowModel<ClaseInventarioWidget> {
   @override
   void initState(BuildContext context) {}
 

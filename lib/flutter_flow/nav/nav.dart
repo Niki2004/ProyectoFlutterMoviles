@@ -100,16 +100,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => PerfilWidget(),
         ),
         FFRoute(
-          name: PaginaContactoWidget.routeName,
-          path: PaginaContactoWidget.routePath,
-          builder: (context, params) => PaginaContactoWidget(),
-        ),
-        FFRoute(
-          name: PaginaInformacionWidget.routeName,
-          path: PaginaInformacionWidget.routePath,
-          builder: (context, params) => PaginaInformacionWidget(),
-        ),
-        FFRoute(
           name: RegistrarWidget.routeName,
           path: RegistrarWidget.routePath,
           builder: (context, params) => RegistrarWidget(),
@@ -128,11 +118,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: VistaCancelarWidget.routeName,
           path: VistaCancelarWidget.routePath,
           builder: (context, params) => VistaCancelarWidget(),
-        ),
-        FFRoute(
-          name: VistaNotaMedicoWidget.routeName,
-          path: VistaNotaMedicoWidget.routePath,
-          builder: (context, params) => VistaNotaMedicoWidget(),
         ),
         FFRoute(
           name: CrearEmpleadoWidget.routeName,
@@ -175,9 +160,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => VistaHistorialEmpleadoWidget(),
         ),
         FFRoute(
-          name: ClasePrincipalAdminWidget.routeName,
-          path: ClasePrincipalAdminWidget.routePath,
-          builder: (context, params) => ClasePrincipalAdminWidget(),
+          name: ClaseEmpleadoWidget.routeName,
+          path: ClaseEmpleadoWidget.routePath,
+          builder: (context, params) => ClaseEmpleadoWidget(),
         ),
         FFRoute(
           name: CrearInventarioWidget.routeName,
@@ -218,11 +203,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: EliminarInventarioSeguroWidget.routeName,
           path: EliminarInventarioSeguroWidget.routePath,
           builder: (context, params) => EliminarInventarioSeguroWidget(),
-        ),
-        FFRoute(
-          name: VistaAdminInveWidget.routeName,
-          path: VistaAdminInveWidget.routePath,
-          builder: (context, params) => VistaAdminInveWidget(),
         ),
         FFRoute(
           name: EliminadoCorrectoInventarioWidget.routeName,
@@ -318,6 +298,63 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: CrearNotaMedicoWidget.routeName,
           path: CrearNotaMedicoWidget.routePath,
           builder: (context, params) => CrearNotaMedicoWidget(),
+        ),
+        FFRoute(
+          name: EspecialidadWidget.routeName,
+          path: EspecialidadWidget.routePath,
+          builder: (context, params) => EspecialidadWidget(),
+        ),
+        FFRoute(
+          name: ContactanosWidget.routeName,
+          path: ContactanosWidget.routePath,
+          builder: (context, params) => ContactanosWidget(),
+        ),
+        FFRoute(
+          name: ClaseInventarioWidget.routeName,
+          path: ClaseInventarioWidget.routePath,
+          builder: (context, params) => ClaseInventarioWidget(),
+        ),
+        FFRoute(
+          name: ClaseExpedienteWidget.routeName,
+          path: ClaseExpedienteWidget.routePath,
+          builder: (context, params) => ClaseExpedienteWidget(),
+        ),
+        FFRoute(
+          name: ClaseExpedienteMedicWidget.routeName,
+          path: ClaseExpedienteMedicWidget.routePath,
+          builder: (context, params) => ClaseExpedienteMedicWidget(),
+        ),
+        FFRoute(
+          name: AgendarWidget.routeName,
+          path: AgendarWidget.routePath,
+          builder: (context, params) => AgendarWidget(),
+        ),
+        FFRoute(
+          name: AgendarFechaWidget.routeName,
+          path: AgendarFechaWidget.routePath,
+          builder: (context, params) => AgendarFechaWidget(
+            referenciadeMedico: params.getParam(
+              'referenciadeMedico',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: VistaNotasWidget.routeName,
+          path: VistaNotasWidget.routePath,
+          builder: (context, params) => VistaNotasWidget(),
+        ),
+        FFRoute(
+          name: VistaCitaMedicoWidget.routeName,
+          path: VistaCitaMedicoWidget.routePath,
+          builder: (context, params) => VistaCitaMedicoWidget(),
+        ),
+        FFRoute(
+          name: VistaCitaAdminWidget.routeName,
+          path: VistaCitaAdminWidget.routePath,
+          builder: (context, params) => VistaCitaAdminWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

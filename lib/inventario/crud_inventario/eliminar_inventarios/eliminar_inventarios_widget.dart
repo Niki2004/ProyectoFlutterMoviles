@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/index.dart';
 import 'package:flutter/material.dart';
 import 'eliminar_inventarios_model.dart';
 export 'eliminar_inventarios_model.dart';
@@ -72,8 +71,8 @@ class _EliminarInventariosWidgetState extends State<EliminarInventariosWidget> {
               color: FlutterFlowTheme.of(context).primaryText,
               size: 30.0,
             ),
-            onPressed: () async {
-              context.pushNamed(VistaAdminInveWidget.routeName);
+            onPressed: () {
+              print('IconButton pressed ...');
             },
           ),
           title: Text(
@@ -547,8 +546,8 @@ class _EliminarInventariosWidgetState extends State<EliminarInventariosWidget> {
                     ),
                   ),
                   FFButtonWidget(
-                    onPressed: () async {
-                      context.pushNamed(VistaAdminInveWidget.routeName);
+                    onPressed: () {
+                      print('Button pressed ...');
                     },
                     text: 'Eliminar al Inventario',
                     options: FFButtonOptions(

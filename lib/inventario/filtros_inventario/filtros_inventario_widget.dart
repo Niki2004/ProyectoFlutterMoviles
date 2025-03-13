@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
 import 'package:flutter/material.dart';
 import 'filtros_inventario_model.dart';
 export 'filtros_inventario_model.dart';
@@ -56,8 +55,8 @@ class _FiltrosInventarioWidgetState extends State<FiltrosInventarioWidget> {
               color: FlutterFlowTheme.of(context).primaryText,
               size: 24.0,
             ),
-            onPressed: () async {
-              context.pushNamed(VistaAdminInveWidget.routeName);
+            onPressed: () {
+              print('IconButton pressed ...');
             },
           ),
           title: Text(

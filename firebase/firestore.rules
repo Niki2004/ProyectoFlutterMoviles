@@ -71,7 +71,14 @@ service cloud.firestore {
       allow delete: if false;
     }
 
-    match /Ejemplo/{document} {
+    match /Disponibilidad/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /Agenda/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if true;

@@ -1,5 +1,4 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
 import 'gestion_estado_inventario_widget.dart'
     show GestionEstadoInventarioWidget;
 import 'package:flutter/material.dart';

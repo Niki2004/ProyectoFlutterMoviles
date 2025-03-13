@@ -15,16 +15,6 @@ class MedicoRecord extends FirestoreRecord {
     _initializeFields();
   }
 
-  // "Nombre" field.
-  String? _nombre;
-  String get nombre => _nombre ?? '';
-  bool hasNombre() => _nombre != null;
-
-  // "Apellido" field.
-  String? _apellido;
-  String get apellido => _apellido ?? '';
-  bool hasApellido() => _apellido != null;
-
   // "Especialidad" field.
   String? _especialidad;
   String get especialidad => _especialidad ?? '';
@@ -40,12 +30,22 @@ class MedicoRecord extends FirestoreRecord {
   DateTime? get horarioFinal => _horarioFinal;
   bool hasHorarioFinal() => _horarioFinal != null;
 
+  // "NombreCompleto" field.
+  String? _nombreCompleto;
+  String get nombreCompleto => _nombreCompleto ?? '';
+  bool hasNombreCompleto() => _nombreCompleto != null;
+
+  // "Imagen" field.
+  String? _imagen;
+  String get imagen => _imagen ?? '';
+  bool hasImagen() => _imagen != null;
+
   void _initializeFields() {
-    _nombre = snapshotData['Nombre'] as String?;
-    _apellido = snapshotData['Apellido'] as String?;
     _especialidad = snapshotData['Especialidad'] as String?;
     _horarioInicio = snapshotData['Horario_Inicio'] as DateTime?;
     _horarioFinal = snapshotData['Horario_Final'] as DateTime?;
+    _nombreCompleto = snapshotData['NombreCompleto'] as String?;
+    _imagen = snapshotData['Imagen'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -82,19 +82,19 @@ class MedicoRecord extends FirestoreRecord {
 }
 
 Map<String, dynamic> createMedicoRecordData({
-  String? nombre,
-  String? apellido,
   String? especialidad,
   DateTime? horarioInicio,
   DateTime? horarioFinal,
+  String? nombreCompleto,
+  String? imagen,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
-      'Nombre': nombre,
-      'Apellido': apellido,
       'Especialidad': especialidad,
       'Horario_Inicio': horarioInicio,
       'Horario_Final': horarioFinal,
+      'NombreCompleto': nombreCompleto,
+      'Imagen': imagen,
     }.withoutNulls,
   );
 
@@ -106,20 +106,20 @@ class MedicoRecordDocumentEquality implements Equality<MedicoRecord> {
 
   @override
   bool equals(MedicoRecord? e1, MedicoRecord? e2) {
-    return e1?.nombre == e2?.nombre &&
-        e1?.apellido == e2?.apellido &&
-        e1?.especialidad == e2?.especialidad &&
+    return e1?.especialidad == e2?.especialidad &&
         e1?.horarioInicio == e2?.horarioInicio &&
-        e1?.horarioFinal == e2?.horarioFinal;
+        e1?.horarioFinal == e2?.horarioFinal &&
+        e1?.nombreCompleto == e2?.nombreCompleto &&
+        e1?.imagen == e2?.imagen;
   }
 
   @override
   int hash(MedicoRecord? e) => const ListEquality().hash([
-        e?.nombre,
-        e?.apellido,
         e?.especialidad,
         e?.horarioInicio,
-        e?.horarioFinal
+        e?.horarioFinal,
+        e?.nombreCompleto,
+        e?.imagen
       ]);
 
   @override

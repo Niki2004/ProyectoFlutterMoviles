@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'modificar_nota_medico_model.dart';
 export 'modificar_nota_medico_model.dart';
@@ -414,8 +415,8 @@ class _ModificarNotaMedicoWidgetState extends State<ModificarNotaMedicoWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 24.0, 0.0, 0.0),
                           child: FFButtonWidget(
-                            onPressed: () {
-                              print('btnCancelar pressed ...');
+                            onPressed: () async {
+                              context.pushNamed(VistaNotasWidget.routeName);
                             },
                             text: 'Regresar',
                             icon: Icon(

@@ -1,32 +1,31 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'vista_cita_model.dart';
-export 'vista_cita_model.dart';
+import 'vista_cita_medico_model.dart';
+export 'vista_cita_medico_model.dart';
 
-class VistaCitaWidget extends StatefulWidget {
-  const VistaCitaWidget({super.key});
+class VistaCitaMedicoWidget extends StatefulWidget {
+  const VistaCitaMedicoWidget({super.key});
 
-  static String routeName = 'VistaCita';
-  static String routePath = '/vistaCita';
+  static String routeName = 'VistaCitaMedico';
+  static String routePath = '/vistaCitaMedico';
 
   @override
-  State<VistaCitaWidget> createState() => _VistaCitaWidgetState();
+  State<VistaCitaMedicoWidget> createState() => _VistaCitaMedicoWidgetState();
 }
 
-class _VistaCitaWidgetState extends State<VistaCitaWidget> {
-  late VistaCitaModel _model;
+class _VistaCitaMedicoWidgetState extends State<VistaCitaMedicoWidget> {
+  late VistaCitaMedicoModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => VistaCitaModel());
+    _model = createModel(context, () => VistaCitaMedicoModel());
   }
 
   @override
@@ -98,12 +97,7 @@ class _VistaCitaWidgetState extends State<VistaCitaWidget> {
                           child: Padding(
                             padding: EdgeInsets.all(16.0),
                             child: StreamBuilder<List<CitaRecord>>(
-                              stream: queryCitaRecord(
-                                queryBuilder: (citaRecord) => citaRecord.where(
-                                  'ReferenceUsers',
-                                  isEqualTo: currentUserReference,
-                                ),
-                              ),
+                              stream: queryCitaRecord(),
                               builder: (context, snapshot) {
                                 // Customize what your widget looks like when it's loading.
                                 if (!snapshot.hasData) {

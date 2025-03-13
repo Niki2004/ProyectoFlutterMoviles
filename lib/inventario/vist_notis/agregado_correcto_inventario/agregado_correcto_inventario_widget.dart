@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
 import 'package:flutter/material.dart';
 import 'agregado_correcto_inventario_model.dart';
 export 'agregado_correcto_inventario_model.dart';
@@ -59,8 +58,8 @@ class _AgregadoCorrectoInventarioWidgetState
               color: FlutterFlowTheme.of(context).primaryText,
               size: 30.0,
             ),
-            onPressed: () async {
-              context.pushNamed(VistaAdminInveWidget.routeName);
+            onPressed: () {
+              print('IconButton pressed ...');
             },
           ),
           title: Text(

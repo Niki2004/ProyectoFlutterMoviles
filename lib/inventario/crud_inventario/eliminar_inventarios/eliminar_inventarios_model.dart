@@ -1,6 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/index.dart';
 import 'eliminar_inventarios_widget.dart' show EliminarInventariosWidget;
 import 'package:flutter/material.dart';
 

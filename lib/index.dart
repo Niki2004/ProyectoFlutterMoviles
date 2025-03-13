@@ -3,10 +3,6 @@ export '/login/login/login_widget.dart' show LoginWidget;
 export '/inicio/inicio_cliente/clase_principal/clase_principal_widget.dart'
     show ClasePrincipalWidget;
 export '/perfil/perfil/perfil_widget.dart' show PerfilWidget;
-export '/inicio/inicio_cliente/pagina_contacto/pagina_contacto_widget.dart'
-    show PaginaContactoWidget;
-export '/inicio/inicio_cliente/pagina_informacion/pagina_informacion_widget.dart'
-    show PaginaInformacionWidget;
 export '/login/registrar/registrar_widget.dart' show RegistrarWidget;
 export '/citas/visual_citas/vista_calendario/vista_calendario_widget.dart'
     show VistaCalendarioWidget;
@@ -14,8 +10,6 @@ export '/citas/visual_citas/vista_modificar/vista_modificar_widget.dart'
     show VistaModificarWidget;
 export '/citas/visual_citas/vista_cancelar/vista_cancelar_widget.dart'
     show VistaCancelarWidget;
-export '/citas/visual_nota_medico/vista_nota_medico/vista_nota_medico_widget.dart'
-    show VistaNotaMedicoWidget;
 export '/empleados/crud_empleado/crear_empleado/crear_empleado_widget.dart'
     show CrearEmpleadoWidget;
 export '/empleados/crud_empleado/modificar_empleado/modificar_empleado_widget.dart'
@@ -32,8 +26,8 @@ export '/empleados/visual_evaluacion/vista_evaluacion/vista_evaluacion_widget.da
     show VistaEvaluacionWidget;
 export '/empleados/visual_empleados/vista_historial_empleado/vista_historial_empleado_widget.dart'
     show VistaHistorialEmpleadoWidget;
-export '/inicio/inicio_admin/clase_principal_admin/clase_principal_admin_widget.dart'
-    show ClasePrincipalAdminWidget;
+export '/inicio/inicio_admin/clase_empleado/clase_empleado_widget.dart'
+    show ClaseEmpleadoWidget;
 export '/inventario/crud_inventario/crear_inventario/crear_inventario_widget.dart'
     show CrearInventarioWidget;
 export '/inventario/crud_vista/vista_invetario/vista_invetario_widget.dart'
@@ -50,8 +44,6 @@ export '/inventario/crud_inventario/eliminar_inventarios/eliminar_inventarios_wi
     show EliminarInventariosWidget;
 export '/inventario/crud_inventario/eliminar_inventario_seguro/eliminar_inventario_seguro_widget.dart'
     show EliminarInventarioSeguroWidget;
-export '/inventario/visual_admin_inve/vista_admin_inve/vista_admin_inve_widget.dart'
-    show VistaAdminInveWidget;
 export '/inventario/vist_notis/eliminado_correcto_inventario/eliminado_correcto_inventario_widget.dart'
     show EliminadoCorrectoInventarioWidget;
 export '/inventario/filtros_inventario/filtros_inventario_widget.dart'
@@ -72,3 +64,22 @@ export '/citas/crud_notas_medico/modificar_nota_medico/modificar_nota_medico_wid
     show ModificarNotaMedicoWidget;
 export '/citas/crud_notas_medico/crear_nota_medico/crear_nota_medico_widget.dart'
     show CrearNotaMedicoWidget;
+export '/inicio/inicio_cliente/especialidad/especialidad_widget.dart'
+    show EspecialidadWidget;
+export '/inicio/inicio_cliente/contactanos/contactanos_widget.dart'
+    show ContactanosWidget;
+export '/inicio/inicio_admin/clase_inventario/clase_inventario_widget.dart'
+    show ClaseInventarioWidget;
+export '/inicio/inicio_admin/clase_expediente/clase_expediente_widget.dart'
+    show ClaseExpedienteWidget;
+export '/inicio/inicio_medico/clase_expediente_medic/clase_expediente_medic_widget.dart'
+    show ClaseExpedienteMedicWidget;
+export '/citas/crud_citas/agendar/agendar_widget.dart' show AgendarWidget;
+export '/citas/crud_citas/agendar_fecha/agendar_fecha_widget.dart'
+    show AgendarFechaWidget;
+export '/citas/visual_nota_medico/vista_notas/vista_notas_widget.dart'
+    show VistaNotasWidget;
+export '/citas/visual_citas/vista_cita_medico/vista_cita_medico_widget.dart'
+    show VistaCitaMedicoWidget;
+export '/citas/visual_citas/vista_cita_admin/vista_cita_admin_widget.dart'
+    show VistaCitaAdminWidget;
