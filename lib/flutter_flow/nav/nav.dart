@@ -253,11 +253,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             ),
             fechaParametro: params.getParam(
               'fechaParametro',
-              ParamType.DateTime,
+              ParamType.String,
             ),
             horaParametro: params.getParam(
               'horaParametro',
-              ParamType.DateTime,
+              ParamType.String,
             ),
             asistenciaParametro: params.getParam(
               'asistenciaParametro',
@@ -292,7 +292,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: ModificarNotaMedicoWidget.routeName,
           path: ModificarNotaMedicoWidget.routePath,
-          builder: (context, params) => ModificarNotaMedicoWidget(),
+          builder: (context, params) => ModificarNotaMedicoWidget(
+            notaParametro: params.getParam(
+              'notaParametro',
+              ParamType.String,
+            ),
+            comentarioParametro: params.getParam(
+              'comentarioParametro',
+              ParamType.String,
+            ),
+            fechaParametro: params.getParam(
+              'fechaParametro',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: CrearNotaMedicoWidget.routeName,
@@ -323,23 +336,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: ClaseExpedienteMedicWidget.routeName,
           path: ClaseExpedienteMedicWidget.routePath,
           builder: (context, params) => ClaseExpedienteMedicWidget(),
-        ),
-        FFRoute(
-          name: AgendarWidget.routeName,
-          path: AgendarWidget.routePath,
-          builder: (context, params) => AgendarWidget(),
-        ),
-        FFRoute(
-          name: AgendarFechaWidget.routeName,
-          path: AgendarFechaWidget.routePath,
-          builder: (context, params) => AgendarFechaWidget(
-            referenciadeMedico: params.getParam(
-              'referenciadeMedico',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['users'],
-            ),
-          ),
         ),
         FFRoute(
           name: VistaNotasWidget.routeName,

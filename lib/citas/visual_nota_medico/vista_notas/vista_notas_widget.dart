@@ -153,9 +153,8 @@ class _VistaNotasWidgetState extends State<VistaNotasWidget> {
                               ),
                             ),
                             FFButtonWidget(
-                              onPressed: () async {
-                                context.pushNamed(
-                                    ModificarNotaMedicoWidget.routeName);
+                              onPressed: () {
+                                print('Button pressed ...');
                               },
                               text: 'Modificar',
                               icon: Icon(
@@ -263,8 +262,7 @@ class _VistaNotasWidgetState extends State<VistaNotasWidget> {
                                       ),
                                       Text(
                                         valueOrDefault<String>(
-                                          dateTimeFormat("d/M/y",
-                                              listViewNotaMedicoRecord.fecha),
+                                          listViewNotaMedicoRecord.fecha,
                                           'Sin fecha',
                                         ),
                                         style: FlutterFlowTheme.of(context)

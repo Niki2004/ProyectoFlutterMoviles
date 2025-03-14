@@ -246,10 +246,8 @@ class _VistaCitaMedicoWidgetState extends State<VistaCitaMedicoWidget> {
                                                             child: Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                dateTimeFormat(
-                                                                    "jm",
-                                                                    columnCitaRecord
-                                                                        .horaCita),
+                                                                columnCitaRecord
+                                                                    .horaCita,
                                                                 'Sin hora',
                                                               ),
                                                               style: FlutterFlowTheme
@@ -270,10 +268,8 @@ class _VistaCitaMedicoWidgetState extends State<VistaCitaMedicoWidget> {
                                                         Text(
                                                           valueOrDefault<
                                                               String>(
-                                                            dateTimeFormat(
-                                                                "d/M/y",
-                                                                columnCitaRecord
-                                                                    .fechaCita),
+                                                            columnCitaRecord
+                                                                .fechaCita,
                                                             'Sin día',
                                                           ),
                                                           style: FlutterFlowTheme

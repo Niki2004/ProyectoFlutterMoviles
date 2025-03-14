@@ -26,14 +26,14 @@ class NotaMedicoRecord extends FirestoreRecord {
   bool hasComentarioAdicional() => _comentarioAdicional != null;
 
   // "Fecha" field.
-  DateTime? _fecha;
-  DateTime? get fecha => _fecha;
+  String? _fecha;
+  String get fecha => _fecha ?? '';
   bool hasFecha() => _fecha != null;
 
   void _initializeFields() {
     _notaMedico = snapshotData['Nota_medico'] as String?;
     _comentarioAdicional = snapshotData['Comentario_Adicional'] as String?;
-    _fecha = snapshotData['Fecha'] as DateTime?;
+    _fecha = snapshotData['Fecha'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -73,7 +73,7 @@ class NotaMedicoRecord extends FirestoreRecord {
 Map<String, dynamic> createNotaMedicoRecordData({
   String? notaMedico,
   String? comentarioAdicional,
-  DateTime? fecha,
+  String? fecha,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{

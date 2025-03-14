@@ -46,75 +46,69 @@ class _CrearNotaMedicoWidgetState extends State<CrearNotaMedicoWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-        FocusManager.instance.primaryFocus?.unfocus();
-      },
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: PreferredSize(
-          preferredSize:
-              Size.fromHeight(MediaQuery.sizeOf(context).height * 0.1),
-          child: AppBar(
-            backgroundColor: Color(0xFF3BB4BC),
-            automaticallyImplyLeading: false,
-            title: Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
-              child: Text(
-                'Creación de notas medicas',
-                style: FlutterFlowTheme.of(context).headlineSmall.override(
-                      fontFamily: 'Inter Tight',
-                      color: FlutterFlowTheme.of(context).primaryBackground,
-                      fontSize: 35.0,
-                      letterSpacing: 0.0,
-                      fontWeight: FontWeight.w600,
-                    ),
+    return StreamBuilder<List<NotaMedicoRecord>>(
+      stream: queryNotaMedicoRecord(),
+      builder: (context, snapshot) {
+        // Customize what your widget looks like when it's loading.
+        if (!snapshot.hasData) {
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    FlutterFlowTheme.of(context).primary,
+                  ),
+                ),
               ),
             ),
-            actions: [],
-            centerTitle: true,
-            elevation: 0.0,
-          ),
-        ),
-        body: SafeArea(
-          top: true,
-          child: Align(
-            alignment: AlignmentDirectional(0.0, 0.0),
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 24.0),
-              child: StreamBuilder<List<NotaMedicoRecord>>(
-                stream: queryNotaMedicoRecord(
-                  singleRecord: true,
-                ),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: SizedBox(
-                        width: 50.0,
-                        height: 50.0,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            FlutterFlowTheme.of(context).primary,
-                          ),
-                        ),
-                      ),
-                    );
-                  }
-                  List<NotaMedicoRecord> columnNotaMedicoRecordList =
-                      snapshot.data!;
-                  // Return an empty Container when the item does not exist.
-                  if (snapshot.data!.isEmpty) {
-                    return Container();
-                  }
-                  final columnNotaMedicoRecord =
-                      columnNotaMedicoRecordList.isNotEmpty
-                          ? columnNotaMedicoRecordList.first
-                          : null;
+          );
+        }
+        List<NotaMedicoRecord> crearNotaMedicoNotaMedicoRecordList =
+            snapshot.data!;
 
-                  return SingleChildScrollView(
+        return GestureDetector(
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
+          child: Scaffold(
+            key: scaffoldKey,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            appBar: PreferredSize(
+              preferredSize:
+                  Size.fromHeight(MediaQuery.sizeOf(context).height * 0.1),
+              child: AppBar(
+                backgroundColor: Color(0xFF3BB4BC),
+                automaticallyImplyLeading: false,
+                title: Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Text(
+                    'Creación de notas medicas',
+                    style: FlutterFlowTheme.of(context).headlineSmall.override(
+                          fontFamily: 'Inter Tight',
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          fontSize: 35.0,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.w600,
+                        ),
+                  ),
+                ),
+                actions: [],
+                centerTitle: true,
+                elevation: 0.0,
+              ),
+            ),
+            body: SafeArea(
+              top: true,
+              child: Align(
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 24.0),
+                  child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -163,8 +157,7 @@ class _CrearNotaMedicoWidgetState extends State<CrearNotaMedicoWidget> {
                                       textInputAction: TextInputAction.next,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        labelText:
-                                            columnNotaMedicoRecord?.notaMedico,
+                                        labelText: 'Nota medica',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -232,8 +225,7 @@ class _CrearNotaMedicoWidgetState extends State<CrearNotaMedicoWidget> {
                                       textInputAction: TextInputAction.next,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        labelText: columnNotaMedicoRecord
-                                            ?.comentarioAdicional,
+                                        labelText: 'Comentario',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -360,15 +352,91 @@ class _CrearNotaMedicoWidgetState extends State<CrearNotaMedicoWidget> {
                                                     _model.textController3,
                                                 focusNode:
                                                     _model.textFieldFocusNode3,
+                                                onFieldSubmitted: (_) async {
+                                                  final _datePickedDate =
+                                                      await showDatePicker(
+                                                    context: context,
+                                                    initialDate:
+                                                        getCurrentTimestamp,
+                                                    firstDate:
+                                                        getCurrentTimestamp,
+                                                    lastDate: DateTime(2050),
+                                                    builder: (context, child) {
+                                                      return wrapInMaterialDatePickerTheme(
+                                                        context,
+                                                        child!,
+                                                        headerBackgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        headerForegroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .info,
+                                                        headerTextStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineLarge
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter Tight',
+                                                                  fontSize:
+                                                                      32.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                        pickerBackgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryBackground,
+                                                        pickerForegroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        selectedDateTimeBackgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        selectedDateTimeForegroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .info,
+                                                        actionButtonForegroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        iconSize: 24.0,
+                                                      );
+                                                    },
+                                                  );
+
+                                                  if (_datePickedDate != null) {
+                                                    safeSetState(() {
+                                                      _model.datePicked =
+                                                          DateTime(
+                                                        _datePickedDate.year,
+                                                        _datePickedDate.month,
+                                                        _datePickedDate.day,
+                                                      );
+                                                    });
+                                                  } else if (_model
+                                                          .datePicked !=
+                                                      null) {
+                                                    safeSetState(() {
+                                                      _model.datePicked =
+                                                          getCurrentTimestamp;
+                                                    });
+                                                  }
+                                                },
                                                 autofocus: false,
                                                 textInputAction:
                                                     TextInputAction.next,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
-                                                  hintText: dateTimeFormat(
-                                                      "d/M/y",
-                                                      columnNotaMedicoRecord
-                                                          ?.fecha),
+                                                  hintText: 'DD/MM/AAAA',
                                                   hintStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -526,6 +594,15 @@ class _CrearNotaMedicoWidgetState extends State<CrearNotaMedicoWidget> {
                                   );
 
                                   context.pushNamed(VistaNotasWidget.routeName);
+
+                                  await NotaMedicoRecord.collection
+                                      .doc()
+                                      .set(createNotaMedicoRecordData(
+                                        comentarioAdicional:
+                                            _model.textController2.text,
+                                        notaMedico: _model.textController1.text,
+                                        fecha: _model.textController3.text,
+                                      ));
                                 },
                                 text: 'Agendar Cita',
                                 options: FFButtonOptions(
@@ -552,13 +629,13 @@ class _CrearNotaMedicoWidgetState extends State<CrearNotaMedicoWidget> {
                         ),
                       ],
                     ),
-                  );
-                },
+                  ),
+                ),
               ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

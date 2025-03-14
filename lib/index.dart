@@ -74,9 +74,6 @@ export '/inicio/inicio_admin/clase_expediente/clase_expediente_widget.dart'
     show ClaseExpedienteWidget;
 export '/inicio/inicio_medico/clase_expediente_medic/clase_expediente_medic_widget.dart'
     show ClaseExpedienteMedicWidget;
-export '/citas/crud_citas/agendar/agendar_widget.dart' show AgendarWidget;
-export '/citas/crud_citas/agendar_fecha/agendar_fecha_widget.dart'
-    show AgendarFechaWidget;
 export '/citas/visual_nota_medico/vista_notas/vista_notas_widget.dart'
     show VistaNotasWidget;
 export '/citas/visual_citas/vista_cita_medico/vista_cita_medico_widget.dart'

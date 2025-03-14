@@ -204,8 +204,8 @@ class _VistaCitaWidgetState extends State<VistaCitaWidget> {
                                                               valueOrDefault<
                                                                   String>(
                                                                 columnCitaRecord
-                                                                    .contactoEmergencia,
-                                                                'sin contacto',
+                                                                    .sintomas,
+                                                                'Sin sintomas',
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -252,10 +252,8 @@ class _VistaCitaWidgetState extends State<VistaCitaWidget> {
                                                             child: Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                dateTimeFormat(
-                                                                    "jm",
-                                                                    columnCitaRecord
-                                                                        .horaCita),
+                                                                columnCitaRecord
+                                                                    .horaCita,
                                                                 'Sin hora',
                                                               ),
                                                               style: FlutterFlowTheme
@@ -276,10 +274,8 @@ class _VistaCitaWidgetState extends State<VistaCitaWidget> {
                                                         Text(
                                                           valueOrDefault<
                                                               String>(
-                                                            dateTimeFormat(
-                                                                "d/M/y",
-                                                                columnCitaRecord
-                                                                    .fechaCita),
+                                                            columnCitaRecord
+                                                                .fechaCita,
                                                             'Sin día',
                                                           ),
                                                           style: FlutterFlowTheme

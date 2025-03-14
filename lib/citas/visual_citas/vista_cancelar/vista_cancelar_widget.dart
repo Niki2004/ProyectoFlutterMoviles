@@ -325,10 +325,8 @@ class _VistaCancelarWidgetState extends State<VistaCancelarWidget> {
                                                             child: Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                dateTimeFormat(
-                                                                    "jm",
-                                                                    columnCitaRecord
-                                                                        .horaCita),
+                                                                columnCitaRecord
+                                                                    .horaCita,
                                                                 'Sin hora',
                                                               ),
                                                               style: FlutterFlowTheme
@@ -349,10 +347,8 @@ class _VistaCancelarWidgetState extends State<VistaCancelarWidget> {
                                                         Text(
                                                           valueOrDefault<
                                                               String>(
-                                                            dateTimeFormat(
-                                                                "d/M/y",
-                                                                columnCitaRecord
-                                                                    .fechaCita),
+                                                            columnCitaRecord
+                                                                .fechaCita,
                                                             'Sin día',
                                                           ),
                                                           style: FlutterFlowTheme

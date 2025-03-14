@@ -252,10 +252,8 @@ class _VistaCitaAdminWidgetState extends State<VistaCitaAdminWidget> {
                                                                 child: Text(
                                                                   valueOrDefault<
                                                                       String>(
-                                                                    dateTimeFormat(
-                                                                        "jm",
-                                                                        columnCitaRecord
-                                                                            .horaCita),
+                                                                    columnCitaRecord
+                                                                        .horaCita,
                                                                     'Sin hora',
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
@@ -275,10 +273,8 @@ class _VistaCitaAdminWidgetState extends State<VistaCitaAdminWidget> {
                                                             Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                dateTimeFormat(
-                                                                    "d/M/y",
-                                                                    columnCitaRecord
-                                                                        .fechaCita),
+                                                                columnCitaRecord
+                                                                    .fechaCita,
                                                                 'Sin día',
                                                               ),
                                                               style: FlutterFlowTheme

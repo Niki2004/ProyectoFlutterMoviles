@@ -279,14 +279,14 @@ class _VistaModificarWidgetState extends State<VistaModificarWidget> {
                                                                       columnCitaRecord
                                                                           .fechaCita,
                                                                       ParamType
-                                                                          .DateTime,
+                                                                          .String,
                                                                     ),
                                                                     'horaParametro':
                                                                         serializeParam(
                                                                       columnCitaRecord
                                                                           .horaCita,
                                                                       ParamType
-                                                                          .DateTime,
+                                                                          .String,
                                                                     ),
                                                                     'asistenciaParametro':
                                                                         serializeParam(
@@ -367,10 +367,8 @@ class _VistaModificarWidgetState extends State<VistaModificarWidget> {
                                                             child: Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                dateTimeFormat(
-                                                                    "jm",
-                                                                    columnCitaRecord
-                                                                        .horaCita),
+                                                                columnCitaRecord
+                                                                    .horaCita,
                                                                 'Sin hora',
                                                               ),
                                                               style: FlutterFlowTheme
@@ -391,10 +389,8 @@ class _VistaModificarWidgetState extends State<VistaModificarWidget> {
                                                         Text(
                                                           valueOrDefault<
                                                               String>(
-                                                            dateTimeFormat(
-                                                                "d/M/y",
-                                                                columnCitaRecord
-                                                                    .fechaCita),
+                                                            columnCitaRecord
+                                                                .fechaCita,
                                                             'Sin día',
                                                           ),
                                                           style: FlutterFlowTheme

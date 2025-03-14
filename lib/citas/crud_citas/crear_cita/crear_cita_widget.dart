@@ -1,9 +1,9 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'crear_cita_model.dart';
 export 'crear_cita_model.dart';
@@ -28,21 +28,35 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
     super.initState();
     _model = createModel(context, () => CrearCitaModel());
 
+    _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
+    _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
+    _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
 
+    _model.textController4 ??= TextEditingController();
     _model.textFieldFocusNode4 ??= FocusNode();
 
+    _model.textController5 ??= TextEditingController();
     _model.textFieldFocusNode5 ??= FocusNode();
 
+    _model.textController6 ??= TextEditingController();
     _model.textFieldFocusNode6 ??= FocusNode();
 
+    _model.textController7 ??= TextEditingController();
     _model.textFieldFocusNode7 ??= FocusNode();
 
+    _model.textController8 ??= TextEditingController();
     _model.textFieldFocusNode8 ??= FocusNode();
+
+    _model.textController9 ??= TextEditingController();
+    _model.textFieldFocusNode9 ??= FocusNode();
+
+    _model.textController10 ??= TextEditingController();
+    _model.textFieldFocusNode10 ??= FocusNode();
   }
 
   @override
@@ -54,71 +68,65 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-        FocusManager.instance.primaryFocus?.unfocus();
-      },
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: PreferredSize(
-          preferredSize:
-              Size.fromHeight(MediaQuery.sizeOf(context).height * 0.1),
-          child: AppBar(
-            backgroundColor: Color(0xFF3BB4BC),
-            automaticallyImplyLeading: false,
-            title: Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
-              child: Text(
-                'Agendar Cita',
-                style: FlutterFlowTheme.of(context).headlineSmall.override(
-                      fontFamily: 'Inter Tight',
-                      color: FlutterFlowTheme.of(context).primaryBackground,
-                      fontSize: 35.0,
-                      letterSpacing: 0.0,
-                      fontWeight: FontWeight.w600,
-                    ),
+    return StreamBuilder<List<CitaRecord>>(
+      stream: queryCitaRecord(),
+      builder: (context, snapshot) {
+        // Customize what your widget looks like when it's loading.
+        if (!snapshot.hasData) {
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    FlutterFlowTheme.of(context).primary,
+                  ),
+                ),
               ),
             ),
-            actions: [],
-            centerTitle: true,
-            elevation: 0.0,
-          ),
-        ),
-        body: SafeArea(
-          top: true,
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 24.0),
-            child: StreamBuilder<List<CitaRecord>>(
-              stream: queryCitaRecord(
-                singleRecord: true,
-              ),
-              builder: (context, snapshot) {
-                // Customize what your widget looks like when it's loading.
-                if (!snapshot.hasData) {
-                  return Center(
-                    child: SizedBox(
-                      width: 50.0,
-                      height: 50.0,
-                      child: CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          FlutterFlowTheme.of(context).primary,
-                        ),
-                      ),
-                    ),
-                  );
-                }
-                List<CitaRecord> columnCitaRecordList = snapshot.data!;
-                // Return an empty Container when the item does not exist.
-                if (snapshot.data!.isEmpty) {
-                  return Container();
-                }
-                final columnCitaRecord = columnCitaRecordList.isNotEmpty
-                    ? columnCitaRecordList.first
-                    : null;
+          );
+        }
+        List<CitaRecord> crearCitaCitaRecordList = snapshot.data!;
 
-                return SingleChildScrollView(
+        return GestureDetector(
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
+          child: Scaffold(
+            key: scaffoldKey,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            appBar: PreferredSize(
+              preferredSize:
+                  Size.fromHeight(MediaQuery.sizeOf(context).height * 0.1),
+              child: AppBar(
+                backgroundColor: Color(0xFF3BB4BC),
+                automaticallyImplyLeading: false,
+                title: Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Text(
+                    'Agendar Cita',
+                    style: FlutterFlowTheme.of(context).headlineSmall.override(
+                          fontFamily: 'Inter Tight',
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          fontSize: 35.0,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.w600,
+                        ),
+                  ),
+                ),
+                actions: [],
+                centerTitle: true,
+                elevation: 0.0,
+              ),
+            ),
+            body: SafeArea(
+              top: true,
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 24.0),
+                child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -160,10 +168,7 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
                                 Container(
                                   width: double.infinity,
                                   child: TextFormField(
-                                    controller: _model.textController1 ??=
-                                        TextEditingController(
-                                      text: columnCitaRecord?.nombre,
-                                    ),
+                                    controller: _model.textController1,
                                     focusNode: _model.textFieldFocusNode1,
                                     autofocus: false,
                                     textCapitalization:
@@ -171,7 +176,7 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
                                     textInputAction: TextInputAction.next,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      labelText: columnCitaRecord?.nombre,
+                                      labelText: 'Nombre',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -231,10 +236,7 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
                                 Container(
                                   width: double.infinity,
                                   child: TextFormField(
-                                    controller: _model.textController2 ??=
-                                        TextEditingController(
-                                      text: columnCitaRecord?.apellido,
-                                    ),
+                                    controller: _model.textController2,
                                     focusNode: _model.textFieldFocusNode2,
                                     autofocus: false,
                                     textCapitalization:
@@ -242,7 +244,7 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
                                     textInputAction: TextInputAction.next,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      labelText: columnCitaRecord?.apellido,
+                                      labelText: 'Apellido',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -302,18 +304,13 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
                                 Container(
                                   width: double.infinity,
                                   child: TextFormField(
-                                    controller: _model.textController3 ??=
-                                        TextEditingController(
-                                      text:
-                                          columnCitaRecord?.contactoEmergencia,
-                                    ),
+                                    controller: _model.textController3,
                                     focusNode: _model.textFieldFocusNode3,
                                     autofocus: false,
                                     textInputAction: TextInputAction.next,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      labelText:
-                                          columnCitaRecord?.contactoEmergencia,
+                                      labelText: 'Contacto',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -413,10 +410,7 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
                                 Container(
                                   width: double.infinity,
                                   child: TextFormField(
-                                    controller: _model.textController4 ??=
-                                        TextEditingController(
-                                      text: columnCitaRecord?.sintomas,
-                                    ),
+                                    controller: _model.textController4,
                                     focusNode: _model.textFieldFocusNode4,
                                     autofocus: false,
                                     textCapitalization:
@@ -424,7 +418,7 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
                                     textInputAction: TextInputAction.next,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      labelText: columnCitaRecord?.sintomas,
+                                      labelText: 'Síntomas',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -485,10 +479,7 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
                                 Container(
                                   width: double.infinity,
                                   child: TextFormField(
-                                    controller: _model.textController5 ??=
-                                        TextEditingController(
-                                      text: columnCitaRecord?.complicaciones,
-                                    ),
+                                    controller: _model.textController5,
                                     focusNode: _model.textFieldFocusNode5,
                                     autofocus: false,
                                     textCapitalization:
@@ -623,13 +614,7 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
-                                                  _model.textController6 ??=
-                                                      TextEditingController(
-                                                text: dateTimeFormat(
-                                                    "d/M/y",
-                                                    columnCitaRecord
-                                                        ?.fechaCita),
-                                              ),
+                                                  _model.textController6,
                                               focusNode:
                                                   _model.textFieldFocusNode6,
                                               autofocus: false,
@@ -748,11 +733,7 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
                                             width: double.infinity,
                                             child: TextFormField(
                                               controller:
-                                                  _model.textController7 ??=
-                                                      TextEditingController(
-                                                text: dateTimeFormat("jm",
-                                                    columnCitaRecord?.horaCita),
-                                              ),
+                                                  _model.textController7,
                                               focusNode:
                                                   _model.textFieldFocusNode7,
                                               autofocus: false,
@@ -865,70 +846,81 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
                                             ),
                                       ),
                                     ),
-                                    StreamBuilder<List<MedicoRecord>>(
-                                      stream: queryMedicoRecord(),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: 50.0,
-                                              height: 50.0,
-                                              child: CircularProgressIndicator(
-                                                valueColor:
-                                                    AlwaysStoppedAnimation<
-                                                        Color>(
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                                ),
-                                              ),
-                                            ),
-                                          );
-                                        }
-                                        List<MedicoRecord>
-                                            dropDownMedicoRecordList =
-                                            snapshot.data!;
-
-                                        return FlutterFlowDropDown<String>(
-                                          controller: _model
-                                                  .dropDownValueController1 ??=
-                                              FormFieldController<String>(null),
-                                          options: <String>[],
-                                          onChanged: (val) => safeSetState(() =>
-                                              _model.dropDownValue1 = val),
-                                          width: double.infinity,
-                                          height: 50.0,
-                                          textStyle:
+                                    Container(
+                                      width: double.infinity,
+                                      child: TextFormField(
+                                        controller: _model.textController8,
+                                        focusNode: _model.textFieldFocusNode8,
+                                        autofocus: false,
+                                        textCapitalization:
+                                            TextCapitalization.sentences,
+                                        textInputAction: TextInputAction.next,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelText: 'Modalidad',
+                                          hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Inter',
                                                     letterSpacing: 0.0,
                                                   ),
-                                          hintText: 'Seleccione una modalidad',
-                                          icon: Icon(
-                                            Icons.keyboard_arrow_down_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 24.0,
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
                                           ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          errorBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedErrorBorder:
+                                              OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          filled: true,
                                           fillColor:
                                               FlutterFlowTheme.of(context)
                                                   .primaryBackground,
-                                          elevation: 2.0,
-                                          borderColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
-                                          borderWidth: 1.0,
-                                          borderRadius: 8.0,
-                                          margin:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 4.0, 12.0, 4.0),
-                                          hidesUnderline: true,
-                                          isSearchable: false,
-                                          isMultiSelect: false,
-                                        );
-                                      },
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              letterSpacing: 0.0,
+                                            ),
+                                        maxLines: 3,
+                                        cursorColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        validator: _model
+                                            .textController8Validator
+                                            .asValidator(context),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -951,74 +943,81 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
                                             ),
                                       ),
                                     ),
-                                    StreamBuilder<List<MedicoRecord>>(
-                                      stream: queryMedicoRecord(),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: 50.0,
-                                              height: 50.0,
-                                              child: CircularProgressIndicator(
-                                                valueColor:
-                                                    AlwaysStoppedAnimation<
-                                                        Color>(
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                                ),
-                                              ),
-                                            ),
-                                          );
-                                        }
-                                        List<MedicoRecord>
-                                            dropDownMedicoRecordList =
-                                            snapshot.data!;
-
-                                        return FlutterFlowDropDown<String>(
-                                          controller: _model
-                                                  .dropDownValueController2 ??=
-                                              FormFieldController<String>(null),
-                                          options: [
-                                            'Dr. García - Cardiología',
-                                            'Dra. Martínez - Medicina General',
-                                            'Dr. Rodríguez - Pediatría'
-                                          ],
-                                          onChanged: (val) => safeSetState(() =>
-                                              _model.dropDownValue2 = val),
-                                          width: double.infinity,
-                                          height: 50.0,
-                                          textStyle:
+                                    Container(
+                                      width: double.infinity,
+                                      child: TextFormField(
+                                        controller: _model.textController9,
+                                        focusNode: _model.textFieldFocusNode9,
+                                        autofocus: false,
+                                        textCapitalization:
+                                            TextCapitalization.sentences,
+                                        textInputAction: TextInputAction.next,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelText: 'EspecialidadMedico',
+                                          hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Inter',
                                                     letterSpacing: 0.0,
                                                   ),
-                                          hintText: 'Seleccione un médico',
-                                          icon: Icon(
-                                            Icons.keyboard_arrow_down_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 24.0,
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
                                           ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          errorBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedErrorBorder:
+                                              OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          filled: true,
                                           fillColor:
                                               FlutterFlowTheme.of(context)
                                                   .primaryBackground,
-                                          elevation: 2.0,
-                                          borderColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
-                                          borderWidth: 1.0,
-                                          borderRadius: 8.0,
-                                          margin:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 4.0, 12.0, 4.0),
-                                          hidesUnderline: true,
-                                          isSearchable: false,
-                                          isMultiSelect: false,
-                                        );
-                                      },
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              letterSpacing: 0.0,
+                                            ),
+                                        maxLines: 3,
+                                        cursorColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        validator: _model
+                                            .textController9Validator
+                                            .asValidator(context),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -1046,11 +1045,8 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
                                 Container(
                                   width: double.infinity,
                                   child: TextFormField(
-                                    controller: _model.textController8 ??=
-                                        TextEditingController(
-                                      text: columnCitaRecord?.asitencia,
-                                    ),
-                                    focusNode: _model.textFieldFocusNode8,
+                                    controller: _model.textController10,
+                                    focusNode: _model.textFieldFocusNode10,
                                     autofocus: false,
                                     textCapitalization:
                                         TextCapitalization.sentences,
@@ -1111,7 +1107,7 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
                                     maxLines: 3,
                                     cursorColor:
                                         FlutterFlowTheme.of(context).primary,
-                                    validator: _model.textController8Validator
+                                    validator: _model.textController10Validator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -1128,8 +1124,9 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 24.0, 0.0, 0.0),
                             child: FFButtonWidget(
-                              onPressed: () {
-                                print('btnCancelar pressed ...');
+                              onPressed: () async {
+                                context
+                                    .pushNamed(VistaCalendarioWidget.routeName);
                               },
                               text: 'Regresar',
                               icon: Icon(
@@ -1163,7 +1160,22 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
                               onPressed: () async {
                                 await CitaRecord.collection
                                     .doc()
-                                    .set(createCitaRecordData());
+                                    .set(createCitaRecordData(
+                                      nombre: _model.textController1.text,
+                                      apellido: _model.textController2.text,
+                                      contactoEmergencia:
+                                          _model.textController3.text,
+                                      complicaciones:
+                                          _model.textController5.text,
+                                      sintomas: _model.textController4.text,
+                                      fechaCita: _model.textController6.text,
+                                      asitencia: _model.textController10.text,
+                                      referenceUsers: currentUserReference,
+                                      modalidas: _model.textController8.text,
+                                      especialidadMedico:
+                                          _model.textController9.text,
+                                      horaCita: _model.textController7.text,
+                                    ));
                                 await showDialog(
                                   context: context,
                                   builder: (alertDialogContext) {
@@ -1180,6 +1192,9 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
                                     );
                                   },
                                 );
+
+                                context
+                                    .pushNamed(VistaCalendarioWidget.routeName);
                               },
                               text: 'Agendar Cita',
                               options: FFButtonOptions(
@@ -1206,12 +1221,12 @@ class _CrearCitaWidgetState extends State<CrearCitaWidget> {
                       ),
                     ],
                   ),
-                );
-              },
+                ),
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

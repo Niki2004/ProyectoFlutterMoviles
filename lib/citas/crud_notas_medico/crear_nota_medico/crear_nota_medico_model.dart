@@ -20,6 +20,7 @@ class CrearNotaMedicoModel extends FlutterFlowModel<CrearNotaMedicoWidget> {
   TextEditingController? textController3;
   final textFieldMask3 = MaskTextInputFormatter(mask: '##/##/####');
   String? Function(BuildContext, String?)? textController3Validator;
+  DateTime? datePicked;
 
   @override
   void initState(BuildContext context) {}

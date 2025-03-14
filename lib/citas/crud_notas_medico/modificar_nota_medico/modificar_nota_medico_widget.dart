@@ -1,4 +1,3 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -8,7 +7,16 @@ import 'modificar_nota_medico_model.dart';
 export 'modificar_nota_medico_model.dart';
 
 class ModificarNotaMedicoWidget extends StatefulWidget {
-  const ModificarNotaMedicoWidget({super.key});
+  const ModificarNotaMedicoWidget({
+    super.key,
+    required this.notaParametro,
+    required this.comentarioParametro,
+    required this.fechaParametro,
+  });
+
+  final String? notaParametro;
+  final String? comentarioParametro;
+  final String? fechaParametro;
 
   static String routeName = 'Modificar_NotaMedico';
   static String routePath = '/modificarNotaMedico';
@@ -447,26 +455,8 @@ class _ModificarNotaMedicoWidgetState extends State<ModificarNotaMedicoWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 24.0, 0.0, 0.0),
                           child: FFButtonWidget(
-                            onPressed: () async {
-                              await CitaRecord.collection
-                                  .doc()
-                                  .set(createCitaRecordData());
-                              await showDialog(
-                                context: context,
-                                builder: (alertDialogContext) {
-                                  return AlertDialog(
-                                    title: Text('Creación de cita'),
-                                    content: Text('Se a agendado su cita'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(alertDialogContext),
-                                        child: Text('Agendar'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
+                            onPressed: () {
+                              print('btnAgendar pressed ...');
                             },
                             text: 'Modificar Nota',
                             options: FFButtonOptions(

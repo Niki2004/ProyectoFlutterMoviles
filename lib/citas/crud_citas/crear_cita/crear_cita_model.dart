@@ -1,5 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
+import '/index.dart';
 import 'crear_cita_widget.dart' show CrearCitaWidget;
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -37,16 +37,18 @@ class CrearCitaModel extends FlutterFlowModel<CrearCitaWidget> {
   TextEditingController? textController7;
   final textFieldMask7 = MaskTextInputFormatter(mask: '##:##');
   String? Function(BuildContext, String?)? textController7Validator;
-  // State field(s) for DropDown widget.
-  String? dropDownValue1;
-  FormFieldController<String>? dropDownValueController1;
-  // State field(s) for DropDown widget.
-  String? dropDownValue2;
-  FormFieldController<String>? dropDownValueController2;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode8;
   TextEditingController? textController8;
   String? Function(BuildContext, String?)? textController8Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode9;
+  TextEditingController? textController9;
+  String? Function(BuildContext, String?)? textController9Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode10;
+  TextEditingController? textController10;
+  String? Function(BuildContext, String?)? textController10Validator;
 
   @override
   void initState(BuildContext context) {}
@@ -76,5 +78,11 @@ class CrearCitaModel extends FlutterFlowModel<CrearCitaWidget> {
 
     textFieldFocusNode8?.dispose();
     textController8?.dispose();
+
+    textFieldFocusNode9?.dispose();
+    textController9?.dispose();
+
+    textFieldFocusNode10?.dispose();
+    textController10?.dispose();
   }
 }

@@ -24,8 +24,8 @@ class ModificarCitaWidget extends StatefulWidget {
 
   final String? sintomasParametro;
   final String? complicacionPrametro;
-  final DateTime? fechaParametro;
-  final DateTime? horaParametro;
+  final String? fechaParametro;
+  final String? horaParametro;
   final String? asistenciaParametro;
   final DocumentReference? eleccionUsuario;
   final String? nombreParametro;
@@ -101,7 +101,7 @@ class _ModificarCitaWidgetState extends State<ModificarCitaWidget> {
             title: Align(
               alignment: AlignmentDirectional(0.0, 0.0),
               child: Text(
-                'Agendar Cita',
+                'Modificar Cita',
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
                       fontFamily: 'Inter Tight',
                       color: FlutterFlowTheme.of(context).primaryBackground,
@@ -902,10 +902,10 @@ class _ModificarCitaWidgetState extends State<ModificarCitaWidget> {
                           onPressed: () async {
                             await widget.eleccionUsuario!
                                 .update(createCitaRecordData(
-                              complicaciones: '',
-                              sintomas: '',
-                              horaCita: widget.horaParametro,
-                              nombre: '',
+                              complicaciones: _model.textController5.text,
+                              sintomas: _model.textController4.text,
+                              nombre: _model.textController1.text,
+                              horaCita: _model.textController7.text,
                             ));
                             await showDialog(
                               context: context,
