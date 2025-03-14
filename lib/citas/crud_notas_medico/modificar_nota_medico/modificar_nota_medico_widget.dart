@@ -7,16 +7,7 @@ import 'modificar_nota_medico_model.dart';
 export 'modificar_nota_medico_model.dart';
 
 class ModificarNotaMedicoWidget extends StatefulWidget {
-  const ModificarNotaMedicoWidget({
-    super.key,
-    required this.notaParametro,
-    required this.comentarioParametro,
-    required this.fechaParametro,
-  });
-
-  final String? notaParametro;
-  final String? comentarioParametro;
-  final String? fechaParametro;
+  const ModificarNotaMedicoWidget({super.key});
 
   static String routeName = 'Modificar_NotaMedico';
   static String routePath = '/modificarNotaMedico';

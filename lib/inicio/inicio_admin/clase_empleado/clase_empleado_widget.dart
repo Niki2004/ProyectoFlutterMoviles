@@ -571,9 +571,10 @@ class _ClaseEmpleadoWidgetState extends State<ClaseEmpleadoWidget> {
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 0.0),
                                                   child: FFButtonWidget(
-                                                    onPressed: () {
-                                                      print(
-                                                          'Button pressed ...');
+                                                    onPressed: () async {
+                                                      context.pushNamed(
+                                                          CrearEmpleadoWidget
+                                                              .routeName);
                                                     },
                                                     text:
                                                         'Registro de empleados',
@@ -621,11 +622,12 @@ class _ClaseEmpleadoWidgetState extends State<ClaseEmpleadoWidget> {
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 0.0),
                                                   child: FFButtonWidget(
-                                                    onPressed: () {
-                                                      print(
-                                                          'Button pressed ...');
+                                                    onPressed: () async {
+                                                      context.pushNamed(
+                                                          BuscarEmpleadosWidget
+                                                              .routeName);
                                                     },
-                                                    text: 'Editar empleado',
+                                                    text: 'Buscar Empleados',
                                                     options: FFButtonOptions(
                                                       width: 220.0,
                                                       height: 60.0,
@@ -742,44 +744,6 @@ class _ClaseEmpleadoWidgetState extends State<ClaseEmpleadoWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Flexible(
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, -1.0),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 12.0, 0.0, 0.0),
-                                          child: FFButtonWidget(
-                                            onPressed: () {
-                                              print('Button pressed ...');
-                                            },
-                                            text: 'Buscar Empleados',
-                                            options: FFButtonOptions(
-                                              width: 220.0,
-                                              height: 60.0,
-                                              padding: EdgeInsets.all(0.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color: Color(0xFF3BB4BC),
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleSmall
-                                                  .override(
-                                                    fontFamily: 'Inter Tight',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    letterSpacing: 0.0,
-                                                  ),
-                                              elevation: 3.0,
-                                              borderRadius:
-                                                  BorderRadius.circular(12.0),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
                                     Flexible(
                                       child: Align(
                                         alignment:

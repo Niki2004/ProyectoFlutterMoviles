@@ -55,15 +55,20 @@ class EmpleadoRecord extends FirestoreRecord {
   String get comentariosAdicionales => _comentariosAdicionales ?? '';
   bool hasComentariosAdicionales() => _comentariosAdicionales != null;
 
-  // "ReferenceEstado" field.
-  DocumentReference? _referenceEstado;
-  DocumentReference? get referenceEstado => _referenceEstado;
-  bool hasReferenceEstado() => _referenceEstado != null;
-
   // "Fecha_Registro" field.
-  DateTime? _fechaRegistro;
-  DateTime? get fechaRegistro => _fechaRegistro;
+  String? _fechaRegistro;
+  String get fechaRegistro => _fechaRegistro ?? '';
   bool hasFechaRegistro() => _fechaRegistro != null;
+
+  // "Estado" field.
+  bool? _estado;
+  bool get estado => _estado ?? false;
+  bool hasEstado() => _estado != null;
+
+  // "Cedula" field.
+  String? _cedula;
+  String get cedula => _cedula ?? '';
+  bool hasCedula() => _cedula != null;
 
   void _initializeFields() {
     _nombre = snapshotData['Nombre'] as String?;
@@ -75,8 +80,9 @@ class EmpleadoRecord extends FirestoreRecord {
     _jornada = snapshotData['Jornada'] as String?;
     _comentariosAdicionales =
         snapshotData['Comentarios_Adicionales'] as String?;
-    _referenceEstado = snapshotData['ReferenceEstado'] as DocumentReference?;
-    _fechaRegistro = snapshotData['Fecha_Registro'] as DateTime?;
+    _fechaRegistro = snapshotData['Fecha_Registro'] as String?;
+    _estado = snapshotData['Estado'] as bool?;
+    _cedula = snapshotData['Cedula'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -122,8 +128,9 @@ Map<String, dynamic> createEmpleadoRecordData({
   String? departamento,
   String? jornada,
   String? comentariosAdicionales,
-  DocumentReference? referenceEstado,
-  DateTime? fechaRegistro,
+  String? fechaRegistro,
+  bool? estado,
+  String? cedula,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -135,8 +142,9 @@ Map<String, dynamic> createEmpleadoRecordData({
       'Departamento': departamento,
       'Jornada': jornada,
       'Comentarios_Adicionales': comentariosAdicionales,
-      'ReferenceEstado': referenceEstado,
       'Fecha_Registro': fechaRegistro,
+      'Estado': estado,
+      'Cedula': cedula,
     }.withoutNulls,
   );
 
@@ -156,8 +164,9 @@ class EmpleadoRecordDocumentEquality implements Equality<EmpleadoRecord> {
         e1?.departamento == e2?.departamento &&
         e1?.jornada == e2?.jornada &&
         e1?.comentariosAdicionales == e2?.comentariosAdicionales &&
-        e1?.referenceEstado == e2?.referenceEstado &&
-        e1?.fechaRegistro == e2?.fechaRegistro;
+        e1?.fechaRegistro == e2?.fechaRegistro &&
+        e1?.estado == e2?.estado &&
+        e1?.cedula == e2?.cedula;
   }
 
   @override
@@ -170,8 +179,9 @@ class EmpleadoRecordDocumentEquality implements Equality<EmpleadoRecord> {
         e?.departamento,
         e?.jornada,
         e?.comentariosAdicionales,
-        e?.referenceEstado,
-        e?.fechaRegistro
+        e?.fechaRegistro,
+        e?.estado,
+        e?.cedula
       ]);
 
   @override

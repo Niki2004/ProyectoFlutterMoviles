@@ -1,17 +1,14 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
-import 'buscar_empleados_widget.dart' show BuscarEmpleadosWidget;
+import 'vistadebuscar_ex_widget.dart' show VistadebuscarExWidget;
 import 'package:flutter/material.dart';
 
-class BuscarEmpleadosModel extends FlutterFlowModel<BuscarEmpleadosWidget> {
+class VistadebuscarExModel extends FlutterFlowModel<VistadebuscarExWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  List<EmpleadoRecord> simpleSearchResults = [];
 
   @override
   void initState(BuildContext context) {}

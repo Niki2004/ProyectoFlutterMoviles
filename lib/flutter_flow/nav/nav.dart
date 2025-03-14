@@ -127,7 +127,58 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: ModificarEmpleadoWidget.routeName,
           path: ModificarEmpleadoWidget.routePath,
-          builder: (context, params) => ModificarEmpleadoWidget(),
+          builder: (context, params) => ModificarEmpleadoWidget(
+            nombre: params.getParam(
+              'nombre',
+              ParamType.String,
+            ),
+            apellidos: params.getParam(
+              'apellidos',
+              ParamType.String,
+            ),
+            edad: params.getParam(
+              'edad',
+              ParamType.int,
+            ),
+            cedula: params.getParam(
+              'cedula',
+              ParamType.String,
+            ),
+            correo: params.getParam(
+              'correo',
+              ParamType.String,
+            ),
+            departamento: params.getParam(
+              'departamento',
+              ParamType.String,
+            ),
+            jornada: params.getParam(
+              'jornada',
+              ParamType.String,
+            ),
+            comentarios: params.getParam(
+              'comentarios',
+              ParamType.String,
+            ),
+            fecha: params.getParam(
+              'fecha',
+              ParamType.String,
+            ),
+            imagen: params.getParam(
+              'imagen',
+              ParamType.String,
+            ),
+            estado: params.getParam(
+              'estado',
+              ParamType.bool,
+            ),
+            empleadosparaemtro: params.getParam(
+              'empleadosparaemtro',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Empleado'],
+            ),
+          ),
         ),
         FFRoute(
           name: CancelarEmpleadoWidget.routeName,
@@ -292,20 +343,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: ModificarNotaMedicoWidget.routeName,
           path: ModificarNotaMedicoWidget.routePath,
-          builder: (context, params) => ModificarNotaMedicoWidget(
-            notaParametro: params.getParam(
-              'notaParametro',
-              ParamType.String,
-            ),
-            comentarioParametro: params.getParam(
-              'comentarioParametro',
-              ParamType.String,
-            ),
-            fechaParametro: params.getParam(
-              'fechaParametro',
-              ParamType.String,
-            ),
-          ),
+          builder: (context, params) => ModificarNotaMedicoWidget(),
         ),
         FFRoute(
           name: CrearNotaMedicoWidget.routeName,
@@ -351,6 +389,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: VistaCitaAdminWidget.routeName,
           path: VistaCitaAdminWidget.routePath,
           builder: (context, params) => VistaCitaAdminWidget(),
+        ),
+        FFRoute(
+          name: VistaExpedienteWidget.routeName,
+          path: VistaExpedienteWidget.routePath,
+          builder: (context, params) => VistaExpedienteWidget(),
+        ),
+        FFRoute(
+          name: VistadebuscarExWidget.routeName,
+          path: VistadebuscarExWidget.routePath,
+          builder: (context, params) => VistadebuscarExWidget(),
+        ),
+        FFRoute(
+          name: AsignarpermisosWidget.routeName,
+          path: AsignarpermisosWidget.routePath,
+          builder: (context, params) => AsignarpermisosWidget(),
+        ),
+        FFRoute(
+          name: RespaldoWidget.routeName,
+          path: RespaldoWidget.routePath,
+          builder: (context, params) => RespaldoWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
