@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:text_search/text_search.dart';
 import 'buscar_empleados_model.dart';
 export 'buscar_empleados_model.dart';
 
@@ -130,26 +129,6 @@ class _BuscarEmpleadosWidgetState extends State<BuscarEmpleadosWidget> {
                                   child: TextFormField(
                                     controller: _model.textController,
                                     focusNode: _model.textFieldFocusNode,
-                                    onFieldSubmitted: (_) async {
-                                      safeSetState(() {
-                                        _model.simpleSearchResults = TextSearch(
-                                          buscarEmpleadosEmpleadoRecordList
-                                              .map(
-                                                (record) =>
-                                                    TextSearchItem.fromTerms(
-                                                        record,
-                                                        [record.nombre]),
-                                              )
-                                              .toList(),
-                                        )
-                                            .search(_model.textController.text)
-                                            .map((r) => r.object)
-                                            .toList();
-                                        ;
-                                      });
-                                      FFAppState().Buscar = true;
-                                      safeSetState(() {});
-                                    },
                                     autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(

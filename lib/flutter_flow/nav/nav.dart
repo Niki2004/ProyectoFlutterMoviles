@@ -423,6 +423,58 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: RespaldoWidget.routeName,
           path: RespaldoWidget.routePath,
           builder: (context, params) => RespaldoWidget(),
+        ),
+        FFRoute(
+          name: VerEmpleadoWidget.routeName,
+          path: VerEmpleadoWidget.routePath,
+          builder: (context, params) => VerEmpleadoWidget(
+            nombre: params.getParam(
+              'nombre',
+              ParamType.String,
+            ),
+            apellidos: params.getParam(
+              'apellidos',
+              ParamType.String,
+            ),
+            edad: params.getParam(
+              'edad',
+              ParamType.int,
+            ),
+            correo: params.getParam(
+              'correo',
+              ParamType.String,
+            ),
+            foto: params.getParam(
+              'foto',
+              ParamType.String,
+            ),
+            departamento: params.getParam(
+              'departamento',
+              ParamType.String,
+            ),
+            jornada: params.getParam(
+              'jornada',
+              ParamType.String,
+            ),
+            comentarios: params.getParam(
+              'comentarios',
+              ParamType.String,
+            ),
+            fecha: params.getParam(
+              'fecha',
+              ParamType.String,
+            ),
+            estado: params.getParam(
+              'estado',
+              ParamType.bool,
+            ),
+            verempleadoparametro: params.getParam(
+              'verempleadoparametro',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Empleado'],
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

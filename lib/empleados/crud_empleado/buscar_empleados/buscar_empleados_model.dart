@@ -1,4 +1,3 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'buscar_empleados_widget.dart' show BuscarEmpleadosWidget;
@@ -11,7 +10,6 @@ class BuscarEmpleadosModel extends FlutterFlowModel<BuscarEmpleadosWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  List<EmpleadoRecord> simpleSearchResults = [];
 
   @override
   void initState(BuildContext context) {}

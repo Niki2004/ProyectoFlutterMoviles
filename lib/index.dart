@@ -70,7 +70,7 @@ export '/inicio/inicio_admin/clase_inventario/clase_inventario_widget.dart'
     show ClaseInventarioWidget;
 export '/inicio/inicio_admin/clase_expediente/clase_expediente_widget.dart'
     show ClaseExpedienteWidget;
-export '/inicio/clase_expediente_medic/clase_expediente_medic_widget.dart'
+export '/inicio/inicio_medico/clase_expediente_medic/clase_expediente_medic_widget.dart'
     show ClaseExpedienteMedicWidget;
 export '/citas/visual_nota_medico/vista_notas/vista_notas_widget.dart'
     show VistaNotasWidget;
@@ -85,3 +85,5 @@ export '/expedientes/vistadebuscar_ex/vistadebuscar_ex_widget.dart'
 export '/expedientes/asignarpermisos/asignarpermisos_widget.dart'
     show AsignarpermisosWidget;
 export '/expedientes/respaldo/respaldo_widget.dart' show RespaldoWidget;
+export '/empleados/visual_empleados/ver_empleado/ver_empleado_widget.dart'
+    show VerEmpleadoWidget;

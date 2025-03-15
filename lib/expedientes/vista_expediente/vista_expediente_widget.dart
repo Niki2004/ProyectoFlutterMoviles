@@ -64,7 +64,7 @@ class _VistaExpedienteWidgetState extends State<VistaExpedienteWidget> {
             },
           ),
           title: Text(
-            'Historial de Expedientes',
+            'Expedientes',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
                   color: Color(0xFF0B7B82),
