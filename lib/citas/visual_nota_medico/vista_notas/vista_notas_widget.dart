@@ -153,8 +153,8 @@ class _VistaNotasWidgetState extends State<VistaNotasWidget> {
                               ),
                             ),
                             FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
+                              onPressed: () async {
+                                context.pushNamed(VistaNotasWidget.routeName);
                               },
                               text: 'Modificar',
                               icon: Icon(

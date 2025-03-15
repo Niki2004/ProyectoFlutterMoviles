@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -7,7 +8,18 @@ import 'modificar_nota_medico_model.dart';
 export 'modificar_nota_medico_model.dart';
 
 class ModificarNotaMedicoWidget extends StatefulWidget {
-  const ModificarNotaMedicoWidget({super.key});
+  const ModificarNotaMedicoWidget({
+    super.key,
+    required this.notap,
+    required this.comp,
+    required this.fechap,
+    required this.notaSeleccion,
+  });
+
+  final String? notap;
+  final String? comp;
+  final String? fechap;
+  final DocumentReference? notaSeleccion;
 
   static String routeName = 'Modificar_NotaMedico';
   static String routePath = '/modificarNotaMedico';
@@ -446,8 +458,43 @@ class _ModificarNotaMedicoWidgetState extends State<ModificarNotaMedicoWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 24.0, 0.0, 0.0),
                           child: FFButtonWidget(
-                            onPressed: () {
-                              print('btnAgendar pressed ...');
+                            onPressed: () async {
+                              await widget.notaSeleccion!
+                                  .update(createNotaMedicoRecordData(
+                                notaMedico: _model.textController1.text,
+                                comentarioAdicional:
+                                    _model.textController2.text,
+                                fecha: _model.textController3.text,
+                              ));
+                              var confirmDialogResponse =
+                                  await showDialog<bool>(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text('Modificación de nota'),
+                                            content: Text(
+                                                '¿Está seguro que desea modificar la nota?'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, false),
+                                                child: Text('Cancel'),
+                                              ),
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, true),
+                                                child: Text('Modificar'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      ) ??
+                                      false;
+                              if (confirmDialogResponse) {
+                                context.pushNamed(VistaNotasWidget.routeName);
+                              } else {
+                                context.pushNamed(VistaNotasWidget.routeName);
+                              }
                             },
                             text: 'Modificar Nota',
                             options: FFButtonOptions(

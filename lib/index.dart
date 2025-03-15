@@ -16,8 +16,6 @@ export '/empleados/crud_empleado/modificar_empleado/modificar_empleado_widget.da
     show ModificarEmpleadoWidget;
 export '/empleados/crud_empleado/cancelar_empleado/cancelar_empleado_widget.dart'
     show CancelarEmpleadoWidget;
-export '/empleados/visual_empleados/vista_historial/vista_historial_widget.dart'
-    show VistaHistorialWidget;
 export '/empleados/crud_empleado/buscar_empleados/buscar_empleados_widget.dart'
     show BuscarEmpleadosWidget;
 export '/empleados/crud_evaluacion/crear_evaluacion/crear_evaluacion_widget.dart'

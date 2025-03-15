@@ -186,11 +186,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => CancelarEmpleadoWidget(),
         ),
         FFRoute(
-          name: VistaHistorialWidget.routeName,
-          path: VistaHistorialWidget.routePath,
-          builder: (context, params) => VistaHistorialWidget(),
-        ),
-        FFRoute(
           name: BuscarEmpleadosWidget.routeName,
           path: BuscarEmpleadosWidget.routePath,
           builder: (context, params) => BuscarEmpleadosWidget(),
@@ -343,7 +338,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: ModificarNotaMedicoWidget.routeName,
           path: ModificarNotaMedicoWidget.routePath,
-          builder: (context, params) => ModificarNotaMedicoWidget(),
+          builder: (context, params) => ModificarNotaMedicoWidget(
+            notap: params.getParam(
+              'notap',
+              ParamType.String,
+            ),
+            comp: params.getParam(
+              'comp',
+              ParamType.String,
+            ),
+            fechap: params.getParam(
+              'fechap',
+              ParamType.String,
+            ),
+            notaSeleccion: params.getParam(
+              'notaSeleccion',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Nota_Medico'],
+            ),
+          ),
         ),
         FFRoute(
           name: CrearNotaMedicoWidget.routeName,
