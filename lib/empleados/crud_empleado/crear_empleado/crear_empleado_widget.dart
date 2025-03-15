@@ -100,47 +100,35 @@ class _CrearEmpleadoWidgetState extends State<CrearEmpleadoWidget> {
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             appBar: AppBar(
-              backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+              backgroundColor: Color(0xFF0B7B82),
               automaticallyImplyLeading: false,
-              title: Column(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Align(
-                    alignment: AlignmentDirectional(0.0, -1.0),
-                    child: Text(
-                      'Registro de Empleados',
-                      style:
-                          FlutterFlowTheme.of(context).headlineMedium.override(
-                                fontFamily: 'Inter Tight',
-                                letterSpacing: 0.0,
-                              ),
-                    ),
-                  ),
-                ].divide(SizedBox(height: 4.0)),
-              ),
-              actions: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 12.0, 8.0),
-                  child: FlutterFlowIconButton(
-                    borderColor: FlutterFlowTheme.of(context).alternate,
-                    borderRadius: 12.0,
-                    borderWidth: 1.0,
-                    buttonSize: 40.0,
-                    fillColor: FlutterFlowTheme.of(context).secondaryBackground,
-                    icon: Icon(
-                      Icons.close_rounded,
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      size: 24.0,
-                    ),
-                    onPressed: () async {
-                      context.pushNamed(ClaseEmpleadoWidget.routeName);
-                    },
-                  ),
+              leading: FlutterFlowIconButton(
+                borderColor: Colors.transparent,
+                borderRadius: 30.0,
+                borderWidth: 1.0,
+                buttonSize: 60.0,
+                icon: Icon(
+                  Icons.arrow_back_rounded,
+                  color: Colors.white,
+                  size: 30.0,
                 ),
-              ],
-              centerTitle: false,
-              elevation: 0.0,
+                onPressed: () async {
+                  context.pushNamed(ClaseEmpleadoWidget.routeName);
+                },
+              ),
+              title: Align(
+                alignment: AlignmentDirectional(0.0, -1.0),
+                child: Text(
+                  'Registro de Empleados',
+                  style: FlutterFlowTheme.of(context).headlineMedium.override(
+                        fontFamily: 'Inter Tight',
+                        letterSpacing: 0.0,
+                      ),
+                ),
+              ),
+              actions: [],
+              centerTitle: true,
+              elevation: 2.0,
             ),
             body: SafeArea(
               top: true,

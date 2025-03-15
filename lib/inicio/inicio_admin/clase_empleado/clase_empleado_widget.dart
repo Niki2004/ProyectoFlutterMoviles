@@ -672,9 +672,10 @@ class _ClaseEmpleadoWidgetState extends State<ClaseEmpleadoWidget> {
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 0.0),
                                                   child: FFButtonWidget(
-                                                    onPressed: () {
-                                                      print(
-                                                          'Button pressed ...');
+                                                    onPressed: () async {
+                                                      context.pushNamed(
+                                                          DeshabilitarEmpleadoWidget
+                                                              .routeName);
                                                     },
                                                     text: 'Desactivar Perfiles',
                                                     options: FFButtonOptions(

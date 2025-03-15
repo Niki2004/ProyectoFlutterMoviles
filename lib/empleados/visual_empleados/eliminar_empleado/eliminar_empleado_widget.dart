@@ -1,11 +1,13 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
-import 'ver_empleado_model.dart';
-export 'ver_empleado_model.dart';
+import 'eliminar_empleado_model.dart';
+export 'eliminar_empleado_model.dart';
 
-class VerEmpleadoWidget extends StatefulWidget {
-  const VerEmpleadoWidget({
+class EliminarEmpleadoWidget extends StatefulWidget {
+  const EliminarEmpleadoWidget({
     super.key,
     required this.nombre,
     required this.apellidos,
@@ -17,7 +19,7 @@ class VerEmpleadoWidget extends StatefulWidget {
     required this.comentarios,
     required this.fecha,
     required this.estado,
-    required this.verempleadoparametro,
+    required this.eliminarempleadoparametro,
   });
 
   final String? nombre;
@@ -30,24 +32,24 @@ class VerEmpleadoWidget extends StatefulWidget {
   final String? comentarios;
   final String? fecha;
   final bool? estado;
-  final DocumentReference? verempleadoparametro;
+  final DocumentReference? eliminarempleadoparametro;
 
-  static String routeName = 'VerEmpleado';
-  static String routePath = '/verEmpleado';
+  static String routeName = 'EliminarEmpleado';
+  static String routePath = '/eliminarEmpleado';
 
   @override
-  State<VerEmpleadoWidget> createState() => _VerEmpleadoWidgetState();
+  State<EliminarEmpleadoWidget> createState() => _EliminarEmpleadoWidgetState();
 }
 
-class _VerEmpleadoWidgetState extends State<VerEmpleadoWidget> {
-  late VerEmpleadoModel _model;
+class _EliminarEmpleadoWidgetState extends State<EliminarEmpleadoWidget> {
+  late EliminarEmpleadoModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => VerEmpleadoModel());
+    _model = createModel(context, () => EliminarEmpleadoModel());
   }
 
   @override
@@ -544,6 +546,70 @@ class _VerEmpleadoWidgetState extends State<VerEmpleadoWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: Container(),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(0.0, -1.0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              180.0, 0.0, 180.0, 0.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              var confirmDialogResponse =
+                                  await showDialog<bool>(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text('Eliminar Usuario'),
+                                            content: Text(
+                                                '¡Está seguro que desea eliminar el usuario!'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, false),
+                                                child: Text('Cancelar'),
+                                              ),
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, true),
+                                                child: Text('Confirmar'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      ) ??
+                                      false;
+                              if (confirmDialogResponse) {
+                                await widget.eliminarempleadoparametro!
+                                    .delete();
+                              } else {
+                                context
+                                    .pushNamed(ClaseEmpleadoWidget.routeName);
+                              }
+                            },
+                            text: 'Eliminar',
+                            options: FFButtonOptions(
+                              width: double.infinity,
+                              height: 70.1,
+                              padding: EdgeInsets.all(0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).error,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Inter Tight',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(0.0),
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   ),

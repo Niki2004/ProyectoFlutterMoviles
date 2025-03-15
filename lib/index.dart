@@ -14,13 +14,13 @@ export '/empleados/crud_empleado/crear_empleado/crear_empleado_widget.dart'
     show CrearEmpleadoWidget;
 export '/empleados/crud_empleado/modificar_empleado/modificar_empleado_widget.dart'
     show ModificarEmpleadoWidget;
-export '/empleados/crud_empleado/cancelar_empleado/cancelar_empleado_widget.dart'
-    show CancelarEmpleadoWidget;
+export '/empleados/crud_empleado/deshabilitar_empleado/deshabilitar_empleado_widget.dart'
+    show DeshabilitarEmpleadoWidget;
 export '/empleados/crud_empleado/buscar_empleados/buscar_empleados_widget.dart'
     show BuscarEmpleadosWidget;
-export '/empleados/crud_evaluacion/crear_evaluacion/crear_evaluacion_widget.dart'
+export '/empleados/crud_empleado/crear_evaluacion/crear_evaluacion_widget.dart'
     show CrearEvaluacionWidget;
-export '/empleados/visual_evaluacion/vista_evaluacion/vista_evaluacion_widget.dart'
+export '/empleados/visual_empleados/vista_evaluacion/vista_evaluacion_widget.dart'
     show VistaEvaluacionWidget;
 export '/empleados/visual_empleados/vista_historial_empleado/vista_historial_empleado_widget.dart'
     show VistaHistorialEmpleadoWidget;
@@ -87,3 +87,7 @@ export '/expedientes/asignarpermisos/asignarpermisos_widget.dart'
 export '/expedientes/respaldo/respaldo_widget.dart' show RespaldoWidget;
 export '/empleados/visual_empleados/ver_empleado/ver_empleado_widget.dart'
     show VerEmpleadoWidget;
+export '/empleados/visual_empleados/eliminar_empleado/eliminar_empleado_widget.dart'
+    show EliminarEmpleadoWidget;
+export '/empleadoevaluacion/empleadoevaluacion_widget.dart'
+    show EmpleadoevaluacionWidget;

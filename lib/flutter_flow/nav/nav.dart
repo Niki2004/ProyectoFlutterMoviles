@@ -181,9 +181,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: CancelarEmpleadoWidget.routeName,
-          path: CancelarEmpleadoWidget.routePath,
-          builder: (context, params) => CancelarEmpleadoWidget(),
+          name: DeshabilitarEmpleadoWidget.routeName,
+          path: DeshabilitarEmpleadoWidget.routePath,
+          builder: (context, params) => DeshabilitarEmpleadoWidget(),
         ),
         FFRoute(
           name: BuscarEmpleadosWidget.routeName,
@@ -475,6 +475,63 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               collectionNamePath: ['Empleado'],
             ),
           ),
+        ),
+        FFRoute(
+          name: EliminarEmpleadoWidget.routeName,
+          path: EliminarEmpleadoWidget.routePath,
+          builder: (context, params) => EliminarEmpleadoWidget(
+            nombre: params.getParam(
+              'nombre',
+              ParamType.String,
+            ),
+            apellidos: params.getParam(
+              'apellidos',
+              ParamType.String,
+            ),
+            edad: params.getParam(
+              'edad',
+              ParamType.int,
+            ),
+            correo: params.getParam(
+              'correo',
+              ParamType.String,
+            ),
+            foto: params.getParam(
+              'foto',
+              ParamType.String,
+            ),
+            departamento: params.getParam(
+              'departamento',
+              ParamType.String,
+            ),
+            jornada: params.getParam(
+              'jornada',
+              ParamType.String,
+            ),
+            comentarios: params.getParam(
+              'comentarios',
+              ParamType.String,
+            ),
+            fecha: params.getParam(
+              'fecha',
+              ParamType.String,
+            ),
+            estado: params.getParam(
+              'estado',
+              ParamType.bool,
+            ),
+            eliminarempleadoparametro: params.getParam(
+              'eliminarempleadoparametro',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Empleado'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: EmpleadoevaluacionWidget.routeName,
+          path: EmpleadoevaluacionWidget.routePath,
+          builder: (context, params) => EmpleadoevaluacionWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
