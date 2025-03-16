@@ -459,12 +459,13 @@ class _ClaseExpedienteMedicWidgetState
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 0.0),
                                                   child: FFButtonWidget(
-                                                    onPressed: () {
-                                                      print(
-                                                          'Button pressed ...');
+                                                    onPressed: () async {
+                                                      context.pushNamed(
+                                                          VistaExpedienteWidget
+                                                              .routeName);
                                                     },
                                                     text:
-                                                        'Expediente del Paciente',
+                                                        'Historial de Expedientes',
                                                     options: FFButtonOptions(
                                                       width: 220.0,
                                                       height: 60.0,
@@ -509,12 +510,12 @@ class _ClaseExpedienteMedicWidgetState
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 0.0),
                                                   child: FFButtonWidget(
-                                                    onPressed: () {
-                                                      print(
-                                                          'Button pressed ...');
+                                                    onPressed: () async {
+                                                      context.pushNamed(
+                                                          VistadebuscarExWidget
+                                                              .routeName);
                                                     },
-                                                    text:
-                                                        'Expedientes por nombre',
+                                                    text: 'Buscar Expedientes',
                                                     options: FFButtonOptions(
                                                       width: 220.0,
                                                       height: 60.0,

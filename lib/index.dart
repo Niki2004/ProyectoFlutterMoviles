@@ -82,12 +82,11 @@ export '/expedientes/vista_expediente/vista_expediente_widget.dart'
     show VistaExpedienteWidget;
 export '/expedientes/vistadebuscar_ex/vistadebuscar_ex_widget.dart'
     show VistadebuscarExWidget;
-export '/expedientes/asignarpermisos/asignarpermisos_widget.dart'
+export '/inicio/inicio_medico/asignarpermisos/asignarpermisos_widget.dart'
     show AsignarpermisosWidget;
-export '/expedientes/respaldo/respaldo_widget.dart' show RespaldoWidget;
+export '/inicio/inicio_medico/respaldo/respaldo_widget.dart'
+    show RespaldoWidget;
 export '/empleados/visual_empleados/ver_empleado/ver_empleado_widget.dart'
     show VerEmpleadoWidget;
 export '/empleados/visual_empleados/eliminar_empleado/eliminar_empleado_widget.dart'
     show EliminarEmpleadoWidget;
-export '/empleadoevaluacion/empleadoevaluacion_widget.dart'
-    show EmpleadoevaluacionWidget;

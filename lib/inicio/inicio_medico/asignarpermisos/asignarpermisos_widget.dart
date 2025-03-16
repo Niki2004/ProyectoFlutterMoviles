@@ -1,13 +1,46 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'asignarpermisos_model.dart';
 export 'asignarpermisos_model.dart';
 
 class AsignarpermisosWidget extends StatefulWidget {
-  const AsignarpermisosWidget({super.key});
+  const AsignarpermisosWidget({
+    super.key,
+    String? usuarioParametro,
+    this.accesoExpParametro,
+    this.modificarNotasParametro,
+    this.crearExpParametros,
+    this.eliminarExpParametro,
+    this.mediGeneralParametro,
+    this.pediatriaParametro,
+    this.cardioParametro,
+    this.gineParametro,
+    this.traumaParametro,
+    this.fechaInicioParametro,
+    this.fechafinParametro,
+    this.eleccionUserParametro,
+    this.accesoParametro,
+  }) : this.usuarioParametro = usuarioParametro ?? 'Sin Usuario Seleccionado';
+
+  final String usuarioParametro;
+  final bool? accesoExpParametro;
+  final bool? modificarNotasParametro;
+  final bool? crearExpParametros;
+  final bool? eliminarExpParametro;
+  final bool? mediGeneralParametro;
+  final bool? pediatriaParametro;
+  final bool? cardioParametro;
+  final bool? gineParametro;
+  final bool? traumaParametro;
+  final String? fechaInicioParametro;
+  final String? fechafinParametro;
+  final DocumentReference? eleccionUserParametro;
+  final bool? accesoParametro;
 
   static String routeName = 'asignarpermisos';
   static String routePath = '/asignarpermisos';
@@ -29,22 +62,22 @@ class _AsignarpermisosWidgetState extends State<AsignarpermisosWidget> {
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.switchValue1 = true;
-    _model.switchValue2 = true;
-    _model.switchValue3 = true;
-    _model.switchValue4 = true;
-    _model.switchValue5 = true;
-    _model.switchValue6 = true;
-    _model.switchValue7 = true;
-    _model.switchValue8 = true;
-    _model.switchValue9 = true;
+    _model.switchValue1 = widget.accesoExpParametro!;
+    _model.switchValue2 = widget.modificarNotasParametro!;
+    _model.switchValue3 = widget.crearExpParametros!;
+    _model.switchValue4 = widget.eliminarExpParametro!;
+    _model.switchValue5 = widget.mediGeneralParametro!;
+    _model.switchValue6 = widget.pediatriaParametro!;
+    _model.switchValue7 = widget.cardioParametro!;
+    _model.switchValue8 = widget.gineParametro!;
+    _model.switchValue9 = widget.traumaParametro!;
     _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
     _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
 
-    _model.switchValue10 = true;
+    _model.switchValue10 = widget.accesoParametro!;
   }
 
   @override
@@ -81,8 +114,8 @@ class _AsignarpermisosWidgetState extends State<AsignarpermisosWidget> {
                 color: Colors.white,
                 size: 30.0,
               ),
-              onPressed: () {
-                print('IconButton pressed ...');
+              onPressed: () async {
+                context.pushNamed(ClaseExpedienteWidget.routeName);
               },
             ),
             title: Text(
@@ -154,7 +187,10 @@ class _AsignarpermisosWidgetState extends State<AsignarpermisosWidget> {
                                 textInputAction: TextInputAction.next,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Buscar usuario',
+                                  labelText: valueOrDefault<String>(
+                                    widget.usuarioParametro,
+                                    'Buscar Usuario',
+                                  ),
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -266,7 +302,10 @@ class _AsignarpermisosWidgetState extends State<AsignarpermisosWidget> {
                                           onPressed: () {
                                             print('Button pressed ...');
                                           },
-                                          text: 'Seleccionar',
+                                          text: valueOrDefault<String>(
+                                            widget.usuarioParametro,
+                                            'Seleccionar',
+                                          ),
                                           options: FFButtonOptions(
                                             width: 120.0,
                                             height: 40.0,
@@ -334,7 +373,10 @@ class _AsignarpermisosWidgetState extends State<AsignarpermisosWidget> {
                                           onPressed: () {
                                             print('Button pressed ...');
                                           },
-                                          text: 'Seleccionar',
+                                          text: valueOrDefault<String>(
+                                            widget.usuarioParametro,
+                                            'Seleccionar',
+                                          ),
                                           options: FFButtonOptions(
                                             width: 120.0,
                                             height: 40.0,
@@ -406,7 +448,10 @@ class _AsignarpermisosWidgetState extends State<AsignarpermisosWidget> {
                                   ),
                             ),
                             Text(
-                              'Usuario seleccionado: Dr. Carlos Rodríguez',
+                              valueOrDefault<String>(
+                                widget.usuarioParametro,
+                                'Sin Selección de Usuario',
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -850,7 +895,10 @@ class _AsignarpermisosWidgetState extends State<AsignarpermisosWidget> {
                                           textInputAction: TextInputAction.next,
                                           obscureText: false,
                                           decoration: InputDecoration(
-                                            hintText: 'DD/MM/AAAA',
+                                            hintText: valueOrDefault<String>(
+                                              widget.fechaInicioParametro,
+                                              'DD/MM/AAAA',
+                                            ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
@@ -944,7 +992,10 @@ class _AsignarpermisosWidgetState extends State<AsignarpermisosWidget> {
                                           textInputAction: TextInputAction.next,
                                           obscureText: false,
                                           decoration: InputDecoration(
-                                            hintText: 'DD/MM/AAAA',
+                                            hintText: valueOrDefault<String>(
+                                              widget.fechafinParametro,
+                                              'DD/MM/AAAA',
+                                            ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
@@ -1053,8 +1104,8 @@ class _AsignarpermisosWidgetState extends State<AsignarpermisosWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            context.pushNamed(ClaseExpedienteWidget.routeName);
                           },
                           text: 'Cancelar',
                           icon: Icon(
@@ -1081,8 +1132,28 @@ class _AsignarpermisosWidgetState extends State<AsignarpermisosWidget> {
                           ),
                         ),
                         FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            await widget.eleccionUserParametro!
+                                .update(createUsersRecordData());
+                            await showDialog(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return AlertDialog(
+                                  title: Text('Cambios Guardados'),
+                                  content: Text(
+                                      'Sus cambios fueron guardados con éxito'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Aceptar'),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+
+                            context.pushNamed(ClaseExpedienteWidget.routeName);
                           },
                           text: 'Guardar Permisos',
                           icon: Icon(

@@ -417,12 +417,102 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: AsignarpermisosWidget.routeName,
           path: AsignarpermisosWidget.routePath,
-          builder: (context, params) => AsignarpermisosWidget(),
+          builder: (context, params) => AsignarpermisosWidget(
+            usuarioParametro: params.getParam(
+              'usuarioParametro',
+              ParamType.String,
+            ),
+            accesoExpParametro: params.getParam(
+              'accesoExpParametro',
+              ParamType.bool,
+            ),
+            modificarNotasParametro: params.getParam(
+              'modificarNotasParametro',
+              ParamType.bool,
+            ),
+            crearExpParametros: params.getParam(
+              'crearExpParametros',
+              ParamType.bool,
+            ),
+            eliminarExpParametro: params.getParam(
+              'eliminarExpParametro',
+              ParamType.bool,
+            ),
+            mediGeneralParametro: params.getParam(
+              'mediGeneralParametro',
+              ParamType.bool,
+            ),
+            pediatriaParametro: params.getParam(
+              'pediatriaParametro',
+              ParamType.bool,
+            ),
+            cardioParametro: params.getParam(
+              'cardioParametro',
+              ParamType.bool,
+            ),
+            gineParametro: params.getParam(
+              'gineParametro',
+              ParamType.bool,
+            ),
+            traumaParametro: params.getParam(
+              'traumaParametro',
+              ParamType.bool,
+            ),
+            fechaInicioParametro: params.getParam(
+              'fechaInicioParametro',
+              ParamType.String,
+            ),
+            fechafinParametro: params.getParam(
+              'fechafinParametro',
+              ParamType.String,
+            ),
+            eleccionUserParametro: params.getParam(
+              'eleccionUserParametro',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users'],
+            ),
+            accesoParametro: params.getParam(
+              'accesoParametro',
+              ParamType.bool,
+            ),
+          ),
         ),
         FFRoute(
           name: RespaldoWidget.routeName,
           path: RespaldoWidget.routePath,
-          builder: (context, params) => RespaldoWidget(),
+          builder: (context, params) => RespaldoWidget(
+            diarioc: params.getParam(
+              'diarioc',
+              ParamType.bool,
+            ),
+            semanalParametro: params.getParam(
+              'semanalParametro',
+              ParamType.bool,
+            ),
+            mensualParametro: params.getParam(
+              'mensualParametro',
+              ParamType.bool,
+            ),
+            comprimirParametro: params.getParam(
+              'comprimirParametro',
+              ParamType.bool,
+            ),
+            cifrarParametro: params.getParam(
+              'cifrarParametro',
+              ParamType.bool,
+            ),
+            notificarParametro: params.getParam(
+              'notificarParametro',
+              ParamType.bool,
+            ),
+            eleccionUsuario: params.getParam(
+              'eleccionUsuario',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users'],
+            ),
+          ),
         ),
         FFRoute(
           name: VerEmpleadoWidget.routeName,
@@ -527,11 +617,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               collectionNamePath: ['Empleado'],
             ),
           ),
-        ),
-        FFRoute(
-          name: EmpleadoevaluacionWidget.routeName,
-          path: EmpleadoevaluacionWidget.routePath,
-          builder: (context, params) => EmpleadoevaluacionWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

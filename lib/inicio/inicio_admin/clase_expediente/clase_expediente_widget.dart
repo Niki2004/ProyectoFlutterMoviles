@@ -571,9 +571,49 @@ class _ClaseExpedienteWidgetState extends State<ClaseExpedienteWidget> {
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 0.0),
                                                   child: FFButtonWidget(
-                                                    onPressed: () {
-                                                      print(
-                                                          'Button pressed ...');
+                                                    onPressed: () async {
+                                                      context.pushNamed(
+                                                        RespaldoWidget
+                                                            .routeName,
+                                                        queryParameters: {
+                                                          'diarioc':
+                                                              serializeParam(
+                                                            false,
+                                                            ParamType.bool,
+                                                          ),
+                                                          'semanalParametro':
+                                                              serializeParam(
+                                                            false,
+                                                            ParamType.bool,
+                                                          ),
+                                                          'mensualParametro':
+                                                              serializeParam(
+                                                            false,
+                                                            ParamType.bool,
+                                                          ),
+                                                          'comprimirParametro':
+                                                              serializeParam(
+                                                            false,
+                                                            ParamType.bool,
+                                                          ),
+                                                          'cifrarParametro':
+                                                              serializeParam(
+                                                            false,
+                                                            ParamType.bool,
+                                                          ),
+                                                          'notificarParametro':
+                                                              serializeParam(
+                                                            false,
+                                                            ParamType.bool,
+                                                          ),
+                                                          'eleccionUsuario':
+                                                              serializeParam(
+                                                            currentUserReference,
+                                                            ParamType
+                                                                .DocumentReference,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
                                                     },
                                                     text: 'Respaldos',
                                                     options: FFButtonOptions(
@@ -620,9 +660,84 @@ class _ClaseExpedienteWidgetState extends State<ClaseExpedienteWidget> {
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 0.0),
                                                   child: FFButtonWidget(
-                                                    onPressed: () {
-                                                      print(
-                                                          'Button pressed ...');
+                                                    onPressed: () async {
+                                                      context.pushNamed(
+                                                        AsignarpermisosWidget
+                                                            .routeName,
+                                                        queryParameters: {
+                                                          'usuarioParametro':
+                                                              serializeParam(
+                                                            '',
+                                                            ParamType.String,
+                                                          ),
+                                                          'accesoExpParametro':
+                                                              serializeParam(
+                                                            false,
+                                                            ParamType.bool,
+                                                          ),
+                                                          'modificarNotasParametro':
+                                                              serializeParam(
+                                                            false,
+                                                            ParamType.bool,
+                                                          ),
+                                                          'crearExpParametros':
+                                                              serializeParam(
+                                                            false,
+                                                            ParamType.bool,
+                                                          ),
+                                                          'eliminarExpParametro':
+                                                              serializeParam(
+                                                            false,
+                                                            ParamType.bool,
+                                                          ),
+                                                          'mediGeneralParametro':
+                                                              serializeParam(
+                                                            false,
+                                                            ParamType.bool,
+                                                          ),
+                                                          'pediatriaParametro':
+                                                              serializeParam(
+                                                            false,
+                                                            ParamType.bool,
+                                                          ),
+                                                          'cardioParametro':
+                                                              serializeParam(
+                                                            false,
+                                                            ParamType.bool,
+                                                          ),
+                                                          'gineParametro':
+                                                              serializeParam(
+                                                            false,
+                                                            ParamType.bool,
+                                                          ),
+                                                          'traumaParametro':
+                                                              serializeParam(
+                                                            false,
+                                                            ParamType.bool,
+                                                          ),
+                                                          'accesoParametro':
+                                                              serializeParam(
+                                                            false,
+                                                            ParamType.bool,
+                                                          ),
+                                                          'fechaInicioParametro':
+                                                              serializeParam(
+                                                            '',
+                                                            ParamType.String,
+                                                          ),
+                                                          'fechafinParametro':
+                                                              serializeParam(
+                                                            '',
+                                                            ParamType.String,
+                                                          ),
+                                                          'eleccionUserParametro':
+                                                              serializeParam(
+                                                            currentUserReference,
+                                                            ParamType
+                                                                .DocumentReference,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
                                                     },
                                                     text: 'Asignación de roles',
                                                     options: FFButtonOptions(

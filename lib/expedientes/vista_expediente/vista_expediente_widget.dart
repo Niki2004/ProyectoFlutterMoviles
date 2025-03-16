@@ -60,7 +60,7 @@ class _VistaExpedienteWidgetState extends State<VistaExpedienteWidget> {
               size: 30.0,
             ),
             onPressed: () async {
-              context.pushNamed(PerfilWidget.routeName);
+              context.pushNamed(ClaseExpedienteMedicWidget.routeName);
             },
           ),
           title: Text(

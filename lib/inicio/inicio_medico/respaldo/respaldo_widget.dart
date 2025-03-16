@@ -1,13 +1,32 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'respaldo_model.dart';
 export 'respaldo_model.dart';
 
 class RespaldoWidget extends StatefulWidget {
-  const RespaldoWidget({super.key});
+  const RespaldoWidget({
+    super.key,
+    this.diarioc,
+    this.semanalParametro,
+    this.mensualParametro,
+    this.comprimirParametro,
+    this.cifrarParametro,
+    this.notificarParametro,
+    this.eleccionUsuario,
+  });
+
+  final bool? diarioc;
+  final bool? semanalParametro;
+  final bool? mensualParametro;
+  final bool? comprimirParametro;
+  final bool? cifrarParametro;
+  final bool? notificarParametro;
+  final DocumentReference? eleccionUsuario;
 
   static String routeName = 'respaldo';
   static String routePath = '/respaldo';
@@ -26,12 +45,12 @@ class _RespaldoWidgetState extends State<RespaldoWidget> {
     super.initState();
     _model = createModel(context, () => RespaldoModel());
 
-    _model.switchValue1 = true;
-    _model.switchValue2 = true;
-    _model.switchValue3 = true;
-    _model.switchValue4 = true;
-    _model.switchValue5 = true;
-    _model.switchValue6 = true;
+    _model.switchValue1 = widget.diarioc!;
+    _model.switchValue2 = widget.semanalParametro!;
+    _model.switchValue3 = widget.mensualParametro!;
+    _model.switchValue4 = widget.comprimirParametro!;
+    _model.switchValue5 = widget.cifrarParametro!;
+    _model.switchValue6 = widget.notificarParametro!;
   }
 
   @override
@@ -84,8 +103,8 @@ class _RespaldoWidgetState extends State<RespaldoWidget> {
                   color: FlutterFlowTheme.of(context).primaryText,
                   size: 24.0,
                 ),
-                onPressed: () {
-                  print('IconButton pressed ...');
+                onPressed: () async {
+                  context.pushNamed(ClaseExpedienteWidget.routeName);
                 },
               ),
             ),
@@ -374,8 +393,35 @@ class _RespaldoWidgetState extends State<RespaldoWidget> {
                     ),
                   ),
                   FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      await widget.eleccionUsuario!
+                          .update(createUsersRecordData(
+                        email: '',
+                        displayName: '',
+                        photoUrl: '',
+                        phoneNumber: '',
+                        isAdmin: false,
+                        isUser: false,
+                        isMedico: false,
+                      ));
+                      await showDialog(
+                        context: context,
+                        builder: (alertDialogContext) {
+                          return AlertDialog(
+                            title: Text('Configuración '),
+                            content: Text('Configuración Guardada con éxito'),
+                            actions: [
+                              TextButton(
+                                onPressed: () =>
+                                    Navigator.pop(alertDialogContext),
+                                child: Text('Aceptar'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+
+                      context.pushNamed(ClaseExpedienteWidget.routeName);
                     },
                     text: 'Guardar Configuración',
                     options: FFButtonOptions(
