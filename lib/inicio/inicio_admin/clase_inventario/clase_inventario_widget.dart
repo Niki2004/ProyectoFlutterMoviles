@@ -617,9 +617,10 @@ class _ClaseInventarioWidgetState extends State<ClaseInventarioWidget> {
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 0.0),
                                                   child: FFButtonWidget(
-                                                    onPressed: () {
-                                                      print(
-                                                          'Button pressed ...');
+                                                    onPressed: () async {
+                                                      context.pushNamed(
+                                                          VistaInventarioWidget
+                                                              .routeName);
                                                     },
                                                     text: 'Inventario',
                                                     options: FFButtonOptions(

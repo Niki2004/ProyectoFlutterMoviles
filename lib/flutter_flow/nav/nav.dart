@@ -191,16 +191,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => BuscarEmpleadosWidget(),
         ),
         FFRoute(
-          name: CrearEvaluacionWidget.routeName,
-          path: CrearEvaluacionWidget.routePath,
-          builder: (context, params) => CrearEvaluacionWidget(),
-        ),
-        FFRoute(
-          name: VistaEvaluacionWidget.routeName,
-          path: VistaEvaluacionWidget.routePath,
-          builder: (context, params) => VistaEvaluacionWidget(),
-        ),
-        FFRoute(
           name: VistaHistorialEmpleadoWidget.routeName,
           path: VistaHistorialEmpleadoWidget.routePath,
           builder: (context, params) => VistaHistorialEmpleadoWidget(),
@@ -216,19 +206,50 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => CrearInventarioWidget(),
         ),
         FFRoute(
-          name: VistaInvetarioWidget.routeName,
-          path: VistaInvetarioWidget.routePath,
-          builder: (context, params) => VistaInvetarioWidget(),
+          name: VistaInvetario02Widget.routeName,
+          path: VistaInvetario02Widget.routePath,
+          builder: (context, params) => VistaInvetario02Widget(),
         ),
         FFRoute(
           name: ModificarInventarioWidget.routeName,
           path: ModificarInventarioWidget.routePath,
-          builder: (context, params) => ModificarInventarioWidget(),
+          builder: (context, params) => ModificarInventarioWidget(
+            nombre: params.getParam(
+              'nombre',
+              ParamType.String,
+            ),
+            marca: params.getParam(
+              'marca',
+              ParamType.String,
+            ),
+            cantidad: params.getParam(
+              'cantidad',
+              ParamType.int,
+            ),
+            precio: params.getParam(
+              'precio',
+              ParamType.double,
+            ),
+            caducidad: params.getParam(
+              'caducidad',
+              ParamType.DateTime,
+            ),
+            tipo: params.getParam(
+              'tipo',
+              ParamType.String,
+            ),
+            documentInv: params.getParam(
+              'documentInv',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Inventario'],
+            ),
+          ),
         ),
         FFRoute(
-          name: VistaInventario02Widget.routeName,
-          path: VistaInventario02Widget.routePath,
-          builder: (context, params) => VistaInventario02Widget(),
+          name: VistaInventarioWidget.routeName,
+          path: VistaInventarioWidget.routePath,
+          builder: (context, params) => VistaInventarioWidget(),
         ),
         FFRoute(
           name: AgregadoCorrectoInventarioWidget.routeName,
@@ -273,7 +294,32 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: InformacionInventarioWidget.routeName,
           path: InformacionInventarioWidget.routePath,
-          builder: (context, params) => InformacionInventarioWidget(),
+          builder: (context, params) => InformacionInventarioWidget(
+            nombre: params.getParam(
+              'nombre',
+              ParamType.String,
+            ),
+            descripcion: params.getParam(
+              'descripcion',
+              ParamType.String,
+            ),
+            cantidad: params.getParam(
+              'cantidad',
+              ParamType.int,
+            ),
+            precio: params.getParam(
+              'precio',
+              ParamType.double,
+            ),
+            vencimiento: params.getParam(
+              'vencimiento',
+              ParamType.DateTime,
+            ),
+            imagen: params.getParam(
+              'imagen',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: VistaCitaWidget.routeName,
@@ -617,6 +663,85 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               collectionNamePath: ['Empleado'],
             ),
           ),
+        ),
+        FFRoute(
+          name: EvaluavionEmpleadoWidget.routeName,
+          path: EvaluavionEmpleadoWidget.routePath,
+          builder: (context, params) => EvaluavionEmpleadoWidget(
+            nombre: params.getParam(
+              'nombre',
+              ParamType.String,
+            ),
+            apellidos: params.getParam(
+              'apellidos',
+              ParamType.String,
+            ),
+            edad: params.getParam(
+              'edad',
+              ParamType.int,
+            ),
+            correo: params.getParam(
+              'correo',
+              ParamType.String,
+            ),
+            foto: params.getParam(
+              'foto',
+              ParamType.String,
+            ),
+            departamento: params.getParam(
+              'departamento',
+              ParamType.String,
+            ),
+            jornada: params.getParam(
+              'jornada',
+              ParamType.String,
+            ),
+            comentarios: params.getParam(
+              'comentarios',
+              ParamType.String,
+            ),
+            fecha: params.getParam(
+              'fecha',
+              ParamType.String,
+            ),
+            estado: params.getParam(
+              'estado',
+              ParamType.bool,
+            ),
+            eliminarempleadoparametro: params.getParam(
+              'eliminarempleadoparametro',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Empleado'],
+            ),
+            calidadtrabajo: params.getParam(
+              'calidadtrabajo',
+              ParamType.String,
+            ),
+            productividad: params.getParam(
+              'productividad',
+              ParamType.String,
+            ),
+            comunicacionequipo: params.getParam(
+              'comunicacionequipo',
+              ParamType.String,
+            ),
+            comentariosadmin: params.getParam(
+              'comentariosadmin',
+              ParamType.String,
+            ),
+            evaluacionparametro: params.getParam(
+              'evaluacionparametro',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Empleado'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: CrearEvaluacionEmpleadoWidget.routeName,
+          path: CrearEvaluacionEmpleadoWidget.routePath,
+          builder: (context, params) => CrearEvaluacionEmpleadoWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

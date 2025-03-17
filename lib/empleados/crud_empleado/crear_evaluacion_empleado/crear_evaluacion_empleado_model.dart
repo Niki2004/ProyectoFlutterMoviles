@@ -1,10 +1,11 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'informacion_inventario_widget.dart' show InformacionInventarioWidget;
+import 'crear_evaluacion_empleado_widget.dart'
+    show CrearEvaluacionEmpleadoWidget;
 import 'package:flutter/material.dart';
 
-class InformacionInventarioModel
-    extends FlutterFlowModel<InformacionInventarioWidget> {
+class CrearEvaluacionEmpleadoModel
+    extends FlutterFlowModel<CrearEvaluacionEmpleadoWidget> {
   @override
   void initState(BuildContext context) {}
 

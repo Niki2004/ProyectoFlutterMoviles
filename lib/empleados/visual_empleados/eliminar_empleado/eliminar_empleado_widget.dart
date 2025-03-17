@@ -585,6 +585,8 @@ class _EliminarEmpleadoWidgetState extends State<EliminarEmpleadoWidget> {
                                 context
                                     .pushNamed(ClaseEmpleadoWidget.routeName);
                               }
+
+                              context.pushNamed(ClaseEmpleadoWidget.routeName);
                             },
                             text: 'Eliminar',
                             options: FFButtonOptions(

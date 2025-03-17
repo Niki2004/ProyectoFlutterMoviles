@@ -754,8 +754,10 @@ class _ClaseEmpleadoWidgetState extends State<ClaseEmpleadoWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 12.0, 0.0, 0.0),
                                           child: FFButtonWidget(
-                                            onPressed: () {
-                                              print('Button pressed ...');
+                                            onPressed: () async {
+                                              context.pushNamed(
+                                                  CrearEvaluacionEmpleadoWidget
+                                                      .routeName);
                                             },
                                             text: 'Evaluacion de Desempeño',
                                             options: FFButtonOptions(

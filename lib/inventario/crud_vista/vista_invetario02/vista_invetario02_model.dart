@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'vista_invetario_widget.dart' show VistaInvetarioWidget;
+import 'vista_invetario02_widget.dart' show VistaInvetario02Widget;
 import 'package:flutter/material.dart';
 
-class VistaInvetarioModel extends FlutterFlowModel<VistaInvetarioWidget> {
+class VistaInvetario02Model extends FlutterFlowModel<VistaInvetario02Widget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for fecha widget.

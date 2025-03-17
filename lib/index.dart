@@ -18,22 +18,18 @@ export '/empleados/crud_empleado/deshabilitar_empleado/deshabilitar_empleado_wid
     show DeshabilitarEmpleadoWidget;
 export '/empleados/crud_empleado/buscar_empleados/buscar_empleados_widget.dart'
     show BuscarEmpleadosWidget;
-export '/empleados/crud_empleado/crear_evaluacion/crear_evaluacion_widget.dart'
-    show CrearEvaluacionWidget;
-export '/empleados/visual_empleados/vista_evaluacion/vista_evaluacion_widget.dart'
-    show VistaEvaluacionWidget;
 export '/empleados/visual_empleados/vista_historial_empleado/vista_historial_empleado_widget.dart'
     show VistaHistorialEmpleadoWidget;
 export '/inicio/inicio_admin/clase_empleado/clase_empleado_widget.dart'
     show ClaseEmpleadoWidget;
 export '/inventario/crud_inventario/crear_inventario/crear_inventario_widget.dart'
     show CrearInventarioWidget;
-export '/inventario/crud_vista/vista_invetario/vista_invetario_widget.dart'
-    show VistaInvetarioWidget;
+export '/inventario/crud_vista/vista_invetario02/vista_invetario02_widget.dart'
+    show VistaInvetario02Widget;
 export '/inventario/crud_inventario/modificar_inventario/modificar_inventario_widget.dart'
     show ModificarInventarioWidget;
-export '/inventario/crud_vista/vista_inventario02/vista_inventario02_widget.dart'
-    show VistaInventario02Widget;
+export '/inventario/crud_vista/vista_inventario/vista_inventario_widget.dart'
+    show VistaInventarioWidget;
 export '/inventario/vist_notis/agregado_correcto_inventario/agregado_correcto_inventario_widget.dart'
     show AgregadoCorrectoInventarioWidget;
 export '/inventario/vist_notis/modificado_correcto_inventario/modificado_correcto_inventario_widget.dart'
@@ -90,3 +86,7 @@ export '/empleados/visual_empleados/ver_empleado/ver_empleado_widget.dart'
     show VerEmpleadoWidget;
 export '/empleados/visual_empleados/eliminar_empleado/eliminar_empleado_widget.dart'
     show EliminarEmpleadoWidget;
+export '/empleados/visual_empleados/evaluavion_empleado/evaluavion_empleado_widget.dart'
+    show EvaluavionEmpleadoWidget;
+export '/empleados/crud_empleado/crear_evaluacion_empleado/crear_evaluacion_empleado_widget.dart'
+    show CrearEvaluacionEmpleadoWidget;

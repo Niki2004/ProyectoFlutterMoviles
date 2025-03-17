@@ -2,28 +2,28 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'vista_invetario_model.dart';
-export 'vista_invetario_model.dart';
+import 'vista_invetario02_model.dart';
+export 'vista_invetario02_model.dart';
 
-class VistaInvetarioWidget extends StatefulWidget {
-  const VistaInvetarioWidget({super.key});
+class VistaInvetario02Widget extends StatefulWidget {
+  const VistaInvetario02Widget({super.key});
 
-  static String routeName = 'Vista_Invetario';
-  static String routePath = '/vistaInvetario';
+  static String routeName = 'Vista_Invetario02';
+  static String routePath = '/vistaInvetario02';
 
   @override
-  State<VistaInvetarioWidget> createState() => _VistaInvetarioWidgetState();
+  State<VistaInvetario02Widget> createState() => _VistaInvetario02WidgetState();
 }
 
-class _VistaInvetarioWidgetState extends State<VistaInvetarioWidget> {
-  late VistaInvetarioModel _model;
+class _VistaInvetario02WidgetState extends State<VistaInvetario02Widget> {
+  late VistaInvetario02Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => VistaInvetarioModel());
+    _model = createModel(context, () => VistaInvetario02Model());
 
     _model.fechaTextController ??= TextEditingController();
     _model.fechaFocusNode ??= FocusNode();

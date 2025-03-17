@@ -70,6 +70,26 @@ class EmpleadoRecord extends FirestoreRecord {
   String get cedula => _cedula ?? '';
   bool hasCedula() => _cedula != null;
 
+  // "CalidadTrabajo" field.
+  String? _calidadTrabajo;
+  String get calidadTrabajo => _calidadTrabajo ?? '';
+  bool hasCalidadTrabajo() => _calidadTrabajo != null;
+
+  // "Productividad" field.
+  String? _productividad;
+  String get productividad => _productividad ?? '';
+  bool hasProductividad() => _productividad != null;
+
+  // "ComunicacionEquipo" field.
+  String? _comunicacionEquipo;
+  String get comunicacionEquipo => _comunicacionEquipo ?? '';
+  bool hasComunicacionEquipo() => _comunicacionEquipo != null;
+
+  // "ComentariosAdmin" field.
+  String? _comentariosAdmin;
+  String get comentariosAdmin => _comentariosAdmin ?? '';
+  bool hasComentariosAdmin() => _comentariosAdmin != null;
+
   void _initializeFields() {
     _nombre = snapshotData['Nombre'] as String?;
     _apellido = snapshotData['Apellido'] as String?;
@@ -83,6 +103,10 @@ class EmpleadoRecord extends FirestoreRecord {
     _fechaRegistro = snapshotData['Fecha_Registro'] as String?;
     _estado = snapshotData['Estado'] as bool?;
     _cedula = snapshotData['Cedula'] as String?;
+    _calidadTrabajo = snapshotData['CalidadTrabajo'] as String?;
+    _productividad = snapshotData['Productividad'] as String?;
+    _comunicacionEquipo = snapshotData['ComunicacionEquipo'] as String?;
+    _comentariosAdmin = snapshotData['ComentariosAdmin'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -131,6 +155,10 @@ Map<String, dynamic> createEmpleadoRecordData({
   String? fechaRegistro,
   bool? estado,
   String? cedula,
+  String? calidadTrabajo,
+  String? productividad,
+  String? comunicacionEquipo,
+  String? comentariosAdmin,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -145,6 +173,10 @@ Map<String, dynamic> createEmpleadoRecordData({
       'Fecha_Registro': fechaRegistro,
       'Estado': estado,
       'Cedula': cedula,
+      'CalidadTrabajo': calidadTrabajo,
+      'Productividad': productividad,
+      'ComunicacionEquipo': comunicacionEquipo,
+      'ComentariosAdmin': comentariosAdmin,
     }.withoutNulls,
   );
 
@@ -166,7 +198,11 @@ class EmpleadoRecordDocumentEquality implements Equality<EmpleadoRecord> {
         e1?.comentariosAdicionales == e2?.comentariosAdicionales &&
         e1?.fechaRegistro == e2?.fechaRegistro &&
         e1?.estado == e2?.estado &&
-        e1?.cedula == e2?.cedula;
+        e1?.cedula == e2?.cedula &&
+        e1?.calidadTrabajo == e2?.calidadTrabajo &&
+        e1?.productividad == e2?.productividad &&
+        e1?.comunicacionEquipo == e2?.comunicacionEquipo &&
+        e1?.comentariosAdmin == e2?.comentariosAdmin;
   }
 
   @override
@@ -181,7 +217,11 @@ class EmpleadoRecordDocumentEquality implements Equality<EmpleadoRecord> {
         e?.comentariosAdicionales,
         e?.fechaRegistro,
         e?.estado,
-        e?.cedula
+        e?.cedula,
+        e?.calidadTrabajo,
+        e?.productividad,
+        e?.comunicacionEquipo,
+        e?.comentariosAdmin
       ]);
 
   @override

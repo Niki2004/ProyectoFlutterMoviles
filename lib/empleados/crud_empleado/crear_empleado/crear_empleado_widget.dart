@@ -159,15 +159,6 @@ class _CrearEmpleadoWidgetState extends State<CrearEmpleadoWidget> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        'Informacion del Empleado ',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
                                       Align(
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),

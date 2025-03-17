@@ -1,12 +1,31 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'informacion_inventario_model.dart';
 export 'informacion_inventario_model.dart';
 
 class InformacionInventarioWidget extends StatefulWidget {
-  const InformacionInventarioWidget({super.key});
+  const InformacionInventarioWidget({
+    super.key,
+    String? nombre,
+    String? descripcion,
+    int? cantidad,
+    double? precio,
+    required this.vencimiento,
+    required this.imagen,
+  })  : this.nombre = nombre ?? 'Sin nombre',
+        this.descripcion = descripcion ?? 'Sin descripcion',
+        this.cantidad = cantidad ?? 0,
+        this.precio = precio ?? 0.0;
+
+  final String nombre;
+  final String descripcion;
+  final int cantidad;
+  final double precio;
+  final DateTime? vencimiento;
+  final String? imagen;
 
   static String routeName = 'Informacion_Inventario';
   static String routePath = '/informacionInventario';
@@ -61,8 +80,8 @@ class _InformacionInventarioWidgetState
                   color: FlutterFlowTheme.of(context).primaryText,
                   size: 30.0,
                 ),
-                onPressed: () {
-                  print('IconButton pressed ...');
+                onPressed: () async {
+                  context.pushNamed(VistaInventarioWidget.routeName);
                 },
               ),
               Align(
@@ -98,7 +117,7 @@ class _InformacionInventarioWidgetState
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.network(
-                              'https://s3.ppllstatics.com/laverdad/www/multimedia/2023/10/23/Salvador-Salas-kvbF-U210503802836TrG-1200x840@La%20Verdad.jpg',
+                              widget.imagen!,
                               width: double.infinity,
                               height: 386.0,
                               fit: BoxFit.cover,
@@ -158,7 +177,7 @@ class _InformacionInventarioWidgetState
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Paracetamol',
+                                    widget.nombre,
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
@@ -200,7 +219,7 @@ class _InformacionInventarioWidgetState
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Analgésico y antipirético, inhibidor de la síntesis de prostaglandinas periférica y central por acción sobre la ciclooxigenasa. Bloquea la generación del impulso doloroso a nivel periférico. ',
+                                    widget.descripcion,
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
@@ -242,7 +261,7 @@ class _InformacionInventarioWidgetState
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    '10',
+                                    widget.cantidad.toString(),
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
@@ -284,7 +303,7 @@ class _InformacionInventarioWidgetState
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    '₡ 1.000',
+                                    widget.precio.toString(),
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
@@ -328,45 +347,10 @@ class _InformacionInventarioWidgetState
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          '22 / 07 / 2024',
-                          style:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 8.0),
-                child: Container(
-                  width: double.infinity,
-                  height: 50.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).primaryBackground,
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 3.0,
-                        color: Color(0x33000000),
-                        offset: Offset(
-                          0.0,
-                          1.0,
-                        ),
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(12.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Activo',
+                          valueOrDefault<String>(
+                            widget.vencimiento?.toString(),
+                            'Sin fecha',
+                          ),
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Inter',

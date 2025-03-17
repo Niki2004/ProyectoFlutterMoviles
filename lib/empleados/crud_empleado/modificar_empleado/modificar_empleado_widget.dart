@@ -196,15 +196,6 @@ class _ModificarEmpleadoWidgetState extends State<ModificarEmpleadoWidget> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        'Informacion del Empleado ',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
                                       Align(
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
