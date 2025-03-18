@@ -404,7 +404,7 @@ class _LoginWidgetState extends State<LoginWidget>
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 24.0),
                               child: Text(
-                                'O create una nueva cuenta con ',
+                                'O crea una nueva cuenta con ',
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .labelMedium
