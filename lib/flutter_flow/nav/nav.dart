@@ -201,9 +201,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ClaseEmpleadoWidget(),
         ),
         FFRoute(
-          name: CrearInventarioWidget.routeName,
-          path: CrearInventarioWidget.routePath,
-          builder: (context, params) => CrearInventarioWidget(),
+          name: CrearInventario01Widget.routeName,
+          path: CrearInventario01Widget.routePath,
+          builder: (context, params) => CrearInventario01Widget(),
         ),
         FFRoute(
           name: VistaInvetario02Widget.routeName,
@@ -742,6 +742,42 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: CrearEvaluacionEmpleadoWidget.routeName,
           path: CrearEvaluacionEmpleadoWidget.routePath,
           builder: (context, params) => CrearEvaluacionEmpleadoWidget(),
+        ),
+        FFRoute(
+          name: CrearInventarioWidget.routeName,
+          path: CrearInventarioWidget.routePath,
+          builder: (context, params) => CrearInventarioWidget(
+            nombre: params.getParam(
+              'nombre',
+              ParamType.String,
+            ),
+            marca: params.getParam(
+              'marca',
+              ParamType.String,
+            ),
+            cantidad: params.getParam(
+              'cantidad',
+              ParamType.int,
+            ),
+            precio: params.getParam(
+              'precio',
+              ParamType.double,
+            ),
+            caducidad: params.getParam(
+              'caducidad',
+              ParamType.DateTime,
+            ),
+            tipo: params.getParam(
+              'tipo',
+              ParamType.String,
+            ),
+            documentInv: params.getParam(
+              'documentInv',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Inventario'],
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

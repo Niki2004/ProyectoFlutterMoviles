@@ -1,49 +1,55 @@
+import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/index.dart';
 import 'crear_inventario_widget.dart' show CrearInventarioWidget;
 import 'package:flutter/material.dart';
 
 class CrearInventarioModel extends FlutterFlowModel<CrearInventarioWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode3;
-  TextEditingController? textController3;
-  String? Function(BuildContext, String?)? textController3Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode4;
-  TextEditingController? textController4;
-  String? Function(BuildContext, String?)? textController4Validator;
-  // State field(s) for ChoiceChips widget.
-  FormFieldController<List<String>>? choiceChipsValueController;
-  String? get choiceChipsValue =>
-      choiceChipsValueController?.value?.firstOrNull;
-  set choiceChipsValue(String? val) =>
-      choiceChipsValueController?.value = val != null ? [val] : [];
+  // State field(s) for TextNombre widget.
+  FocusNode? textNombreFocusNode;
+  TextEditingController? textNombreTextController;
+  String? Function(BuildContext, String?)? textNombreTextControllerValidator;
+  // State field(s) for TextMarca widget.
+  FocusNode? textMarcaFocusNode;
+  TextEditingController? textMarcaTextController;
+  String? Function(BuildContext, String?)? textMarcaTextControllerValidator;
+  // State field(s) for TextCantidad widget.
+  FocusNode? textCantidadFocusNode;
+  TextEditingController? textCantidadTextController;
+  String? Function(BuildContext, String?)? textCantidadTextControllerValidator;
+  // State field(s) for TextPrecio widget.
+  FocusNode? textPrecioFocusNode;
+  TextEditingController? textPrecioTextController;
+  String? Function(BuildContext, String?)? textPrecioTextControllerValidator;
+  // State field(s) for DropDownTipo widget.
+  String? dropDownTipoValue;
+  FormFieldController<String>? dropDownTipoValueController;
+  // State field(s) for fechaCadu widget.
+  DateTimeRange? fechaCaduSelectedDay;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    fechaCaduSelectedDay = DateTimeRange(
+      start: DateTime.now().startOfDay,
+      end: DateTime.now().endOfDay,
+    );
+  }
 
   @override
   void dispose() {
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    textNombreFocusNode?.dispose();
+    textNombreTextController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
+    textMarcaFocusNode?.dispose();
+    textMarcaTextController?.dispose();
 
-    textFieldFocusNode3?.dispose();
-    textController3?.dispose();
+    textCantidadFocusNode?.dispose();
+    textCantidadTextController?.dispose();
 
-    textFieldFocusNode4?.dispose();
-    textController4?.dispose();
+    textPrecioFocusNode?.dispose();
+    textPrecioTextController?.dispose();
   }
 }

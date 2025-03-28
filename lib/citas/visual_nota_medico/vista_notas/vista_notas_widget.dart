@@ -152,33 +152,6 @@ class _VistaNotasWidgetState extends State<VistaNotasWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
-                            FFButtonWidget(
-                              onPressed: () async {
-                                context.pushNamed(VistaNotasWidget.routeName);
-                              },
-                              text: 'Modificar',
-                              icon: Icon(
-                                Icons.edit_rounded,
-                                color: FlutterFlowTheme.of(context).info,
-                                size: 20.0,
-                              ),
-                              options: FFButtonOptions(
-                                width: 100.0,
-                                height: 45.0,
-                                padding: EdgeInsets.all(8.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).tertiary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Inter Tight',
-                                      color: FlutterFlowTheme.of(context).info,
-                                      letterSpacing: 0.0,
-                                    ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            ),
                           ],
                         ),
                       ),
@@ -306,80 +279,156 @@ class _VistaNotasWidgetState extends State<VistaNotasWidget> {
                                           ),
                                     ),
                                   ),
-                                  Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 10.0, 0.0, 0.0),
-                                      child: FFButtonWidget(
-                                        onPressed: () async {
-                                          await listViewNotaMedicoRecord
-                                              .reference
-                                              .delete();
-                                          var confirmDialogResponse =
-                                              await showDialog<bool>(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title:
-                                                            Text('Elimar nota'),
-                                                        content: Text(
-                                                            '¿Está seguro que desea elimanr la nota?'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext,
-                                                                    false),
-                                                            child:
-                                                                Text('Cancel'),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext,
-                                                                    true),
-                                                            child: Text(
-                                                                'Eliminar'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  ) ??
-                                                  false;
-                                          if (confirmDialogResponse) {
-                                            context.pushNamed(
-                                                VistaNotasWidget.routeName);
-                                          }
-                                        },
-                                        text: '',
-                                        icon: Icon(
-                                          Icons.delete_rounded,
-                                          color: Color(0xFFFF0000),
-                                          size: 30.0,
-                                        ),
-                                        options: FFButtonOptions(
-                                          padding: EdgeInsets.all(10.0),
-                                          iconPadding: EdgeInsets.all(0.0),
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .titleSmall
-                                              .override(
-                                                fontFamily: 'Inter Tight',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-1.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 10.0, 0.0, 0.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              await listViewNotaMedicoRecord
+                                                  .reference
+                                                  .delete();
+                                              var confirmDialogResponse =
+                                                  await showDialog<bool>(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title: Text(
+                                                                'Elimar nota'),
+                                                            content: Text(
+                                                                '¿Está seguro que desea elimanr la nota?'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        false),
+                                                                child: Text(
+                                                                    'Cancel'),
+                                                              ),
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        true),
+                                                                child: Text(
+                                                                    'Eliminar'),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      ) ??
+                                                      false;
+                                              if (confirmDialogResponse) {
+                                                context.pushNamed(
+                                                    VistaNotasWidget.routeName);
+                                              }
+                                            },
+                                            text: '',
+                                            icon: Icon(
+                                              Icons.delete_rounded,
+                                              color: Color(0xFFFF0000),
+                                              size: 30.0,
+                                            ),
+                                            options: FFButtonOptions(
+                                              padding: EdgeInsets.all(10.0),
+                                              iconPadding: EdgeInsets.all(0.0),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              textStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'Inter Tight',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
                                                         .info,
-                                                letterSpacing: 0.0,
-                                              ),
-                                          elevation: 0.0,
-                                          borderRadius:
-                                              BorderRadius.circular(20.0),
+                                                    letterSpacing: 0.0,
+                                                  ),
+                                              elevation: 0.0,
+                                              borderRadius:
+                                                  BorderRadius.circular(20.0),
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-1.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 10.0, 0.0, 0.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              context.pushNamed(
+                                                ModificarNotaMedicoWidget
+                                                    .routeName,
+                                                queryParameters: {
+                                                  'notap': serializeParam(
+                                                    listViewNotaMedicoRecord
+                                                        .notaMedico,
+                                                    ParamType.String,
+                                                  ),
+                                                  'comp': serializeParam(
+                                                    listViewNotaMedicoRecord
+                                                        .comentarioAdicional,
+                                                    ParamType.String,
+                                                  ),
+                                                  'fechap': serializeParam(
+                                                    listViewNotaMedicoRecord
+                                                        .fecha,
+                                                    ParamType.String,
+                                                  ),
+                                                  'notaSeleccion':
+                                                      serializeParam(
+                                                    listViewNotaMedicoRecord
+                                                        .reference,
+                                                    ParamType.DocumentReference,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+                                            },
+                                            text: '',
+                                            icon: Icon(
+                                              Icons.mode_edit_outline_outlined,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .tertiary,
+                                              size: 30.0,
+                                            ),
+                                            options: FFButtonOptions(
+                                              padding: EdgeInsets.all(10.0),
+                                              iconPadding: EdgeInsets.all(0.0),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              textStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'Inter Tight',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .info,
+                                                    letterSpacing: 0.0,
+                                                  ),
+                                              elevation: 0.0,
+                                              borderRadius:
+                                                  BorderRadius.circular(20.0),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),

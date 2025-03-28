@@ -22,8 +22,8 @@ export '/empleados/visual_empleados/vista_historial_empleado/vista_historial_emp
     show VistaHistorialEmpleadoWidget;
 export '/inicio/inicio_admin/clase_empleado/clase_empleado_widget.dart'
     show ClaseEmpleadoWidget;
-export '/inventario/crud_inventario/crear_inventario/crear_inventario_widget.dart'
-    show CrearInventarioWidget;
+export '/inventario/crear_inventario01/crear_inventario01_widget.dart'
+    show CrearInventario01Widget;
 export '/inventario/crud_vista/vista_invetario02/vista_invetario02_widget.dart'
     show VistaInvetario02Widget;
 export '/inventario/crud_inventario/modificar_inventario/modificar_inventario_widget.dart'
@@ -70,7 +70,7 @@ export '/inicio/inicio_medico/clase_expediente_medic/clase_expediente_medic_widg
     show ClaseExpedienteMedicWidget;
 export '/citas/visual_nota_medico/vista_notas/vista_notas_widget.dart'
     show VistaNotasWidget;
-export '/citas/visual_citas/vista_cita_medico/vista_cita_medico_widget.dart'
+export '/citas/visual_nota_medico/vista_cita_medico/vista_cita_medico_widget.dart'
     show VistaCitaMedicoWidget;
 export '/citas/visual_citas/vista_cita_admin/vista_cita_admin_widget.dart'
     show VistaCitaAdminWidget;
@@ -90,3 +90,5 @@ export '/empleados/visual_empleados/evaluavion_empleado/evaluavion_empleado_widg
     show EvaluavionEmpleadoWidget;
 export '/empleados/crud_empleado/crear_evaluacion_empleado/crear_evaluacion_empleado_widget.dart'
     show CrearEvaluacionEmpleadoWidget;
+export '/inventario/crud_inventario/crear_inventario/crear_inventario_widget.dart'
+    show CrearInventarioWidget;
