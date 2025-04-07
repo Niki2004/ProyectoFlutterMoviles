@@ -22,30 +22,10 @@ export '/empleados/visual_empleados/vista_historial_empleado/vista_historial_emp
     show VistaHistorialEmpleadoWidget;
 export '/inicio/inicio_admin/clase_empleado/clase_empleado_widget.dart'
     show ClaseEmpleadoWidget;
-export '/inventario/crear_inventario01/crear_inventario01_widget.dart'
-    show CrearInventario01Widget;
-export '/inventario/crud_vista/vista_invetario02/vista_invetario02_widget.dart'
-    show VistaInvetario02Widget;
 export '/inventario/crud_inventario/modificar_inventario/modificar_inventario_widget.dart'
     show ModificarInventarioWidget;
 export '/inventario/crud_vista/vista_inventario/vista_inventario_widget.dart'
     show VistaInventarioWidget;
-export '/inventario/vist_notis/agregado_correcto_inventario/agregado_correcto_inventario_widget.dart'
-    show AgregadoCorrectoInventarioWidget;
-export '/inventario/vist_notis/modificado_correcto_inventario/modificado_correcto_inventario_widget.dart'
-    show ModificadoCorrectoInventarioWidget;
-export '/inventario/crud_inventario/eliminar_inventarios/eliminar_inventarios_widget.dart'
-    show EliminarInventariosWidget;
-export '/inventario/crud_inventario/eliminar_inventario_seguro/eliminar_inventario_seguro_widget.dart'
-    show EliminarInventarioSeguroWidget;
-export '/inventario/vist_notis/eliminado_correcto_inventario/eliminado_correcto_inventario_widget.dart'
-    show EliminadoCorrectoInventarioWidget;
-export '/inventario/filtros_inventario/filtros_inventario_widget.dart'
-    show FiltrosInventarioWidget;
-export '/inventario/crud_inventario/gestion_estado_inventario/gestion_estado_inventario_widget.dart'
-    show GestionEstadoInventarioWidget;
-export '/inventario/crud_inventario/configurar_alertas_inventario/configurar_alertas_inventario_widget.dart'
-    show ConfigurarAlertasInventarioWidget;
 export '/inventario/crud_inventario/informacion_inventario/informacion_inventario_widget.dart'
     show InformacionInventarioWidget;
 export '/citas/visual_citas/vista_cita/vista_cita_widget.dart'
@@ -74,8 +54,8 @@ export '/citas/visual_nota_medico/vista_cita_medico/vista_cita_medico_widget.dar
     show VistaCitaMedicoWidget;
 export '/citas/visual_citas/vista_cita_admin/vista_cita_admin_widget.dart'
     show VistaCitaAdminWidget;
-export '/expedientes/vista_expediente/vista_expediente_widget.dart'
-    show VistaExpedienteWidget;
+export '/expedientes/historial_expedientes/historial_expedientes_widget.dart'
+    show HistorialExpedientesWidget;
 export '/expedientes/vistadebuscar_ex/vistadebuscar_ex_widget.dart'
     show VistadebuscarExWidget;
 export '/inicio/inicio_medico/asignarpermisos/asignarpermisos_widget.dart'
@@ -92,3 +72,7 @@ export '/empleados/crud_empleado/crear_evaluacion_empleado/crear_evaluacion_empl
     show CrearEvaluacionEmpleadoWidget;
 export '/inventario/crud_inventario/crear_inventario/crear_inventario_widget.dart'
     show CrearInventarioWidget;
+export '/inventario/crud_vista/vista_inventario_buscar/vista_inventario_buscar_widget.dart'
+    show VistaInventarioBuscarWidget;
+export '/expedientes/vista_expediente/vista_expediente_widget.dart'
+    show VistaExpedienteWidget;

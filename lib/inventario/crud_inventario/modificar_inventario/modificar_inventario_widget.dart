@@ -1,9 +1,13 @@
 import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_calendar.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/upload_data.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'modificar_inventario_model.dart';
@@ -19,6 +23,9 @@ class ModificarInventarioWidget extends StatefulWidget {
     required this.caducidad,
     required this.tipo,
     this.documentInv,
+    required this.descrip,
+    required this.imagen,
+    required this.estado,
   })  : this.nombre = nombre ?? 'Sin Nombre',
         this.marca = marca ?? 'Sin Marca',
         this.cantidad = cantidad ?? 0;
@@ -30,6 +37,9 @@ class ModificarInventarioWidget extends StatefulWidget {
   final DateTime? caducidad;
   final String? tipo;
   final DocumentReference? documentInv;
+  final String? descrip;
+  final String? imagen;
+  final bool? estado;
 
   static String routeName = 'Modificar_Inventario';
   static String routePath = '/modificarInventario';
@@ -65,8 +75,11 @@ class _ModificarInventarioWidgetState extends State<ModificarInventarioWidget> {
         TextEditingController(text: widget.precio?.toString());
     _model.textPrecioFocusNode ??= FocusNode();
 
-    _model.textTipoTextController ??= TextEditingController(text: widget.tipo);
-    _model.textTipoFocusNode ??= FocusNode();
+    _model.textDescripcionTextController ??=
+        TextEditingController(text: widget.descrip);
+    _model.textDescripcionFocusNode ??= FocusNode();
+
+    _model.switchEstadoValue = widget.estado!;
   }
 
   @override
@@ -164,7 +177,7 @@ class _ModificarInventarioWidgetState extends State<ModificarInventarioWidget> {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Text(
-                                  'Nuevo Artículo Médico',
+                                  'Modificar Artículo Médico',
                                   style: FlutterFlowTheme.of(context)
                                       .headlineSmall
                                       .override(
@@ -484,6 +497,8 @@ class _ModificarInventarioWidgetState extends State<ModificarInventarioWidget> {
                                         16.0, 16.0, 16.0, 16.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: [
                                         Text(
                                           'Tipo de Artículo',
@@ -497,124 +512,323 @@ class _ModificarInventarioWidgetState extends State<ModificarInventarioWidget> {
                                         ),
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
                                           children: [
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        300.0, 0.0, 300.0, 0.0),
-                                                child: Container(
-                                                  width: 200.0,
-                                                  child: TextFormField(
-                                                    controller: _model
-                                                        .textTipoTextController,
-                                                    focusNode: _model
-                                                        .textTipoFocusNode,
-                                                    autofocus: false,
-                                                    obscureText: false,
-                                                    decoration: InputDecoration(
-                                                      isDense: true,
-                                                      labelText:
-                                                          'Tipo de articulo',
-                                                      labelStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Inter',
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                      hintText:
-                                                          'Tipo de articulo',
-                                                      hintStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Inter',
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                      enabledBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .alternate,
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(24.0),
+                                            FlutterFlowDropDown<String>(
+                                              controller: _model
+                                                      .dropDownValueController ??=
+                                                  FormFieldController<String>(
+                                                      null),
+                                              options: [
+                                                'Equipos Médicos',
+                                                'Medicamentos',
+                                                'Suministros Médicos'
+                                              ],
+                                              onChanged: (val) => safeSetState(
+                                                  () => _model.dropDownValue =
+                                                      val),
+                                              width: 200.0,
+                                              height: 40.0,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
                                                       ),
-                                                      focusedBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(24.0),
-                                                      ),
-                                                      errorBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(24.0),
-                                                      ),
-                                                      focusedErrorBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(24.0),
-                                                      ),
-                                                      filled: true,
-                                                      fillColor:
-                                                          Color(0xFFF1F4F8),
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                    cursorColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryText,
-                                                    validator: _model
-                                                        .textTipoTextControllerValidator
-                                                        .asValidator(context),
-                                                  ),
-                                                ),
+                                              hintText: () {
+                                                if (widget.tipo ==
+                                                    'suministro') {
+                                                  return 'Suministros Médicos';
+                                                } else if (widget.tipo ==
+                                                    'equipo_medico') {
+                                                  return 'Equipos Médicos';
+                                                } else if (widget.tipo ==
+                                                    'medicamento') {
+                                                  return 'Medicamentos';
+                                                } else {
+                                                  return 'Sin Tipo';
+                                                }
+                                              }(),
+                                              icon: Icon(
+                                                Icons
+                                                    .keyboard_arrow_down_rounded,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                size: 24.0,
                                               ),
+                                              fillColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              elevation: 2.0,
+                                              borderColor: Colors.transparent,
+                                              borderWidth: 0.0,
+                                              borderRadius: 8.0,
+                                              margin: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 0.0),
+                                              hidesUnderline: true,
+                                              isOverButton: false,
+                                              isSearchable: false,
+                                              isMultiSelect: false,
                                             ),
                                           ],
                                         ),
                                       ].divide(SizedBox(height: 12.0)),
                                     ),
                                   ),
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      child: TextFormField(
+                                        controller: _model
+                                            .textDescripcionTextController,
+                                        focusNode:
+                                            _model.textDescripcionFocusNode,
+                                        autofocus: false,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelText: 'Descripcion',
+                                          labelStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Inter',
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                  ),
+                                          alignLabelWithHint: true,
+                                          hintStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Inter',
+                                                    letterSpacing: 0.0,
+                                                  ),
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          errorBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedErrorBorder:
+                                              OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          filled: true,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryBackground,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              letterSpacing: 0.0,
+                                            ),
+                                        textAlign: TextAlign.start,
+                                        maxLines: 5,
+                                        validator: _model
+                                            .textDescripcionTextControllerValidator
+                                            .asValidator(context),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 20.0, 0.0),
+                                      child: FFButtonWidget(
+                                        onPressed: () async {
+                                          final selectedMedia =
+                                              await selectMediaWithSourceBottomSheet(
+                                            context: context,
+                                            allowPhoto: true,
+                                          );
+                                          if (selectedMedia != null &&
+                                              selectedMedia.every((m) =>
+                                                  validateFileFormat(
+                                                      m.storagePath,
+                                                      context))) {
+                                            safeSetState(() =>
+                                                _model.isDataUploading = true);
+                                            var selectedUploadedFiles =
+                                                <FFUploadedFile>[];
+
+                                            var downloadUrls = <String>[];
+                                            try {
+                                              selectedUploadedFiles =
+                                                  selectedMedia
+                                                      .map(
+                                                          (m) => FFUploadedFile(
+                                                                name: m
+                                                                    .storagePath
+                                                                    .split('/')
+                                                                    .last,
+                                                                bytes: m.bytes,
+                                                                height: m
+                                                                    .dimensions
+                                                                    ?.height,
+                                                                width: m
+                                                                    .dimensions
+                                                                    ?.width,
+                                                                blurHash:
+                                                                    m.blurHash,
+                                                              ))
+                                                      .toList();
+
+                                              downloadUrls = (await Future.wait(
+                                                selectedMedia.map(
+                                                  (m) async => await uploadData(
+                                                      m.storagePath, m.bytes),
+                                                ),
+                                              ))
+                                                  .where((u) => u != null)
+                                                  .map((u) => u!)
+                                                  .toList();
+                                            } finally {
+                                              _model.isDataUploading = false;
+                                            }
+                                            if (selectedUploadedFiles.length ==
+                                                    selectedMedia.length &&
+                                                downloadUrls.length ==
+                                                    selectedMedia.length) {
+                                              safeSetState(() {
+                                                _model.uploadedLocalFile =
+                                                    selectedUploadedFiles.first;
+                                                _model.uploadedFileUrl =
+                                                    downloadUrls.first;
+                                              });
+                                            } else {
+                                              safeSetState(() {});
+                                              return;
+                                            }
+                                          }
+                                        },
+                                        text: 'Subir Imagen',
+                                        options: FFButtonOptions(
+                                          height: 40.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 16.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'Inter Tight',
+                                                    color: Colors.white,
+                                                    letterSpacing: 0.0,
+                                                  ),
+                                          elevation: 0.0,
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                      ),
+                                    ),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        widget.imagen != null &&
+                                                widget.imagen != ''
+                                            ? widget.imagen!
+                                            : _model.uploadedFileUrl,
+                                        width: 142.3,
+                                        height: 142.3,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      width: 1337.7,
+                                      height: 100.0,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFE3E3E3),
+                                        borderRadius:
+                                            BorderRadius.circular(16.0),
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            'Estado del Producto',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize: 20.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                          Switch.adaptive(
+                                            value: _model.switchEstadoValue!,
+                                            onChanged: (newValue) async {
+                                              safeSetState(() =>
+                                                  _model.switchEstadoValue =
+                                                      newValue);
+                                            },
+                                            activeColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .success,
+                                            activeTrackColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .success,
+                                            inactiveTrackColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .error,
+                                            inactiveThumbColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .error,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
                                 ),
                                 Text(
                                   'Fecha de Caducidad',
@@ -679,24 +893,12 @@ class _ModificarInventarioWidgetState extends State<ModificarInventarioWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          await widget.documentInv!
-                              .update(createInventarioRecordData(
-                            nombreArticulo:
-                                _model.textNombreTextController.text,
-                            marca: _model.textMarcaTextController.text,
-                            cantidad: int.tryParse(
-                                _model.textCantidadTextController.text),
-                            precio: double.tryParse(
-                                _model.textPrecioTextController.text),
-                            tipoArticulo: _model.textTipoTextController.text,
-                            fechaCaducidad: _model.fechaCaduSelectedDay?.start,
-                          ));
                           var confirmDialogResponse = await showDialog<bool>(
                                 context: context,
                                 builder: (alertDialogContext) {
                                   return AlertDialog(
                                     title: Text('Modificar'),
-                                    content: Text('Desea modificralo?'),
+                                    content: Text('Desea modificarlo?'),
                                     actions: [
                                       TextButton(
                                         onPressed: () => Navigator.pop(
@@ -713,6 +915,37 @@ class _ModificarInventarioWidgetState extends State<ModificarInventarioWidget> {
                                 },
                               ) ??
                               false;
+
+                          await widget.documentInv!
+                              .update(createInventarioRecordData(
+                            nombreArticulo:
+                                _model.textNombreTextController.text,
+                            marca: _model.textMarcaTextController.text,
+                            cantidad: int.tryParse(
+                                _model.textCantidadTextController.text),
+                            precio: double.tryParse(
+                                _model.textPrecioTextController.text),
+                            tipoArticulo: () {
+                              if (_model.dropDownValue == 'Equipos Médicos') {
+                                return 'equipo_medico';
+                              } else if (_model.dropDownValue ==
+                                  'Medicamentos') {
+                                return 'medicamento';
+                              } else if (_model.dropDownValue ==
+                                  'Suministros Médicos') {
+                                return 'suministro';
+                              } else {
+                                return 'Sin Tipo';
+                              }
+                            }(),
+                            fechaCaducidad: _model.fechaCaduSelectedDay?.start,
+                            imagen: _model.uploadedFileUrl != ''
+                                ? _model.uploadedFileUrl
+                                : widget.imagen,
+                            descripcion:
+                                _model.textDescripcionTextController.text,
+                            estado: _model.switchEstadoValue,
+                          ));
 
                           context.pushNamed(VistaInventarioWidget.routeName);
                         },
@@ -733,84 +966,6 @@ class _ModificarInventarioWidgetState extends State<ModificarInventarioWidget> {
                                   ),
                           elevation: 2.0,
                           borderRadius: BorderRadius.circular(25.0),
-                        ),
-                      ),
-                      Material(
-                        color: Colors.transparent,
-                        elevation: 2.0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16.0),
-                        ),
-                        child: Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFE8F5E9),
-                            borderRadius: BorderRadius.circular(16.0),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 16.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Icon(
-                                      Icons.info_outline,
-                                      color:
-                                          FlutterFlowTheme.of(context).success,
-                                      size: 24.0,
-                                    ),
-                                    Text(
-                                      'Información',
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineSmall
-                                          .override(
-                                            fontFamily: 'Inter Tight',
-                                            color: FlutterFlowTheme.of(context)
-                                                .success,
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                  ].divide(SizedBox(width: 12.0)),
-                                ),
-                                Text(
-                                  '• Los artículos agregados estarán disponibles inmediatamente en el inventario',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                Text(
-                                  '• Asegúrese de verificar la fecha de caducidad antes de agregar medicamentos',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                Text(
-                                  '• Los precios deben ingresarse en la moneda local',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                              ].divide(SizedBox(height: 12.0)),
-                            ),
-                          ),
                         ),
                       ),
                     ].divide(SizedBox(height: 24.0)),

@@ -4,9 +4,18 @@ import 'vista_inventario_widget.dart' show VistaInventarioWidget;
 import 'package:flutter/material.dart';
 
 class VistaInventarioModel extends FlutterFlowModel<VistaInventarioWidget> {
+  ///  State fields for stateful widgets in this page.
+
+  // State field(s) for TabBar widget.
+  TabController? tabBarController;
+  int get tabBarCurrentIndex =>
+      tabBarController != null ? tabBarController!.index : 0;
+
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {}
+  void dispose() {
+    tabBarController?.dispose();
+  }
 }

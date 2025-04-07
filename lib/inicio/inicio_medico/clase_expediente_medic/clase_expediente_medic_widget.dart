@@ -461,7 +461,7 @@ class _ClaseExpedienteMedicWidgetState
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
                                                       context.pushNamed(
-                                                          VistaExpedienteWidget
+                                                          HistorialExpedientesWidget
                                                               .routeName);
                                                     },
                                                     text:

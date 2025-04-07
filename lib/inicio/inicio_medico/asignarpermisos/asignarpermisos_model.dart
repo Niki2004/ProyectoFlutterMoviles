@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'asignarpermisos_widget.dart' show AsignarpermisosWidget;
@@ -7,9 +8,12 @@ class AsignarpermisosModel extends FlutterFlowModel<AsignarpermisosWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for TextField widget.
+  final textFieldKey1 = GlobalKey();
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
+  String? textFieldSelectedOption1;
   String? Function(BuildContext, String?)? textController1Validator;
+  List<MedicoRecord> simpleSearchResults = [];
   // State field(s) for Switch widget.
   bool? switchValue1;
   // State field(s) for Switch widget.
@@ -45,7 +49,6 @@ class AsignarpermisosModel extends FlutterFlowModel<AsignarpermisosWidget> {
   @override
   void dispose() {
     textFieldFocusNode1?.dispose();
-    textController1?.dispose();
 
     textFieldFocusNode2?.dispose();
     textController2?.dispose();

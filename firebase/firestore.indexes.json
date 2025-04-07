@@ -1,3 +1,18 @@
 {
-  "indexes": []
+  "indexes": [
+    {
+      "collectionGroup": "Inventario",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "Estado",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "Nombre_Articulo",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ]
 }

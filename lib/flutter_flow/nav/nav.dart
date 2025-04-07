@@ -201,16 +201,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ClaseEmpleadoWidget(),
         ),
         FFRoute(
-          name: CrearInventario01Widget.routeName,
-          path: CrearInventario01Widget.routePath,
-          builder: (context, params) => CrearInventario01Widget(),
-        ),
-        FFRoute(
-          name: VistaInvetario02Widget.routeName,
-          path: VistaInvetario02Widget.routePath,
-          builder: (context, params) => VistaInvetario02Widget(),
-        ),
-        FFRoute(
           name: ModificarInventarioWidget.routeName,
           path: ModificarInventarioWidget.routePath,
           builder: (context, params) => ModificarInventarioWidget(
@@ -244,52 +234,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               isList: false,
               collectionNamePath: ['Inventario'],
             ),
+            descrip: params.getParam(
+              'descrip',
+              ParamType.String,
+            ),
+            imagen: params.getParam(
+              'imagen',
+              ParamType.String,
+            ),
+            estado: params.getParam(
+              'estado',
+              ParamType.bool,
+            ),
           ),
         ),
         FFRoute(
           name: VistaInventarioWidget.routeName,
           path: VistaInventarioWidget.routePath,
           builder: (context, params) => VistaInventarioWidget(),
-        ),
-        FFRoute(
-          name: AgregadoCorrectoInventarioWidget.routeName,
-          path: AgregadoCorrectoInventarioWidget.routePath,
-          builder: (context, params) => AgregadoCorrectoInventarioWidget(),
-        ),
-        FFRoute(
-          name: ModificadoCorrectoInventarioWidget.routeName,
-          path: ModificadoCorrectoInventarioWidget.routePath,
-          builder: (context, params) => ModificadoCorrectoInventarioWidget(),
-        ),
-        FFRoute(
-          name: EliminarInventariosWidget.routeName,
-          path: EliminarInventariosWidget.routePath,
-          builder: (context, params) => EliminarInventariosWidget(),
-        ),
-        FFRoute(
-          name: EliminarInventarioSeguroWidget.routeName,
-          path: EliminarInventarioSeguroWidget.routePath,
-          builder: (context, params) => EliminarInventarioSeguroWidget(),
-        ),
-        FFRoute(
-          name: EliminadoCorrectoInventarioWidget.routeName,
-          path: EliminadoCorrectoInventarioWidget.routePath,
-          builder: (context, params) => EliminadoCorrectoInventarioWidget(),
-        ),
-        FFRoute(
-          name: FiltrosInventarioWidget.routeName,
-          path: FiltrosInventarioWidget.routePath,
-          builder: (context, params) => FiltrosInventarioWidget(),
-        ),
-        FFRoute(
-          name: GestionEstadoInventarioWidget.routeName,
-          path: GestionEstadoInventarioWidget.routePath,
-          builder: (context, params) => GestionEstadoInventarioWidget(),
-        ),
-        FFRoute(
-          name: ConfigurarAlertasInventarioWidget.routeName,
-          path: ConfigurarAlertasInventarioWidget.routePath,
-          builder: (context, params) => ConfigurarAlertasInventarioWidget(),
         ),
         FFRoute(
           name: InformacionInventarioWidget.routeName,
@@ -317,6 +279,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             ),
             imagen: params.getParam(
               'imagen',
+              ParamType.String,
+            ),
+            marca: params.getParam(
+              'marca',
+              ParamType.String,
+            ),
+            tipo: params.getParam(
+              'tipo',
               ParamType.String,
             ),
           ),
@@ -451,9 +421,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => VistaCitaAdminWidget(),
         ),
         FFRoute(
-          name: VistaExpedienteWidget.routeName,
-          path: VistaExpedienteWidget.routePath,
-          builder: (context, params) => VistaExpedienteWidget(),
+          name: HistorialExpedientesWidget.routeName,
+          path: HistorialExpedientesWidget.routePath,
+          builder: (context, params) => HistorialExpedientesWidget(),
         ),
         FFRoute(
           name: VistadebuscarExWidget.routeName,
@@ -746,36 +716,52 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: CrearInventarioWidget.routeName,
           path: CrearInventarioWidget.routePath,
-          builder: (context, params) => CrearInventarioWidget(
-            nombre: params.getParam(
-              'nombre',
-              ParamType.String,
-            ),
-            marca: params.getParam(
-              'marca',
-              ParamType.String,
-            ),
-            cantidad: params.getParam(
-              'cantidad',
-              ParamType.int,
-            ),
-            precio: params.getParam(
-              'precio',
-              ParamType.double,
-            ),
-            caducidad: params.getParam(
-              'caducidad',
-              ParamType.DateTime,
-            ),
-            tipo: params.getParam(
-              'tipo',
-              ParamType.String,
-            ),
-            documentInv: params.getParam(
-              'documentInv',
+          builder: (context, params) => CrearInventarioWidget(),
+        ),
+        FFRoute(
+          name: VistaInventarioBuscarWidget.routeName,
+          path: VistaInventarioBuscarWidget.routePath,
+          builder: (context, params) => VistaInventarioBuscarWidget(),
+        ),
+        FFRoute(
+          name: VistaExpedienteWidget.routeName,
+          path: VistaExpedienteWidget.routePath,
+          builder: (context, params) => VistaExpedienteWidget(
+            nombreParametro: params.getParam(
+              'nombreParametro',
               ParamType.DocumentReference,
               isList: false,
-              collectionNamePath: ['Inventario'],
+              collectionNamePath: ['Cita'],
+            ),
+            apellidoParametro: params.getParam(
+              'apellidoParametro',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Cita'],
+            ),
+            contactoParametro: params.getParam(
+              'contactoParametro',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Cita'],
+            ),
+            sintomasParametro: params.getParam(
+              'sintomasParametro',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Cita'],
+            ),
+            complicacionesParametro: params.getParam(
+              'complicacionesParametro',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Cita'],
+            ),
+            eleccionUser: params.getParam(
+              'eleccionUser',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Cita'],
             ),
           ),
         )

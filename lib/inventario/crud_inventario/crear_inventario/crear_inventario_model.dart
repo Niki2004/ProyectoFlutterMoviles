@@ -24,9 +24,21 @@ class CrearInventarioModel extends FlutterFlowModel<CrearInventarioWidget> {
   FocusNode? textPrecioFocusNode;
   TextEditingController? textPrecioTextController;
   String? Function(BuildContext, String?)? textPrecioTextControllerValidator;
-  // State field(s) for DropDownTipo widget.
-  String? dropDownTipoValue;
-  FormFieldController<String>? dropDownTipoValueController;
+  // State field(s) for DropDown widget.
+  String? dropDownValue;
+  FormFieldController<String>? dropDownValueController;
+  // State field(s) for TextDescripcion widget.
+  FocusNode? textDescripcionFocusNode;
+  TextEditingController? textDescripcionTextController;
+  String? Function(BuildContext, String?)?
+      textDescripcionTextControllerValidator;
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl = '';
+
+  // State field(s) for SwitchEstado widget.
+  bool? switchEstadoValue;
   // State field(s) for fechaCadu widget.
   DateTimeRange? fechaCaduSelectedDay;
 
@@ -51,5 +63,8 @@ class CrearInventarioModel extends FlutterFlowModel<CrearInventarioWidget> {
 
     textPrecioFocusNode?.dispose();
     textPrecioTextController?.dispose();
+
+    textDescripcionFocusNode?.dispose();
+    textDescripcionTextController?.dispose();
   }
 }

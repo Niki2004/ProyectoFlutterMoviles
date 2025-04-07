@@ -50,11 +50,6 @@ class InventarioRecord extends FirestoreRecord {
   String get sku => _sku ?? '';
   bool hasSku() => _sku != null;
 
-  // "ReferenceEstado" field.
-  DocumentReference? _referenceEstado;
-  DocumentReference? get referenceEstado => _referenceEstado;
-  bool hasReferenceEstado() => _referenceEstado != null;
-
   // "Tipo_Articulo" field.
   String? _tipoArticulo;
   String get tipoArticulo => _tipoArticulo ?? '';
@@ -70,6 +65,11 @@ class InventarioRecord extends FirestoreRecord {
   DateTime? get fechaIngreso => _fechaIngreso;
   bool hasFechaIngreso() => _fechaIngreso != null;
 
+  // "Estado" field.
+  bool? _estado;
+  bool get estado => _estado ?? false;
+  bool hasEstado() => _estado != null;
+
   void _initializeFields() {
     _nombreArticulo = snapshotData['Nombre_Articulo'] as String?;
     _marca = snapshotData['Marca'] as String?;
@@ -78,10 +78,10 @@ class InventarioRecord extends FirestoreRecord {
     _imagen = snapshotData['Imagen'] as String?;
     _descripcion = snapshotData['Descripcion'] as String?;
     _sku = snapshotData['Sku'] as String?;
-    _referenceEstado = snapshotData['ReferenceEstado'] as DocumentReference?;
     _tipoArticulo = snapshotData['Tipo_Articulo'] as String?;
     _fechaCaducidad = snapshotData['Fecha_Caducidad'] as DateTime?;
     _fechaIngreso = snapshotData['Fecha_Ingreso'] as DateTime?;
+    _estado = snapshotData['Estado'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -126,10 +126,10 @@ Map<String, dynamic> createInventarioRecordData({
   String? imagen,
   String? descripcion,
   String? sku,
-  DocumentReference? referenceEstado,
   String? tipoArticulo,
   DateTime? fechaCaducidad,
   DateTime? fechaIngreso,
+  bool? estado,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -140,10 +140,10 @@ Map<String, dynamic> createInventarioRecordData({
       'Imagen': imagen,
       'Descripcion': descripcion,
       'Sku': sku,
-      'ReferenceEstado': referenceEstado,
       'Tipo_Articulo': tipoArticulo,
       'Fecha_Caducidad': fechaCaducidad,
       'Fecha_Ingreso': fechaIngreso,
+      'Estado': estado,
     }.withoutNulls,
   );
 
@@ -162,10 +162,10 @@ class InventarioRecordDocumentEquality implements Equality<InventarioRecord> {
         e1?.imagen == e2?.imagen &&
         e1?.descripcion == e2?.descripcion &&
         e1?.sku == e2?.sku &&
-        e1?.referenceEstado == e2?.referenceEstado &&
         e1?.tipoArticulo == e2?.tipoArticulo &&
         e1?.fechaCaducidad == e2?.fechaCaducidad &&
-        e1?.fechaIngreso == e2?.fechaIngreso;
+        e1?.fechaIngreso == e2?.fechaIngreso &&
+        e1?.estado == e2?.estado;
   }
 
   @override
@@ -177,10 +177,10 @@ class InventarioRecordDocumentEquality implements Equality<InventarioRecord> {
         e?.imagen,
         e?.descripcion,
         e?.sku,
-        e?.referenceEstado,
         e?.tipoArticulo,
         e?.fechaCaducidad,
-        e?.fechaIngreso
+        e?.fechaIngreso,
+        e?.estado
       ]);
 
   @override

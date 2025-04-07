@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/index.dart';
 import 'modificar_inventario_widget.dart' show ModificarInventarioWidget;
 import 'package:flutter/material.dart';
@@ -24,10 +25,21 @@ class ModificarInventarioModel
   FocusNode? textPrecioFocusNode;
   TextEditingController? textPrecioTextController;
   String? Function(BuildContext, String?)? textPrecioTextControllerValidator;
-  // State field(s) for TextTipo widget.
-  FocusNode? textTipoFocusNode;
-  TextEditingController? textTipoTextController;
-  String? Function(BuildContext, String?)? textTipoTextControllerValidator;
+  // State field(s) for DropDown widget.
+  String? dropDownValue;
+  FormFieldController<String>? dropDownValueController;
+  // State field(s) for TextDescripcion widget.
+  FocusNode? textDescripcionFocusNode;
+  TextEditingController? textDescripcionTextController;
+  String? Function(BuildContext, String?)?
+      textDescripcionTextControllerValidator;
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl = '';
+
+  // State field(s) for SwitchEstado widget.
+  bool? switchEstadoValue;
   // State field(s) for fechaCadu widget.
   DateTimeRange? fechaCaduSelectedDay;
 
@@ -53,7 +65,7 @@ class ModificarInventarioModel
     textPrecioFocusNode?.dispose();
     textPrecioTextController?.dispose();
 
-    textTipoFocusNode?.dispose();
-    textTipoTextController?.dispose();
+    textDescripcionFocusNode?.dispose();
+    textDescripcionTextController?.dispose();
   }
 }
